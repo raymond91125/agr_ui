@@ -68,6 +68,32 @@
   font-size: 0.82em;
 }
 
+.annotationCounts {
+  display: flex;
+  gap: 0.35rem;
+  margin-left: 0.25rem;
+}
+
+.countBadge {
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 3px;
+  display: inline-flex;
+  font-size: 0.78em;
+  gap: 0.2rem;
+  padding: 0.1rem 0.35rem;
+  white-space: nowrap;
+}
+
+.countLabel {
+  color: #666;
+}
+
+.countValue {
+  color: #333;
+  font-weight: 600;
+}
+
 .rootName {
   font-size: 1.05em;
   font-weight: 600;
