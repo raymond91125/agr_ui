@@ -7,6 +7,26 @@ import LoadingSpinner from '../../components/loadingSpinner.jsx';
 import { useTreeContext } from './TreeContext.js';
 import styles from './style.module.scss';
 
+const CountBadge = ({ label, curie, endpoint }) => {
+  const { data, isLoading } = useQuery({
+    queryKey: [`/api/disease/${curie}/${endpoint}`],
+    queryFn: () => fetchData(`/api/disease/${curie}/${endpoint}`),
+    staleTime: 5 * 60 * 1000,
+  });
+  return (
+    <span className={styles.countBadge} title={`${label} annotations (with closure)`}>
+      <span className={styles.countLabel}>{label}</span>
+      <span className={styles.countValue}>{isLoading ? '…' : (data ?? 0).toLocaleString()}</span>
+    </span>
+  );
+};
+
+CountBadge.propTypes = {
+  label: PropTypes.string.isRequired,
+  curie: PropTypes.string.isRequired,
+  endpoint: PropTypes.string.isRequired,
+};
+
 const DOTermNode = ({ curie, name }) => {
   const { expandedCuries, toggleExpanded } = useTreeContext();
   const isExpanded = expandedCuries.has(curie);
@@ -45,6 +65,11 @@ const DOTermNode = ({ curie, name }) => {
           {name}
         </Link>
         <span className={styles.termCurie}>{curie}</span>
+        <span className={styles.annotationCounts}>
+          <CountBadge curie={curie} endpoint="genes_counts" label="Genes" />
+          <CountBadge curie={curie} endpoint="models_counts" label="Models" />
+          <CountBadge curie={curie} endpoint="alleles_counts" label="Alleles" />
+        </span>
       </span>
       {isExpanded && children.length > 0 && (
         <ul className={styles.childList}>
