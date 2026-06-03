@@ -34,6 +34,7 @@ import DataSourceLinkCuration from '../../components/dataSourceLinkCuration.jsx'
 import PhenotypeTable from './phenotypeTable.jsx';
 import { ExpressionComparisonRibbon, ExpressionUserGuide } from '../../components/expression';
 import { DiseaseComparisonRibbon } from '../../components/disease';
+import DiseaseOntologyGraph from '../../components/disease/DiseaseOntologyGraph/index.jsx';
 import GeneModelsTable from './GeneModelsTable.jsx';
 import GeneMetaTags from './GeneMetaTags.jsx';
 import PageNavEntity from '../../components/dataPage/PageNavEntity.jsx';
@@ -215,6 +216,7 @@ const GenePage = () => {
 
         <Subsection help={<DiseaseSectionHelp />} title={DISEASE}>
           <DiseaseComparisonRibbon geneId={gene.primaryExternalId} geneTaxon={taxonId} />
+          <DiseaseOntologyGraph focusTermId={gene.primaryExternalId} />
         </Subsection>
 
         <Subsection help={<AlleleTableSectionHelp />} title={ALLELES}>

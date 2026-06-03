@@ -42,6 +42,9 @@
     "buffer": "^6.0.3",
     "classnames": "^2.5.1",
     "custom-event-polyfill": "^1.0.7",
+    "cytoscape": "^3.34.0",
+    "cytoscape-dagre": "^3.0.0",
+    "cytoscape-popper": "^4.0.1",
     "d3-selection": "^3.0.0",
     "events": "^3.3.0",
     "generic-sequence-panel": "^1.8.0",
@@ -58,7 +61,7 @@
     "react": "^19.1.0",
     "react-autosuggest": "^10.1.0",
     "react-bootstrap": "^2.10.9",
-    "react-bootstrap-table-next": "^1.1.0",
+    "react-bootstrap-table-next": "^4.0.3",
     "react-bootstrap-table2-filter": "^1.3.3",
     "react-bootstrap-table2-paginator": "^2.1.2",
     "react-dom": "^19.1.0",
@@ -76,6 +79,7 @@
     "redux-thunk": "^3.1.0",
     "reselect": "^5.1.1",
     "sitemap": "^8.0.0",
+    "tippy.js": "^6.3.7",
     "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
