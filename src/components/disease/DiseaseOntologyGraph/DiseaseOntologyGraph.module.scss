@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.main {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.graphContainer {
+  flex: 1;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.graphContainerLoading {
+  opacity: 0.4;
+}
+
+.cytoscapeElement {
+  width: 100%;
+  height: 100%;
+}
+
+.loadingOverlay {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  width: 180px;
+}

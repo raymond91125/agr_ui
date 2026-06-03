@@ -40,6 +40,9 @@
     "classnames": "^2.5.1",
     "core-js": "^3.49.0",
     "custom-event-polyfill": "^1.0.7",
+    "cytoscape": "^3.34.0",
+    "cytoscape-dagre": "^3.0.0",
+    "cytoscape-popper": "^4.0.1",
     "d3-selection": "^3.0.0",
     "events": "^3.3.0",
     "generic-sequence-panel": "^2.0.0",
@@ -76,6 +79,7 @@
     "regenerator-runtime": "^0.11.1",
     "reselect": "^5.1.1",
     "sitemap": "^8.0.3",
+    "tippy.js": "^6.3.7",
     "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
