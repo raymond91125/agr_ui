@@ -41,12 +41,41 @@ const pickDefinition = (description) => {
   return entries.find((d) => typeof d === 'string' && d.trim() && !/^LINKOUT::/i.test(d)) || undefined;
 };
 
-// OBO xrefs arrive as { database, id, description, url }, and `url` is null for
-// databases OLS has no resolver for (WBPaper, VFB). Those still carry a usable
-// identifier, so keep them as plain text rather than dropping them.
+// An anatomy cross-reference means "the same structure in another vocabulary".
+// OBO's xref slot is a grab-bag that also holds the citation a definition came
+// from and the initials of the curator who added the term, and OLS reports all
+// three identically — WBbt:0005772 xrefs WBPaper:00038216 (a paper) and
+// WBbt:0005733 xrefs WB:pws (a person) alongside CARO:0000066 (a real mapping).
+// A resolver URL does not separate them: OLS resolves WB:pws happily. So keep
+// only references into vocabularies that describe anatomy.
+//
+// UBERON and CL are the cross-species bridges; the member ontologies map to
+// each other directly; CARO, TAO, MA, EHDAA2, AAO and BTO are the legacy
+// anatomy ontologies UBERON itself was assembled from, and still carry the
+// mappings for terms UBERON has not absorbed.
+const ANATOMY_XREF_PREFIXES = new Set([
+  'UBERON',
+  'CL',
+  'WBBT',
+  'ZFA',
+  'FBBT',
+  'EMAPA',
+  'XAO',
+  'CARO',
+  'TAO',
+  'MA',
+  'EHDAA2',
+  'AAO',
+  'BTO',
+]);
+
+// OBO xrefs arrive as { database, id, description, url }. `database` is null
+// for bare-URL xrefs (FBbt cites web pages this way), and `url` is null for
+// databases OLS has no resolver for — those still carry a usable identifier,
+// so keep them as plain text rather than dropping them.
 const normalizeXrefs = (oboXref) =>
   (oboXref || [])
-    .filter((x) => x?.database && x?.id)
+    .filter((x) => x?.database && x?.id && ANATOMY_XREF_PREFIXES.has(String(x.database).toUpperCase()))
     .map((x) => ({
       curie: `${x.database}:${x.id}`,
       url: x.url || undefined,
