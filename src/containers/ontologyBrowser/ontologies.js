@@ -15,9 +15,15 @@ export const DISEASE_ROOT_CURIE = 'DOID:4';
 //           search goes to OLS instead of /api/search_autocomplete.
 //
 // Anatomy ontologies are species-specific and deliberately not interoperable —
-// WBbt, ZFA and EMAPA "intestine" are three different assertions about three
+// WBbt, ZFA, XAO and EMAPA "intestine" are four different assertions about four
 // different animals. UBERON is listed last because it is the cross-species
 // bridge rather than any one member's vocabulary.
+//
+// Rat has no entry on purpose: there is no rat anatomy ontology. RGD annotates
+// anatomy with UBERON, and rat expression in the Alliance resolves to GO
+// cellular components only, so rat anatomy arrives with the UBERON page.
+//
+// Listed in the Alliance species order from SPECIES_NAME_ORDER.
 export const ONTOLOGIES = [
   {
     id: 'disease',
@@ -51,6 +57,24 @@ export const ONTOLOGIES = [
     species: 'Mus musculus',
     mod: 'MGI',
     termUrl: (curie) => `https://www.informatics.jax.org/vocab/gxd/anatomy/${curie}`,
+    available: true,
+  },
+  {
+    id: 'xao',
+    label: 'Xenopus Anatomy (XAO)',
+    group: 'Anatomy',
+    source: 'ols',
+    olsId: 'xao',
+    entityPath: (curie) => `/anatomy/${curie}`,
+    entityLabel: 'anatomy page',
+    rootCurie: 'XAO:0000000',
+    rootName: 'Xenopus anatomical entity',
+    curiePrefix: 'XAO',
+    // XAO covers both Alliance Xenopus species, so this names the genus rather
+    // than one of them.
+    species: 'Xenopus laevis and X. tropicalis',
+    mod: 'Xenbase',
+    termUrl: (curie) => `https://www.xenbase.org/entry/anatomy/anatomyitem.do?method=display&anatomyItemId=${curie}`,
     available: true,
   },
   {
