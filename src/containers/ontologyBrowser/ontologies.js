@@ -73,8 +73,22 @@ export const ONTOLOGIES = [
     // XAO covers both Alliance Xenopus species, so this names the genus rather
     // than one of them.
     species: 'Xenopus laevis and X. tropicalis',
-    mod: 'Xenbase',
-    termUrl: (curie) => `https://www.xenbase.org/entry/anatomy/anatomyitem.do?method=display&anatomyItemId=${curie}`,
+    // No `mod` link-out. Xenbase addresses its anatomy pages by an internal
+    // numeric anatomyId, and that id cannot be derived from an XAO curie —
+    // the offsets between the two id spaces are arbitrary:
+    //
+    //   skin            XAO:0000023  -> anatomyId 23    (+0)
+    //   heart           XAO:0000064  -> anatomyId 63    (+1)
+    //   hindbrain       XAO:0000015  -> anatomyId 16    (-1)
+    //   circulatory sys XAO:0001010  -> anatomyId 448   (+562)
+    //   stylopod        XAO:0004263  -> anatomyId 3309  (+954)
+    //
+    // The low numbers look like an off-by-one but are coincidence, and guessing
+    // would silently link some terms to the wrong structure. The curie-based
+    // route (anatomyitem.do?anatomyItemId=XAO:...) 404s, and the Alliance's own
+    // resourceDescriptors carry no XAO entry, so there is no resolver to use.
+    // Point at the ontology source instead.
+    termUrl: (curie) => `https://www.ebi.ac.uk/ols4/ontologies/xao/classes?obo_id=${encodeURIComponent(curie)}`,
     available: true,
   },
   {
