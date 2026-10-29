@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import fs from 'fs';
 
 // https://vite.dev/config/
 const ENV_KEYS_TO_EXPOSE = [
@@ -23,6 +24,41 @@ const proxy = Object.fromEntries(
   ])
 );
 
+// Reaching the dev server from anywhere but localhost is opt-in, so that a
+// plain `npm start` behaves the same on a machine that has none of this set up:
+//
+//   DEV_ALLOWED_HOSTS=host[,host]      bind every interface, accept those hosts
+//   DEV_HTTPS_KEY=/path/privkey.pem    serve over TLS rather than plain HTTP
+//   DEV_HTTPS_CERT=/path/fullchain.pem
+//
+// Vite refuses a request whose Host header it does not recognise, so a public
+// hostname has to be named rather than inferred. Useful for showing a branch to
+// someone, and required for anything the browser gates behind a secure context.
+const allowedHosts = (process.env.DEV_ALLOWED_HOSTS || '')
+  .split(',')
+  .map((host) => host.trim())
+  .filter(Boolean);
+
+// Read up front, so a wrong path fails here naming the variable that carried it
+// instead of as a bare ENOENT from inside server startup.
+const readPem = (envKey: string) => {
+  const path = process.env[envKey];
+  if (!path) {
+    return undefined;
+  }
+  if (!fs.existsSync(path)) {
+    throw new Error(`${envKey} is set to ${path}, which does not exist`);
+  }
+  return fs.readFileSync(path);
+};
+
+const httpsKey = readPem('DEV_HTTPS_KEY');
+const httpsCert = readPem('DEV_HTTPS_CERT');
+if (!httpsKey !== !httpsCert) {
+  throw new Error('DEV_HTTPS_KEY and DEV_HTTPS_CERT have to be set together');
+}
+const https = httpsKey && httpsCert ? { key: httpsKey, cert: httpsCert } : undefined;
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   return {
@@ -33,6 +69,10 @@ export default defineConfig(({ mode }) => {
     define: Object.fromEntries(ENV_KEYS_TO_EXPOSE.map((key) => [`process.env.${key}`, JSON.stringify(env[key])])),
     server: {
       port: 3000,
+      // Spread rather than set, so an unconfigured dev server is left with
+      // vite's defaults instead of an explicit `host: false` / `https: undefined`.
+      ...(allowedHosts.length ? { host: true, allowedHosts } : {}),
+      ...(https ? { https } : {}),
       proxy,
     },
     preview: {
