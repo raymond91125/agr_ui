@@ -20,8 +20,7 @@ export const DISEASE_ROOT_CURIE = 'DOID:4';
 // bridge rather than any one member's vocabulary.
 //
 // Rat has no entry on purpose: there is no rat anatomy ontology. RGD annotates
-// anatomy with UBERON, and rat expression in the Alliance resolves to GO
-// cellular components only, so rat anatomy arrives with the UBERON page.
+// anatomy with UBERON, so for rat the UBERON page *is* the anatomy page.
 //
 // Listed in the Alliance species order from SPECIES_NAME_ORDER.
 export const ONTOLOGIES = [
@@ -73,6 +72,11 @@ export const ONTOLOGIES = [
     // XAO covers both Alliance Xenopus species, so this names the genus rather
     // than one of them.
     species: 'Xenopus laevis and X. tropicalis',
+    // `provider` is who curates the vocabulary; `mod` is who we can send a
+    // reader to for a given term. They are the same member everywhere except
+    // here, where Xenbase curates XAO but cannot be linked to per term (see
+    // the note on termUrl below).
+    provider: 'Xenbase',
     // No `mod` link-out. Xenbase addresses its anatomy pages by an internal
     // numeric anatomyId, and that id cannot be derived from an XAO curie —
     // the offsets between the two id spaces are arbitrary:
@@ -145,15 +149,25 @@ export const ONTOLOGIES = [
     group: 'Anatomy',
     source: 'ols',
     olsId: 'uberon',
+    entityPath: (curie) => `/anatomy/${curie}`,
+    entityLabel: 'anatomy page',
     rootCurie: 'UBERON:0001062',
     rootName: 'anatomical entity',
     curiePrefix: 'UBERON',
+    // No `species`: UBERON is the bridge between the member vocabularies, so
+    // its page answers "which species have this structure, and what does each
+    // member call it" rather than describing one animal.
+    crossSpecies: true,
     termUrl: (curie) => `https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?obo_id=${encodeURIComponent(curie)}`,
     available: true,
   },
 ];
 
 export const DEFAULT_ONTOLOGY_ID = 'disease';
+
+// The member anatomy ontologies, in Alliance species order. The UBERON page
+// walks these to decide which species a structure has been mapped into.
+export const SPECIES_ANATOMY_ONTOLOGIES = ONTOLOGIES.filter((o) => o.group === 'Anatomy' && o.species);
 
 export const getOntology = (id) =>
   ONTOLOGIES.find((o) => o.id === id) || ONTOLOGIES.find((o) => o.id === DEFAULT_ONTOLOGY_ID);

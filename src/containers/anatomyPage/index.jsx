@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 import Subsection from '../../components/subsection.jsx';
 import NotFound from '../../components/notFound.jsx';
@@ -14,35 +15,38 @@ import usePageLoadingQuery from '../../hooks/usePageLoadingQuery';
 import { ANATOMY_CATEGORY } from '../../constants';
 import { getOntologyForCurie } from '../ontologyBrowser/ontologies.js';
 import AnatomyBasicInfo from './AnatomyBasicInfo.jsx';
+import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
+import fetchUberonSpecies from './fetchUberonSpecies.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
+const SPECIES = 'Anatomy by Species';
 const BROWSE_ONTOLOGY = 'Browse Ontology';
 
 const AnatomyPage = () => {
   const { id: curie } = useParams();
   const ontology = getOntologyForCurie(curie);
-  // Only the member anatomy ontologies have a page. An unknown prefix is a 404;
-  // UBERON is a known prefix with no page yet, handled below.
-  const hasPage = Boolean(ontology?.entityPath);
+  // This route serves anatomy vocabularies only. A curie from another ontology
+  // the browser knows — a DOID, say — is as much a 404 here as an unknown one.
+  const isAnatomy = ontology?.group === 'Anatomy';
 
-  const { isLoading, isError, data } = usePageLoadingQuery(hasPage ? `anatomy:${ontology.id}:${curie}` : null, () =>
+  const { isLoading, isError, data } = usePageLoadingQuery(isAnatomy ? `anatomy:${ontology.id}:${curie}` : null, () =>
     fetchAnatomyTerm(ontology, curie)
   );
 
-  if (!ontology) {
-    return <NotFound />;
-  }
+  // UBERON's cross-species mappings live on the term, so this waits on the term
+  // fetch rather than running beside it. It is also the only part of the page
+  // that fans out to one request per mapped species, so species pages — the
+  // common case — never pay for it.
+  const { isLoading: speciesLoading, data: speciesRows } = useQuery({
+    queryKey: ['anatomy-species', curie],
+    queryFn: () => fetchUberonSpecies(data.term),
+    enabled: Boolean(ontology?.crossSpecies && data?.term),
+    staleTime: 5 * 60_000,
+  });
 
-  // UBERON terms browse today but have no page until they can aggregate the
-  // member terms that map onto them. Send the reader somewhere that works
-  // rather than to a dead end.
-  if (!hasPage) {
-    return <Navigate replace to={`/ontology/${ontology.id}/${curie}`} />;
-  }
-
-  if (isError) {
+  if (!isAnatomy || isError) {
     return <NotFound />;
   }
 
@@ -94,7 +98,7 @@ const AnatomyPage = () => {
       <PageNav
         sections={[
           { name: SUMMARY },
-          { name: EXPRESSION },
+          { name: ontology.crossSpecies ? SPECIES : EXPRESSION },
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
       >
@@ -111,25 +115,35 @@ const AnatomyPage = () => {
           <AnatomyBasicInfo ontology={ontology} term={term} parents={parents} children={children} />
         </Subsection>
 
-        {/* Every Alliance expression annotation already carries its native
-            member anatomy term, but the API can only be queried gene-first, so
-            there is no way to ask which genes are expressed in a term. Say so
-            plainly instead of hiding the section — a reader who came here for
-            expression should learn where it is, not think none exists. */}
-        <Subsection title={EXPRESSION}>
-          <NoData>
-            Expression annotations cannot yet be searched by anatomy term at the Alliance.
-            {ontology.mod && (
-              <>
-                {' '}
-                <ExternalLink href={ontology.termUrl(term.curie)}>
-                  View expression for this term at {ontology.mod}
-                </ExternalLink>
-                .
-              </>
-            )}
-          </NoData>
-        </Subsection>
+        {/* The UBERON page exists to answer the one question a species page
+            cannot: which animals have this structure, and what does each member
+            call it. Expression is a species question, so it stays on the
+            species pages. */}
+        {ontology.crossSpecies ? (
+          <Subsection title={SPECIES}>
+            <AnatomySpeciesTable rows={speciesRows} isLoading={speciesLoading} />
+          </Subsection>
+        ) : (
+          /* Every Alliance expression annotation already carries its native
+             member anatomy term, but the API can only be queried gene-first, so
+             there is no way to ask which genes are expressed in a term. Say so
+             plainly instead of hiding the section — a reader who came here for
+             expression should learn where it is, not think none exists. */
+          <Subsection title={EXPRESSION}>
+            <NoData>
+              Expression annotations cannot yet be searched by anatomy term at the Alliance.
+              {ontology.mod && (
+                <>
+                  {' '}
+                  <ExternalLink href={ontology.termUrl(term.curie)}>
+                    View expression for this term at {ontology.mod}
+                  </ExternalLink>
+                  .
+                </>
+              )}
+            </NoData>
+          </Subsection>
+        )}
       </PageData>
     </DataPage>
   );
