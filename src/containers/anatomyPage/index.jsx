@@ -19,7 +19,7 @@ import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import AnatomyStageRange from './AnatomyStageRange.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchUberonSpecies from './fetchUberonSpecies.js';
-import fetchZfinStages from './fetchZfinStages.js';
+import fetchStageRange from './fetchStageRange.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
@@ -49,14 +49,14 @@ const AnatomyPage = () => {
     staleTime: 5 * 60_000,
   });
 
-  // Only ZFA carries a stage source today. The query is skipped entirely for
-  // every other vocabulary, so no other page pays for it, and a failed fetch
-  // leaves `stages` undefined — which hides the section rather than showing an
-  // error for data the Alliance does not serve yet.
+  // Skipped entirely for a vocabulary with no stage axis, so WBbt, FBbt and
+  // UBERON pages never pay for it. A term whose range is absent or incomplete
+  // resolves to null, which hides the section rather than rendering an empty
+  // one.
   const { data: stages } = useQuery({
     queryKey: ['anatomy-stages', curie],
-    queryFn: () => fetchZfinStages(curie),
-    enabled: ontology?.stageSource === 'zfin',
+    queryFn: () => fetchStageRange(ontology, curie),
+    enabled: Boolean(ontology?.stageSeries),
     staleTime: 60 * 60_000,
     retry: false,
   });
@@ -131,10 +131,10 @@ const AnatomyPage = () => {
           <AnatomyBasicInfo ontology={ontology} term={term} parents={parents} children={children} />
         </Subsection>
 
-        {/* Hidden outright when the vocabulary has no stage axis — WBbt and
-            FBbt put staging on the annotation rather than the term — and when
-            the member's data cannot be reached. An empty block would imply the
-            range is merely missing. */}
+        {/* Hidden outright when the vocabulary has no stage axis: WBbt and FBbt
+            put staging on the annotation rather than the term, and UBERON is
+            stage-neutral. An empty block would imply the range is merely
+            missing. */}
         {stages && (
           <Subsection title={STAGES}>
             <AnatomyStageRange stages={stages} ontology={ontology} />
