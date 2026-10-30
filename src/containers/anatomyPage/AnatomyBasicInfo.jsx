@@ -1,31 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import { AttributeList, AttributeLabel, AttributeValue } from '../../components/attribute';
 import CrossReferenceList from '../../components/crossReferenceList.jsx';
 import SynonymList from '../../components/synonymList.jsx';
-import { CollapsibleList } from '../../components/collapsibleList';
 import ExternalLink from '../../components/ExternalLink.jsx';
-import { smartAlphaSort } from '../../lib/utils';
 import { SPECIES_ANATOMY_ONTOLOGIES } from '../ontologyBrowser/ontologies.js';
 
 const SPECIES_PREFIXES = new Set(SPECIES_ANATOMY_ONTOLOGIES.map((o) => o.curiePrefix.toUpperCase()));
-
-const TermList = ({ terms }) =>
-  terms?.length ? (
-    <CollapsibleList>
-      {[...terms].sort(smartAlphaSort((term) => term.name)).map((term) => (
-        <Link key={term.curie} to={`/anatomy/${term.curie}`}>
-          {term.name}
-        </Link>
-      ))}
-    </CollapsibleList>
-  ) : null;
-
-TermList.propTypes = {
-  terms: PropTypes.array,
-};
 
 // CrossReferenceList renders through DataSourceLink, which expects
 // { name, displayName, crossRefCompleteUrl }. OLS gives us a curie and
@@ -46,7 +28,11 @@ const toCrossReferences = (xrefs) =>
 // would read "not mapped" for nearly every worm, fish and mouse structure when
 // UBERON in fact maps them all. Reaching UBERON from a species page needs the
 // mapping held on our side — the same table /api/anatomy/{id} would serve.
-const AnatomyBasicInfo = ({ ontology, term, parents, children }) => {
+// Parent and child terms are not listed here. They were, as two untyped lists,
+// which merged `is a` with `part of` — the one distinction an anatomy ontology
+// exists to draw. They are in Relationships now, under the relation that was
+// actually asserted.
+const AnatomyBasicInfo = ({ ontology, term }) => {
   // On the cross-species page the member mappings are the Anatomy by Species
   // table, so listing them again here would say the same thing twice. The
   // legacy anatomy ontologies UBERON absorbed (CARO, TAO, MA, AAO, BTO) have no
@@ -83,12 +69,6 @@ const AnatomyBasicInfo = ({ ontology, term, parents, children }) => {
         {term.synonyms?.length > 0 && <SynonymList synonyms={term.synonyms} />}
       </AttributeValue>
 
-      <AttributeLabel>Parent Terms</AttributeLabel>
-      <AttributeValue placeholder="None">{parents?.length > 0 && <TermList terms={parents} />}</AttributeValue>
-
-      <AttributeLabel>Child Terms</AttributeLabel>
-      <AttributeValue placeholder="None">{children?.length > 0 && <TermList terms={children} />}</AttributeValue>
-
       <AttributeLabel>Cross References</AttributeLabel>
       <AttributeValue placeholder="None">
         {xrefs?.length > 0 && <CrossReferenceList crossReferences={toCrossReferences(xrefs)} />}
@@ -100,8 +80,6 @@ const AnatomyBasicInfo = ({ ontology, term, parents, children }) => {
 AnatomyBasicInfo.propTypes = {
   ontology: PropTypes.object.isRequired,
   term: PropTypes.object.isRequired,
-  parents: PropTypes.array,
-  children: PropTypes.array,
 };
 
 export default AnatomyBasicInfo;

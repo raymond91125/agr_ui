@@ -1,27 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import { AttributeList, AttributeLabel, AttributeValue } from '../../components/attribute';
+import AnatomyTermLink from './AnatomyTermLink.jsx';
 
-// A stage term is an ontology term like any other, and for XAO it is a term
-// this site already serves — XAO:1000036 is NF stage 20. Link the ones we can
-// render and leave the rest as plain text rather than linking to a 404.
-const StageName = ({ stage, ontology }) =>
-  stage.curie.startsWith(`${ontology.curiePrefix}:`) ? (
-    <Link to={`/anatomy/${stage.curie}`}>{stage.name}</Link>
-  ) : (
-    <>{stage.name}</>
-  );
-
-StageName.propTypes = {
-  stage: PropTypes.object.isRequired,
-  ontology: PropTypes.object.isRequired,
-};
-
-const Stage = ({ stage, ontology }) => (
+const Stage = ({ stage }) => (
   <>
-    <StageName stage={stage} ontology={ontology} /> <span className="text-muted">{stage.curie}</span>
+    <AnatomyTermLink curie={stage.curie} name={stage.name} /> <span className="text-muted">{stage.curie}</span>
     {/* The relation is shown because the members do not assert the same thing:
         EMAPA names an exact stage, ZFA only a bound. Collapsing both to
         "appears at" would make ZFA look more precise than it is. */}
@@ -31,7 +16,6 @@ const Stage = ({ stage, ontology }) => (
 
 Stage.propTypes = {
   stage: PropTypes.object.isRequired,
-  ontology: PropTypes.object.isRequired,
 };
 
 // The window during which a structure is present, on the member's own staging
@@ -41,12 +25,12 @@ const AnatomyStageRange = ({ stages, ontology }) => (
   <AttributeList>
     <AttributeLabel>Appears at</AttributeLabel>
     <AttributeValue>
-      <Stage stage={stages.start} ontology={ontology} />
+      <Stage stage={stages.start} />
     </AttributeValue>
 
     <AttributeLabel>Evident until</AttributeLabel>
     <AttributeValue>
-      <Stage stage={stages.end} ontology={ontology} />
+      <Stage stage={stages.end} />
     </AttributeValue>
 
     <AttributeLabel>Staging series</AttributeLabel>
