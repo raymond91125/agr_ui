@@ -13,16 +13,38 @@ const ENV_KEYS_TO_EXPOSE = [
 
 const PROXY_PATHS = ['/api', '/jbrowse', '/bluegenes', '/swagger-ui', '/openapi', '/agr_simplemine.cgi', '/pavi'];
 
-const proxy = Object.fromEntries(
-  PROXY_PATHS.map((path) => [
-    path,
-    {
-      target: process.env.API_URL || 'http://localhost:8080',
-      changeOrigin: true,
-      secure: false,
-    },
-  ])
-);
+// The member databases publish anatomy data the Alliance has no endpoint for,
+// but none of them send `access-control-allow-origin`, so the browser cannot
+// read them directly. Proxy them in development so those sections can be built
+// and reviewed against live member data; where the proxy is absent the fetch
+// fails and the section hides itself.
+const MOD_PROXY_TARGETS = {
+  '/mod/zfin': 'https://zfin.org',
+};
+
+const proxy = {
+  ...Object.fromEntries(
+    PROXY_PATHS.map((path) => [
+      path,
+      {
+        target: process.env.API_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+    ])
+  ),
+  ...Object.fromEntries(
+    Object.entries(MOD_PROXY_TARGETS).map(([path, target]) => [
+      path,
+      {
+        target,
+        changeOrigin: true,
+        secure: false,
+        rewrite: (url: string) => url.replace(new RegExp(`^${path}`), ''),
+      },
+    ])
+  ),
+};
 
 // Reaching the dev server from anywhere but localhost is opt-in, so that a
 // plain `npm start` behaves the same on a machine that has none of this set up:
