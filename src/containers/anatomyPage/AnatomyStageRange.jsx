@@ -1,46 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { AttributeList, AttributeLabel, AttributeValue } from '../../components/attribute';
-import ExternalLink from '../../components/ExternalLink.jsx';
 
-// ZFIN writes hours post-fertilisation to two decimals only where the early
-// stages need them — Gastrula:Bud is 10.0 to 10.33 h, Adult is 2160 to 17520.
-const formatHours = (hours) => (Number.isInteger(hours) ? String(hours) : hours.toFixed(2));
+// A stage term is an ontology term like any other, and for XAO it is a term
+// this site already serves — XAO:1000036 is NF stage 20. Link the ones we can
+// render and leave the rest as plain text rather than linking to a 404.
+const StageName = ({ stage, ontology }) =>
+  stage.curie.startsWith(`${ontology.curiePrefix}:`) ? (
+    <Link to={`/anatomy/${stage.curie}`}>{stage.name}</Link>
+  ) : (
+    <>{stage.name}</>
+  );
 
-const Stage = ({ stage }) => (
+StageName.propTypes = {
+  stage: PropTypes.object.isRequired,
+  ontology: PropTypes.object.isRequired,
+};
+
+const Stage = ({ stage, ontology }) => (
   <>
-    {stage.name}{' '}
-    <span className="text-muted">
-      ({formatHours(stage.start)}–{formatHours(stage.end)} h)
-    </span>
+    <StageName stage={stage} ontology={ontology} /> <span className="text-muted">{stage.curie}</span>
+    {/* The relation is shown because the members do not assert the same thing:
+        EMAPA names an exact stage, ZFA only a bound. Collapsing both to
+        "appears at" would make ZFA look more precise than it is. */}
+    <div className="small text-muted">{stage.relation}</div>
   </>
 );
 
 Stage.propTypes = {
   stage: PropTypes.object.isRequired,
+  ontology: PropTypes.object.isRequired,
 };
 
 // The window during which a structure is present, on the member's own staging
-// series. Every member that curates this uses a different series — ZFS here,
-// Theiler stages at MGI, Nieuwkoop–Faber at Xenbase — and they do not convert
-// into one another, so the series is named rather than normalized away.
+// series. ZFS, Theiler and Nieuwkoop-Faber do not convert into one another, so
+// the series is named rather than normalized to a shared axis.
 const AnatomyStageRange = ({ stages, ontology }) => (
   <AttributeList>
     <AttributeLabel>Appears at</AttributeLabel>
     <AttributeValue>
-      <Stage stage={stages.start} />
+      <Stage stage={stages.start} ontology={ontology} />
     </AttributeValue>
 
     <AttributeLabel>Evident until</AttributeLabel>
     <AttributeValue>
-      <Stage stage={stages.end} />
+      <Stage stage={stages.end} ontology={ontology} />
     </AttributeValue>
 
     <AttributeLabel>Staging series</AttributeLabel>
     <AttributeValue>
-      Zebrafish developmental stages (ZFS), curated by {ontology.mod}.{' '}
-      <ExternalLink href="https://zfin.org/zf_info/zfbook/stages/index.html">Stage series at ZFIN</ExternalLink>
+      {ontology.stageSeries}
+      {ontology.mod ? `, curated by ${ontology.mod}` : ''}
+      {ontology.provider && !ontology.mod ? `, curated by ${ontology.provider}` : ''}
     </AttributeValue>
   </AttributeList>
 );

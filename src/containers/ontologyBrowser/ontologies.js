@@ -53,6 +53,7 @@ export const ONTOLOGIES = [
     rootCurie: 'EMAPA:25765',
     rootName: 'mouse',
     curiePrefix: 'EMAPA',
+    stageSeries: 'Theiler stages (TS)',
     species: 'Mus musculus',
     mod: 'MGI',
     termUrl: (curie) => `https://www.informatics.jax.org/vocab/gxd/anatomy/${curie}`,
@@ -69,6 +70,7 @@ export const ONTOLOGIES = [
     rootCurie: 'XAO:0000000',
     rootName: 'Xenopus anatomical entity',
     curiePrefix: 'XAO',
+    stageSeries: 'Nieuwkoop–Faber stages (NF)',
     // XAO covers both Alliance Xenopus species, so this names the genus rather
     // than one of them.
     species: 'Xenopus laevis and X. tropicalis',
@@ -108,11 +110,9 @@ export const ONTOLOGIES = [
     curiePrefix: 'ZFA',
     species: 'Danio rerio',
     mod: 'ZFIN',
-    // ZFIN is the only member whose stage range can be read client-side today,
-    // because it publishes it as a file rather than behind a CORS-less API.
-    // MGI (Theiler) and Xenbase (Nieuwkoop–Faber) curate the same kind of data
-    // and would each need their own source here.
-    stageSource: 'zfin',
+    // Present on the three members that curate a stage range. The term carries
+    // it as a relation to a stage term, which OLS serves on /graph.
+    stageSeries: 'Zebrafish developmental stages (ZFS)',
     termUrl: (curie) => `https://zfin.org/${curie}`,
     available: true,
   },
