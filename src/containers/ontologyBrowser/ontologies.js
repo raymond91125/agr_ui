@@ -108,6 +108,11 @@ export const ONTOLOGIES = [
     curiePrefix: 'ZFA',
     species: 'Danio rerio',
     mod: 'ZFIN',
+    // ZFIN is the only member whose stage range can be read client-side today,
+    // because it publishes it as a file rather than behind a CORS-less API.
+    // MGI (Theiler) and Xenbase (Nieuwkoop–Faber) curate the same kind of data
+    // and would each need their own source here.
+    stageSource: 'zfin',
     termUrl: (curie) => `https://zfin.org/${curie}`,
     available: true,
   },
