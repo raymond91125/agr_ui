@@ -53,7 +53,7 @@ const AnatomySpeciesTable = ({ rows, through, isLoading }) => {
     <>
       {pivoted && (
         <p className="text-muted">
-          Equated through{' '}
+          Mapped through{' '}
           {through.map((uberon, index) => (
             <React.Fragment key={uberon.curie}>
               {index > 0 && ' and '}

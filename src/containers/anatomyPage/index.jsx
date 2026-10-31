@@ -23,7 +23,7 @@ import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
-const SPECIES = 'Anatomy by Species';
+const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
 const BROWSE_ONTOLOGY = 'Browse Ontology';
@@ -105,7 +105,7 @@ const AnatomyPage = () => {
           { name: SUMMARY },
           ...(stages ? [{ name: STAGES }] : []),
           ...(relations ? [{ name: RELATIONS }] : []),
-          { name: SPECIES },
+          { name: UBERON_MAPPING },
           ...(ontology.crossSpecies ? [] : [{ name: EXPRESSION }]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
@@ -146,8 +146,15 @@ const AnatomyPage = () => {
         {/* On every anatomy page, not just UBERON's. The question — which
             animals have this structure, and what does each member call it — is
             the same from either end; only the direction of the lookup differs,
-            and fetchAcrossSpecies hides that. */}
-        <Subsection title={SPECIES}>
+            and fetchAcrossSpecies hides that.
+
+            Named for the mechanism rather than for the table's columns. The
+            whole section exists because UBERON mapped these terms onto one
+            another, and a reader cannot judge a row without knowing that.
+            `Mapping` and not `group`: WBbt, ZFA, XAO and EMAPA `intestine`
+            are four assertions about four animals, not four members of one
+            thing. */}
+        <Subsection title={UBERON_MAPPING}>
           <AnatomySpeciesTable rows={species?.rows} through={species?.through} isLoading={speciesLoading} />
         </Subsection>
 
