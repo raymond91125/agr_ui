@@ -17,14 +17,15 @@ import { getOntologyForCurie } from '../ontologyBrowser/ontologies.js';
 import AnatomyBasicInfo from './AnatomyBasicInfo.jsx';
 import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import AnatomyStageRange from './AnatomyStageRange.jsx';
+import AnatomyRelations from './AnatomyRelations.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchUberonSpecies from './fetchUberonSpecies.js';
-import fetchStageRange from './fetchStageRange.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
 const SPECIES = 'Anatomy by Species';
 const STAGES = 'Developmental Window';
+const RELATIONS = 'Relationships';
 const BROWSE_ONTOLOGY = 'Browse Ontology';
 
 const AnatomyPage = () => {
@@ -49,18 +50,6 @@ const AnatomyPage = () => {
     staleTime: 5 * 60_000,
   });
 
-  // Skipped entirely for a vocabulary with no stage axis, so WBbt, FBbt and
-  // UBERON pages never pay for it. A term whose range is absent or incomplete
-  // resolves to null, which hides the section rather than rendering an empty
-  // one.
-  const { data: stages } = useQuery({
-    queryKey: ['anatomy-stages', curie],
-    queryFn: () => fetchStageRange(ontology, curie),
-    enabled: Boolean(ontology?.stageSeries),
-    staleTime: 60 * 60_000,
-    retry: false,
-  });
-
   if (!isAnatomy || isError) {
     return <NotFound />;
   }
@@ -69,7 +58,7 @@ const AnatomyPage = () => {
     return null; // the main page loading bar is sufficient
   }
 
-  const { term, parents, children } = data;
+  const { term, relations, stages } = data;
   const title = term.name || term.curie;
 
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
@@ -114,6 +103,7 @@ const AnatomyPage = () => {
         sections={[
           { name: SUMMARY },
           ...(stages ? [{ name: STAGES }] : []),
+          ...(relations ? [{ name: RELATIONS }] : []),
           { name: ontology.crossSpecies ? SPECIES : EXPRESSION },
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
@@ -128,7 +118,7 @@ const AnatomyPage = () => {
         <YourInputWelcome type="Anatomy" name={title} allianceId={term.curie} />
 
         <Subsection hideTitle title={SUMMARY}>
-          <AnatomyBasicInfo ontology={ontology} term={term} parents={parents} children={children} />
+          <AnatomyBasicInfo ontology={ontology} term={term} />
         </Subsection>
 
         {/* Hidden outright when the vocabulary has no stage axis: WBbt and FBbt
@@ -138,6 +128,16 @@ const AnatomyPage = () => {
         {stages && (
           <Subsection title={STAGES}>
             <AnatomyStageRange stages={stages} ontology={ontology} />
+          </Subsection>
+        )}
+
+        {/* The one section every member vocabulary can fill: WBbt and FBbt have
+            no stage axis, but both assert relations the hierarchy cannot carry.
+            Null only for a term the ontology says nothing else about, which in
+            practice means a root. */}
+        {relations && (
+          <Subsection title={RELATIONS}>
+            <AnatomyRelations relations={relations} term={term} />
           </Subsection>
         )}
 

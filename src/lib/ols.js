@@ -19,6 +19,15 @@ const PAGE_SIZE = 500;
 
 export const curieToIri = (curie) => `http://purl.obolibrary.org/obo/${curie.replace(':', '_')}`;
 
+// The inverse, for payloads that identify a term only by IRI — the /graph
+// endpoint names every node and edge end that way. An IRI that is not an OBO
+// purl has no curie, so its last segment stands in for one.
+export const iriToCurie = (iri) => {
+  const tail = (iri || '').split('/').pop();
+  const underscore = tail.indexOf('_');
+  return underscore === -1 ? tail : `${tail.slice(0, underscore)}:${tail.slice(underscore + 1)}`;
+};
+
 // OLS4 addresses terms by IRI, and the IRI must be percent-encoded *twice* —
 // once because it is a path segment, and again because the gateway decodes it
 // before the application sees it. Single-encoding 404s.
@@ -128,4 +137,44 @@ export async function searchOls(olsId, query, prefix, { rows = 20, signal } = {}
     `&fieldList=${encodeURIComponent('obo_id,label,description,has_children')}`;
   const data = await fetchData(url, { signal });
   return (data?.response?.docs || []).filter(ownTerm(prefix)).map(normalize);
+}
+
+// The term's immediate neighbourhood, with the property on each edge — which
+// `hierarchicalParents` and `hierarchicalChildren` do not carry. They answer
+// *which* terms are adjacent but not *how*, and in an anatomy ontology the how
+// is the point: `is a` and `part of` are different claims, and `develops from`
+// is a third. One /graph call covers both questions, so the anatomy page reads
+// this instead of the two hierarchy calls.
+//
+// Edges come back from the term's point of view: `direction` says which way the
+// assertion runs, and curie/name are always the far end.
+export async function fetchOlsGraph(olsId, curie, options) {
+  const data = await fetchData(`${termPath(olsId, curie)}/graph`, options);
+  const iri = curieToIri(curie);
+  const names = new Map((data?.nodes || []).map((node) => [node.iri, node.label]));
+
+  return (data?.edges || [])
+    .map((edge) => {
+      // In practice the graph is a star around the term, but it is served as a
+      // neighbourhood: an edge between two of the term's neighbours says
+      // nothing about the term itself.
+      const direction = edge?.source === iri ? 'out' : edge?.target === iri ? 'in' : null;
+      if (!direction) {
+        return null;
+      }
+      const other = direction === 'out' ? edge.target : edge.source;
+      return {
+        direction,
+        // Property labels arrive already readable — 'part of', 'develops from',
+        // 'existence starts with'. Only the OWL primitive comes through raw,
+        // and `is a` is how an OBO ontology is read aloud.
+        relation: edge.label === 'subClassOf' ? 'is a' : edge.label,
+        // Matched on the last IRI segment: XAO declares its own stage
+        // properties rather than reusing RO, so there is no one namespace.
+        property: (edge.uri || '').split('/').pop(),
+        curie: iriToCurie(other),
+        name: names.get(other) || iriToCurie(other),
+      };
+    })
+    .filter((edge) => edge && !isObsolete({ label: edge.name }));
 }
