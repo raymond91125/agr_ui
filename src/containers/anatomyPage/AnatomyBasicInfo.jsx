@@ -33,7 +33,7 @@ const toCrossReferences = (xrefs) =>
 // exists to draw. They are in Relationships now, under the relation that was
 // actually asserted.
 const AnatomyBasicInfo = ({ ontology, term }) => {
-  // On the cross-species page the member mappings are the Anatomy by Species
+  // On the cross-species page the member mappings are the UBERON Mapping
   // table, so listing them again here would say the same thing twice. The
   // legacy anatomy ontologies UBERON absorbed (CARO, TAO, MA, AAO, BTO) have no
   // page of ours and stay in cross-references.

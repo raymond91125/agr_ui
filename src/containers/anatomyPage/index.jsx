@@ -19,11 +19,11 @@ import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import AnatomyStageRange from './AnatomyStageRange.jsx';
 import AnatomyRelations from './AnatomyRelations.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
-import fetchUberonSpecies from './fetchUberonSpecies.js';
+import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
-const SPECIES = 'Anatomy by Species';
+const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
 const BROWSE_ONTOLOGY = 'Browse Ontology';
@@ -39,14 +39,15 @@ const AnatomyPage = () => {
     fetchAnatomyTerm(ontology, curie)
   );
 
-  // UBERON's cross-species mappings live on the term, so this waits on the term
-  // fetch rather than running beside it. It is also the only part of the page
-  // that fans out to one request per mapped species, so species pages — the
-  // common case — never pay for it.
-  const { isLoading: speciesLoading, data: speciesRows } = useQuery({
+  // The mapping lives on the UBERON term, so this waits on the term fetch
+  // rather than running beside it — a species page needs the term's own xrefs
+  // before it can tell whether it has to consult the inverted table at all.
+  // It is also the only part of the page that fans out to one request per
+  // mapped species.
+  const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
-    queryFn: () => fetchUberonSpecies(data.term),
-    enabled: Boolean(ontology?.crossSpecies && data?.term),
+    queryFn: () => fetchAcrossSpecies(ontology, data.term),
+    enabled: Boolean(data?.term),
     staleTime: 5 * 60_000,
   });
 
@@ -104,7 +105,8 @@ const AnatomyPage = () => {
           { name: SUMMARY },
           ...(stages ? [{ name: STAGES }] : []),
           ...(relations ? [{ name: RELATIONS }] : []),
-          { name: ontology.crossSpecies ? SPECIES : EXPRESSION },
+          { name: UBERON_MAPPING },
+          ...(ontology.crossSpecies ? [] : [{ name: EXPRESSION }]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
       >
@@ -141,20 +143,30 @@ const AnatomyPage = () => {
           </Subsection>
         )}
 
-        {/* The UBERON page exists to answer the one question a species page
-            cannot: which animals have this structure, and what does each member
-            call it. Expression is a species question, so it stays on the
-            species pages. */}
-        {ontology.crossSpecies ? (
-          <Subsection title={SPECIES}>
-            <AnatomySpeciesTable rows={speciesRows} isLoading={speciesLoading} />
-          </Subsection>
-        ) : (
-          /* Every Alliance expression annotation already carries its native
-             member anatomy term, but the API can only be queried gene-first, so
-             there is no way to ask which genes are expressed in a term. Say so
-             plainly instead of hiding the section — a reader who came here for
-             expression should learn where it is, not think none exists. */
+        {/* On every anatomy page, not just UBERON's. The question — which
+            animals have this structure, and what does each member call it — is
+            the same from either end; only the direction of the lookup differs,
+            and fetchAcrossSpecies hides that.
+
+            Named for the mechanism rather than for the table's columns. The
+            whole section exists because UBERON mapped these terms onto one
+            another, and a reader cannot judge a row without knowing that.
+            `Mapping` and not `group`: WBbt, ZFA, XAO and EMAPA `intestine`
+            are four assertions about four animals, not four members of one
+            thing. */}
+        <Subsection title={UBERON_MAPPING}>
+          <AnatomySpeciesTable rows={species?.rows} through={species?.through} isLoading={speciesLoading} />
+        </Subsection>
+
+        {/* Every Alliance expression annotation already carries its native
+            member anatomy term, but the API can only be queried gene-first —
+            /api/expression takes a required list of gene IDs — so there is no
+            way to ask which genes are expressed in a term. Say so plainly
+            instead of hiding the section: a reader who came here for expression
+            should learn where it is, not think none exists. Not on the UBERON
+            page, where expression would be a question about no species in
+            particular. */}
+        {!ontology.crossSpecies && (
           <Subsection title={EXPRESSION}>
             <NoData>
               Expression annotations cannot yet be searched by anatomy term at the Alliance.

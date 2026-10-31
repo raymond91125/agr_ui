@@ -174,6 +174,9 @@ export const DEFAULT_ONTOLOGY_ID = 'disease';
 // walks these to decide which species a structure has been mapped into.
 export const SPECIES_ANATOMY_ONTOLOGIES = ONTOLOGIES.filter((o) => o.group === 'Anatomy' && o.species);
 
+// The bridge the species pages pivot through to reach each other.
+export const UBERON_ONTOLOGY = ONTOLOGIES.find((o) => o.crossSpecies);
+
 export const getOntology = (id) =>
   ONTOLOGIES.find((o) => o.id === id) || ONTOLOGIES.find((o) => o.id === DEFAULT_ONTOLOGY_ID);
 
