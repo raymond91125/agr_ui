@@ -163,6 +163,10 @@ export const ONTOLOGIES = [
     // its page answers "which species have this structure, and what does each
     // member call it" rather than describing one animal.
     crossSpecies: true,
+    // No `mod` either — UBERON is not any one member's. It is assembled in the
+    // open from the member vocabularies, which is what the provenance section
+    // has to say instead of naming a database.
+    provider: 'The UBERON project, from the member vocabularies',
     termUrl: (curie) => `https://www.ebi.ac.uk/ols4/ontologies/uberon/classes?obo_id=${encodeURIComponent(curie)}`,
     available: true,
   },

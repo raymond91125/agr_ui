@@ -14,10 +14,12 @@ import YourInputWelcome from '../../components/YourInputWelcome.jsx';
 import usePageLoadingQuery from '../../hooks/usePageLoadingQuery';
 import { ANATOMY_CATEGORY } from '../../constants';
 import { getOntologyForCurie } from '../ontologyBrowser/ontologies.js';
+import { fetchOlsOntology } from '../../lib/ols';
 import AnatomyBasicInfo from './AnatomyBasicInfo.jsx';
 import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import AnatomyStageRange from './AnatomyStageRange.jsx';
 import AnatomyRelations from './AnatomyRelations.jsx';
+import AnatomyProvenance from './AnatomyProvenance.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 
@@ -26,6 +28,7 @@ const EXPRESSION = 'Genes Expressed Here';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
+const PROVENANCE = 'Provenance';
 const BROWSE_ONTOLOGY = 'Browse Ontology';
 
 const AnatomyPage = () => {
@@ -44,6 +47,17 @@ const AnatomyPage = () => {
   // before it can tell whether it has to consult the inverted table at all.
   // It is also the only part of the page that fans out to one request per
   // mapped species.
+  // Keyed on the ontology rather than the term, because it is the same answer
+  // for all ~30,000 FBbt terms. Walking between terms of one vocabulary fetches
+  // it once; the long staleTime is because a release moves monthly at most.
+  const { data: vocabulary } = useQuery({
+    queryKey: ['ols-ontology', ontology?.olsId],
+    queryFn: () => fetchOlsOntology(ontology.olsId),
+    enabled: Boolean(ontology?.olsId),
+    staleTime: 24 * 60 * 60_000,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -107,6 +121,7 @@ const AnatomyPage = () => {
           ...(relations ? [{ name: RELATIONS }] : []),
           { name: UBERON_MAPPING },
           ...(ontology.crossSpecies ? [] : [{ name: EXPRESSION }]),
+          { name: PROVENANCE },
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
       >
@@ -182,6 +197,13 @@ const AnatomyPage = () => {
             </NoData>
           </Subsection>
         )}
+
+        {/* Last, because it is about the vocabulary rather than the structure —
+            and the only section a reader can act on. The Alliance does not
+            curate anatomy; the six vocabularies do, and each has a tracker. */}
+        <Subsection title={PROVENANCE}>
+          <AnatomyProvenance ontology={ontology} term={term} vocabulary={vocabulary} />
+        </Subsection>
       </PageData>
     </DataPage>
   );

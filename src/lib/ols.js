@@ -90,10 +90,28 @@ const normalizeXrefs = (oboXref) =>
       url: x.url || undefined,
     }));
 
+// Where a definition came from. OBO records it on the definition itself rather
+// than in the term's xref slot, which is why these survive the anatomy filter
+// above: WBbt cites a paper (WBPaper:00038216), FBbt a curator's initials
+// (FBC:GG), XAO the UBERON term it was aligned to. OLS resolves a URL for the
+// ones it has a resolver for and leaves the rest as identifiers.
+const normalizeDefinitionSources = (citations) => [
+  ...new Map(
+    (citations || [])
+      .flatMap((citation) => citation?.oboXrefs || [])
+      .filter((x) => x?.database && x?.id)
+      .map((x) => [`${x.database}:${x.id}`, { curie: `${x.database}:${x.id}`, url: x.url || undefined }])
+  ).values(),
+];
+
 const normalize = (term) => ({
   curie: term.obo_id,
   name: term.label || term.obo_id,
   xrefs: normalizeXrefs(term.obo_xref),
+  definitionSources: normalizeDefinitionSources(term.obo_definition_citation),
+  // OBO subsets — FBbt puts `wing` in FB_gloss and cur. Curation metadata, so
+  // it reads as provenance rather than as anatomy.
+  subsets: term.in_subset || [],
   // OLS reports only *whether* a term has children, never how many. The tree
   // uses descendantCount solely to decide whether to draw a chevron, so 1
   // stands in for "some" and 0 is a true leaf.
@@ -177,4 +195,43 @@ export async function fetchOlsGraph(olsId, curie, options) {
       };
     })
     .filter((edge) => edge && !isObsolete({ label: edge.name }));
+}
+
+// A release date is in `version` for some ontologies and nowhere but the
+// version IRI for others — WBbt, EMAPA, XAO and UBERON all leave `version`
+// null while naming the release in `.../releases/YYYY-MM-DD/...`. Only FBbt
+// and ZFA fill `version`, and FBbt fills it with a date while others elsewhere
+// in OLS use names like "2.1", so the shape is checked rather than trusted.
+//
+// Exported for its test: four of the six vocabularies here depend on the
+// fallback, and a wrong regex would quietly blank the field rather than fail.
+export const releaseDate = (config) => {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(config?.version || '')) {
+    return config.version;
+  }
+  return (config?.versionIri || '').match(/\/releases\/(\d{4}-\d{2}-\d{2})\//)?.[1];
+};
+
+// The vocabulary a term belongs to, rather than the term: who publishes it,
+// when it last shipped, how big it is, and where to report a problem with it.
+//
+// Identical for every term in an ontology, so the caller is expected to cache
+// it per ontology rather than per term.
+export async function fetchOlsOntology(olsId, options) {
+  const data = await fetchData(`${OLS_BASE}/ontologies/${olsId}`, options);
+  if (!data?.config) {
+    return null;
+  }
+  return {
+    title: data.config.title,
+    description: data.config.description,
+    release: releaseDate(data.config),
+    // OLS's own ingest date, which says when this copy was refreshed and is
+    // not the same claim as the release date above.
+    indexed: (data.updated || '').slice(0, 10) || undefined,
+    termCount: data.numberOfTerms,
+    homepage: data.config.homepage,
+    tracker: data.config.tracker,
+    mailingList: data.config.mailingList,
+  };
 }
