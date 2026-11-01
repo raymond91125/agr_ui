@@ -19,12 +19,15 @@ import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import AnatomyStageRange from './AnatomyStageRange.jsx';
 import AnatomyRelations from './AnatomyRelations.jsx';
 import AnatomyExpression from './AnatomyExpression.jsx';
+import AnatomyPhenotypes from './AnatomyPhenotypes.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 import loadExpressionSample from './expressionSample.js';
+import loadPhenotypeSample from './phenotypeSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
+const PHENOTYPES = 'Phenotypes';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
@@ -52,6 +55,13 @@ const AnatomyPage = () => {
   const { data: expression } = useQuery({
     queryKey: ['anatomy-expression-sample'],
     queryFn: loadExpressionSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
+  const { data: phenotypes } = useQuery({
+    queryKey: ['anatomy-phenotype-sample'],
+    queryFn: loadPhenotypeSample,
     staleTime: Infinity,
     retry: false,
   });
@@ -118,7 +128,7 @@ const AnatomyPage = () => {
           ...(stages ? [{ name: STAGES }] : []),
           ...(relations ? [{ name: RELATIONS }] : []),
           { name: UBERON_MAPPING },
-          ...(ontology.crossSpecies ? [] : [{ name: EXPRESSION }]),
+          ...(ontology.crossSpecies ? [] : [{ name: EXPRESSION }, { name: PHENOTYPES }]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
       >
@@ -197,6 +207,38 @@ const AnatomyPage = () => {
                       View expression for this term at {ontology.mod}
                     </ExternalLink>
                     .
+                  </>
+                )}
+              </NoData>
+            )}
+          </Subsection>
+        )}
+
+        {/* Beside expression for the same reason and with the same limit, but
+            a member's phenotype data reaches an anatomy term by one of two
+            routes and the section has to say which. ZFIN and FlyBase curate
+            against an anatomy term, so the annotation names the structure.
+            WormBase and Xenbase annotate to a phenotype-ontology term, and the
+            structure is only in that term's logical definition — a claim by
+            the ontology rather than by the curator who scored the animal.
+            MGI, RGD, SGD and HUMAN reach no member anatomy ontology at all;
+            bin/build_anatomy_phenotype_sample.js records why for each. */}
+        {!ontology.crossSpecies && (
+          <Subsection title={PHENOTYPES}>
+            {phenotypes?.terms?.[term.curie] ? (
+              <AnatomyPhenotypes
+                term={term}
+                sample={phenotypes.terms[term.curie]}
+                sources={phenotypes.sources}
+                genesPerTerm={phenotypes.genesPerTerm}
+              />
+            ) : (
+              <NoData>
+                Phenotype annotations cannot yet be searched by anatomy term at the Alliance.
+                {ontology.mod && (
+                  <>
+                    {' '}
+                    <ExternalLink href={ontology.termUrl(term.curie)}>View this term at {ontology.mod}</ExternalLink>.
                   </>
                 )}
               </NoData>
