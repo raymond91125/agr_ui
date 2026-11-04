@@ -4,6 +4,7 @@ import { Readable } from 'stream';
 
 import streamJsonObjects from './streamJsonObjects.js';
 import parsePhenotypeEntities from './parsePhenotypeEntities.js';
+import writeJson from './writeJson.js';
 
 // Real phenotype annotations for a handful of anatomy terms, so the section
 // can be designed against what the data actually looks like.
@@ -313,5 +314,5 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
   }
 }
 
-fs.writeFileSync(DESTINATION, `${JSON.stringify({ genesPerTerm: GENES_PER_TERM, sources, terms }, null, 0)}\n`);
+await writeJson(DESTINATION, { genesPerTerm: GENES_PER_TERM, sources, terms });
 console.log(`\n${DESTINATION}: ${Object.keys(terms).length} terms, ${fs.statSync(DESTINATION).size} bytes`);
