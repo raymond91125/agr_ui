@@ -1,0 +1,1738 @@
+{
+  "genesPerTerm": 25,
+  "sources": {
+    "WB": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_WB.json.gz",
+      "release": "8.3.0",
+      "uploaded": "2025-11-13",
+      "species": "Caenorhabditis elegans",
+      "via": "C. elegans Phenotype Ontology",
+      "viaVersion": "http://purl.obolibrary.org/obo/wbphenotype/releases/2026-04-15/wbphenotype-base.owl"
+    },
+    "FB": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_FB.json.gz",
+      "release": "9.0.0",
+      "uploaded": "2026-03-05",
+      "species": "Drosophila melanogaster"
+    },
+    "ZFIN": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_ZFIN.json.gz",
+      "release": "9.2.0",
+      "uploaded": "2026-09-23",
+      "species": "Danio rerio"
+    },
+    "XBXL": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_XBXL.json.gz",
+      "release": "8.2.0",
+      "uploaded": "2025-04-02",
+      "species": "Xenopus laevis",
+      "via": "Xenopus Phenotype Ontology",
+      "viaVersion": "http://purl.obolibrary.org/obo/xpo/releases/2025-07-25/xpo-base.owl"
+    },
+    "XBXT": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_XBXT.json.gz",
+      "release": "8.2.0",
+      "uploaded": "2025-04-02",
+      "species": "Xenopus tropicalis",
+      "via": "Xenopus Phenotype Ontology",
+      "viaVersion": "http://purl.obolibrary.org/obo/xpo/releases/2025-07-25/xpo-base.owl"
+    }
+  },
+  "terms": {
+    "WBbt:0005772": {
+      "sources": ["WB"],
+      "route": "definition",
+      "via": "C. elegans Phenotype Ontology",
+      "totalGenes": 27,
+      "totalAnnotations": 108,
+      "unattributed": 0,
+      "genes": [
+        {
+          "curie": "WB:WBGene00003395",
+          "symbol": "mom-2",
+          "annotations": 16,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003394",
+          "symbol": "mom-1",
+          "annotations": 12,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003396",
+          "symbol": "mom-4",
+          "annotations": 8,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00004804",
+          "symbol": "skn-1",
+          "annotations": 8,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003228",
+          "symbol": "mex-1",
+          "annotations": 6,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003916",
+          "symbol": "par-1",
+          "annotations": 6,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003920",
+          "symbol": "par-5",
+          "annotations": 6,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00014228",
+          "symbol": "mett-10",
+          "annotations": 4,
+          "phenotypes": ["swollen intestinal lumen"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003397",
+          "symbol": "mom-5",
+          "annotations": 4,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003919",
+          "symbol": "par-4",
+          "annotations": 4,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00000275",
+          "symbol": "bub-1",
+          "annotations": 2,
+          "phenotypes": ["intestinal morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00022492",
+          "symbol": "dss-1",
+          "annotations": 2,
+          "phenotypes": ["swollen intestinal lumen"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00001250",
+          "symbol": "elt-2",
+          "annotations": 2,
+          "phenotypes": ["gut obstructed"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00015981",
+          "symbol": "elt-7",
+          "annotations": 2,
+          "phenotypes": ["gut obstructed"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00004101",
+          "symbol": "hgrs-1",
+          "annotations": 2,
+          "phenotypes": ["swollen intestinal lumen"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003048",
+          "symbol": "lit-1",
+          "annotations": 2,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003246",
+          "symbol": "mig-14",
+          "annotations": 2,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003917",
+          "symbol": "par-2",
+          "annotations": 2,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003941",
+          "symbol": "pbo-1",
+          "annotations": 2,
+          "phenotypes": ["intestinal morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00008431",
+          "symbol": "piga-1",
+          "annotations": 2,
+          "phenotypes": ["intestinal morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00004078",
+          "symbol": "pos-1",
+          "annotations": 2,
+          "phenotypes": ["no Intestine"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00004206",
+          "symbol": "pst-1",
+          "annotations": 2,
+          "phenotypes": ["intestinal fluorescence increased"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00018788",
+          "symbol": "shc-1",
+          "annotations": 2,
+          "phenotypes": ["intestinal fluorescence increased"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00044068",
+          "symbol": "syd-9",
+          "annotations": 2,
+          "phenotypes": ["swollen intestinal lumen"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00013034",
+          "symbol": "tat-1",
+          "annotations": 2,
+          "phenotypes": ["intestinal morphology variant"],
+          "species": "Caenorhabditis elegans"
+        }
+      ]
+    },
+    "WBbt:0006748": {
+      "sources": ["WB"],
+      "route": "definition",
+      "via": "C. elegans Phenotype Ontology",
+      "totalGenes": 132,
+      "totalAnnotations": 926,
+      "unattributed": 17,
+      "genes": [
+        {
+          "curie": "WB:WBGene00003001",
+          "symbol": "lin-12",
+          "annotations": 80,
+          "phenotypes": ["everted vulva", "multivulva", "protruding vulva"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002335",
+          "symbol": "let-60",
+          "annotations": 59,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002990",
+          "symbol": "lin-1",
+          "annotations": 46,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003017",
+          "symbol": "lin-31",
+          "annotations": 38,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002299",
+          "symbol": "let-23",
+          "annotations": 34,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002996",
+          "symbol": "lin-7",
+          "annotations": 32,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002991",
+          "symbol": "lin-2",
+          "annotations": 30,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003006",
+          "symbol": "lin-17",
+          "annotations": 18,
+          "phenotypes": ["multivulva", "protruding vulva", "vulva morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003015",
+          "symbol": "lin-29",
+          "annotations": 18,
+          "phenotypes": ["protruding vulva", "vulva morphology variant", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00001182",
+          "symbol": "egl-13",
+          "annotations": 16,
+          "phenotypes": ["protruding vulva", "vulva morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003025",
+          "symbol": "lin-40",
+          "annotations": 16,
+          "phenotypes": ["protruding vulva"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00005154",
+          "symbol": "srf-4",
+          "annotations": 16,
+          "phenotypes": ["multivulva", "protruding vulva"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002639",
+          "symbol": "let-420",
+          "annotations": 14,
+          "phenotypes": ["protruding vulva"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003019",
+          "symbol": "lin-33",
+          "annotations": 14,
+          "phenotypes": ["vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00000238",
+          "symbol": "bar-1",
+          "annotations": 13,
+          "phenotypes": ["multivulva", "protruding vulva", "vulva morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00000275",
+          "symbol": "bub-1",
+          "annotations": 12,
+          "phenotypes": ["protruding vulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003010",
+          "symbol": "lin-24",
+          "annotations": 12,
+          "phenotypes": ["vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003011",
+          "symbol": "lin-25",
+          "annotations": 12,
+          "phenotypes": ["protruding vulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002992",
+          "symbol": "lin-3",
+          "annotations": 11,
+          "phenotypes": ["multivulva", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00002999",
+          "symbol": "lin-10",
+          "annotations": 10,
+          "phenotypes": ["vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 10,
+          "phenotypes": ["protruding vulva", "vulva morphology variant", "vulvaless"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003007",
+          "symbol": "lin-18",
+          "annotations": 10,
+          "phenotypes": ["multivulva", "protruding vulva", "vulva morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00014228",
+          "symbol": "mett-10",
+          "annotations": 10,
+          "phenotypes": ["protruding vulva"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003394",
+          "symbol": "mom-1",
+          "annotations": 10,
+          "phenotypes": ["protruding vulva"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
+          "curie": "WB:WBGene00003891",
+          "symbol": "osm-11",
+          "annotations": 10,
+          "phenotypes": ["multivulva", "protruding vulva", "vulva morphology variant"],
+          "species": "Caenorhabditis elegans"
+        }
+      ]
+    },
+    "FBbt:00004729": {
+      "sources": ["FB"],
+      "route": "direct",
+      "totalGenes": 1012,
+      "totalAnnotations": 6158,
+      "unattributed": 89,
+      "genes": [
+        {
+          "curie": "FB:FBgn0004034",
+          "symbol": "y",
+          "annotations": 238,
+          "phenotypes": ["wing"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003975",
+          "symbol": "vg",
+          "annotations": 223,
+          "phenotypes": ["wing", "wing | cold sensitive", "wing | conditional"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004647",
+          "symbol": "N",
+          "annotations": 206,
+          "phenotypes": ["wing", "wing | adult stage", "wing | cold sensitive"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003189",
+          "symbol": "r",
+          "annotations": 184,
+          "phenotypes": ["wing", "wing | rescuable maternal effect"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003345",
+          "symbol": "sd",
+          "annotations": 125,
+          "phenotypes": ["wing", "wing | P-stage", "wing | anterior"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003944",
+          "symbol": "Ubx",
+          "annotations": 87,
+          "phenotypes": ["wing", "wing | ectopic", "wing | ectopic | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0000463",
+          "symbol": "Delta",
+          "annotations": 85,
+          "phenotypes": ["wing", "wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004198",
+          "symbol": "ct",
+          "annotations": 84,
+          "phenotypes": ["wing", "wing | precursor"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0265598",
+          "symbol": "Bx",
+          "annotations": 76,
+          "phenotypes": ["wing", "wing | dorsal | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0284084",
+          "symbol": "wg",
+          "annotations": 75,
+          "phenotypes": ["wing", "wing | conditional", "wing | ectopic | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0267978",
+          "symbol": "ap",
+          "annotations": 70,
+          "phenotypes": ["wing", "wing | absent", "wing | heat sensitive"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0000490",
+          "symbol": "dpp",
+          "annotations": 61,
+          "phenotypes": ["wing", "wing | distal", "wing | ectopic"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003090",
+          "symbol": "pk",
+          "annotations": 55,
+          "phenotypes": [
+            "wing",
+            "wing | cell autonomous | somatic clone",
+            "wing | cell non-autonomous | somatic clone"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0001184",
+          "symbol": "hdp-b",
+          "annotations": 52,
+          "phenotypes": ["wing"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0029891",
+          "symbol": "Pink1",
+          "annotations": 52,
+          "phenotypes": ["wing", "wing | adult stage", "wing | progressive"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004197",
+          "symbol": "Ser",
+          "annotations": 48,
+          "phenotypes": ["wing", "wing | anterior", "wing | cold sensitive"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0260442",
+          "symbol": "rhea",
+          "annotations": 47,
+          "phenotypes": ["wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004101",
+          "symbol": "bs",
+          "annotations": 43,
+          "phenotypes": ["wing", "wing | P-stage", "wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0284247",
+          "symbol": "ds",
+          "annotations": 43,
+          "phenotypes": ["wing", "wing | posterior", "wing | proximal"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004657",
+          "symbol": "mys",
+          "annotations": 42,
+          "phenotypes": ["wing", "wing | heat sensitive", "wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0001085",
+          "symbol": "fz",
+          "annotations": 38,
+          "phenotypes": ["wing", "wing | P-stage", "wing | cell non-autonomous | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004644",
+          "symbol": "hh",
+          "annotations": 38,
+          "phenotypes": ["wing", "wing | anterior", "wing | anterior | distal"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0001250",
+          "symbol": "if",
+          "annotations": 36,
+          "phenotypes": ["wing", "wing | cold sensitive", "wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0053196",
+          "symbol": "dpy",
+          "annotations": 35,
+          "phenotypes": ["wing", "wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003042",
+          "symbol": "Pc",
+          "annotations": 33,
+          "phenotypes": ["wing", "wing | female", "wing | somatic clone"],
+          "species": "Drosophila melanogaster"
+        }
+      ]
+    },
+    "FBbt:00001882": {
+      "sources": ["FB"],
+      "route": "direct",
+      "totalGenes": 82,
+      "totalAnnotations": 265,
+      "unattributed": 3,
+      "genes": [
+        {
+          "curie": "FB:FBgn0001250",
+          "symbol": "if",
+          "annotations": 17,
+          "phenotypes": ["embryonic/larval midgut", "embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0011656",
+          "symbol": "Mef2",
+          "annotations": 13,
+          "phenotypes": ["embryonic/larval midgut", "embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0000490",
+          "symbol": "dpp",
+          "annotations": 11,
+          "phenotypes": [
+            "embryonic/larval midgut",
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | larval stage"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003507",
+          "symbol": "srp",
+          "annotations": 9,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0261434",
+          "symbol": "hkb",
+          "annotations": 8,
+          "phenotypes": [
+            "embryonic/larval midgut | anterior | embryonic stage",
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | embryonic stage | posterior"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004456",
+          "symbol": "mew",
+          "annotations": 7,
+          "phenotypes": ["embryonic/larval midgut", "embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0004657",
+          "symbol": "mys",
+          "annotations": 6,
+          "phenotypes": [
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | embryonic stage | germline clone"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0033050",
+          "symbol": "Pngl",
+          "annotations": 6,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage 16", "embryonic/larval midgut | larval stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0002522",
+          "symbol": "lab",
+          "annotations": 5,
+          "phenotypes": [
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | temperature conditional"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0002526",
+          "symbol": "LanA",
+          "annotations": 5,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0266369",
+          "symbol": "Mtp",
+          "annotations": 5,
+          "phenotypes": ["embryonic/larval midgut", "embryonic/larval midgut | first instar larval stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0250788",
+          "symbol": "β-Spec",
+          "annotations": 5,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0000546",
+          "symbol": "EcR",
+          "annotations": 4,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage", "embryonic/larval midgut | heat sensitive"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0025635",
+          "symbol": "Hinfp",
+          "annotations": 4,
+          "phenotypes": ["embryonic/larval midgut | larval stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0288966",
+          "symbol": "Med",
+          "annotations": 4,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0086442",
+          "symbol": "mib2",
+          "annotations": 4,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage", "embryonic/larval midgut | germline clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0262656",
+          "symbol": "Myc",
+          "annotations": 4,
+          "phenotypes": ["embryonic/larval midgut"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0261617",
+          "symbol": "nej",
+          "annotations": 4,
+          "phenotypes": [
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | embryonic stage | germline clone"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003254",
+          "symbol": "rib",
+          "annotations": 4,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0003317",
+          "symbol": "sax",
+          "annotations": 4,
+          "phenotypes": [
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | embryonic stage | maternal effect"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0284084",
+          "symbol": "wg",
+          "annotations": 4,
+          "phenotypes": [
+            "embryonic/larval midgut | embryonic stage",
+            "embryonic/larval midgut | embryonic stage | heat sensitive"
+          ],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0000200",
+          "symbol": "bly",
+          "annotations": 3,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0001991",
+          "symbol": "Ca-α1D",
+          "annotations": 3,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0000300",
+          "symbol": "cgd",
+          "annotations": 3,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        },
+        {
+          "curie": "FB:FBgn0267821",
+          "symbol": "da",
+          "annotations": 3,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage"],
+          "species": "Drosophila melanogaster"
+        }
+      ]
+    },
+    "ZFA:0000135": {
+      "sources": ["ZFIN"],
+      "route": "direct",
+      "totalGenes": 426,
+      "totalAnnotations": 4450,
+      "unattributed": 1940,
+      "genes": [
+        {
+          "curie": "ZFIN:ZDB-GENE-060118-1",
+          "symbol": "lama1",
+          "annotations": 199,
+          "phenotypes": [
+            "notochord anterior region undifferentiated, abnormal",
+            "notochord cell structure, abnormal",
+            "notochord morphology, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-021226-3",
+          "symbol": "lamc1",
+          "annotations": 168,
+          "phenotypes": [
+            "notochord apoptotic, abnormal",
+            "notochord basement membrane disorganized, abnormal",
+            "notochord cell structure, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-021226-1",
+          "symbol": "lamb1a",
+          "annotations": 115,
+          "phenotypes": [
+            "notochord apoptotic, abnormal",
+            "notochord basement membrane disorganized, abnormal",
+            "notochord cell structure, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-020905-2",
+          "symbol": "copa",
+          "annotations": 62,
+          "phenotypes": [
+            "notochord Golgi apparatus structure, abnormal",
+            "notochord apoptotic, abnormal",
+            "notochord basement membrane absent, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-010724-7",
+          "symbol": "copb2",
+          "annotations": 58,
+          "phenotypes": [
+            "notochord Golgi apparatus ab1-golga2 labeling spatial pattern, abnormal",
+            "notochord Golgi apparatus structure, abnormal",
+            "notochord ab1-col2a labeling spatial pattern, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040801-106",
+          "symbol": "glrbb",
+          "annotations": 54,
+          "phenotypes": [
+            "notochord degenerate, abnormal",
+            "notochord morphology, abnormal",
+            "notochord quality, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-030219-38",
+          "symbol": "copb1",
+          "annotations": 53,
+          "phenotypes": [
+            "notochord Golgi apparatus structure, abnormal",
+            "notochord apoptotic, abnormal",
+            "notochord basement membrane absent, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-020905-1",
+          "symbol": "atp2a1",
+          "annotations": 51,
+          "phenotypes": [
+            "notochord condensed, abnormal",
+            "notochord damaged, abnormal",
+            "notochord damaged, ameliorated"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-980526-437",
+          "symbol": "tbxta",
+          "annotations": 51,
+          "phenotypes": [
+            "notochord <i>col9a2</i> expression absent, abnormal",
+            "notochord <i>col9a2</i> expression decreased amount, abnormal",
+            "notochord absent, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-020507-3",
+          "symbol": "vangl2",
+          "annotations": 44,
+          "phenotypes": [
+            "notochord anatomical margin straight, abnormal",
+            "notochord apoptotic process increased process quality, abnormal",
+            "notochord cell orientation notochord, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-980526-87",
+          "symbol": "wnt5b",
+          "annotations": 37,
+          "phenotypes": [
+            "notochord decreased length, abnormal",
+            "notochord increased width, abnormal",
+            "notochord quality, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-021031-4",
+          "symbol": "plod3",
+          "annotations": 35,
+          "phenotypes": [
+            "notochord cell spherical, abnormal",
+            "notochord decreased length, abnormal",
+            "notochord degenerate, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-22",
+          "symbol": "dharma",
+          "annotations": 32,
+          "phenotypes": ["notochord absent, abnormal", "notochord aplastic, abnormal", "notochord broken, abnormal"],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040826-2",
+          "symbol": "dstyk",
+          "annotations": 32,
+          "phenotypes": [
+            "notochord <i>cmn</i> expression decreased amount, abnormal",
+            "notochord <i>col11a2</i> expression decreased amount, abnormal",
+            "notochord <i>col8a1a</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-080722-29",
+          "symbol": "ngs",
+          "annotations": 32,
+          "phenotypes": [
+            "notochord anatomical space mislocalised, abnormal",
+            "notochord cell decreased size, abnormal",
+            "notochord cell proliferative, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-75",
+          "symbol": "noto",
+          "annotations": 32,
+          "phenotypes": [
+            "notochord absent, abnormal",
+            "notochord aplastic, abnormal",
+            "notochord aplastic/hypoplastic, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-980526-68",
+          "symbol": "stat3",
+          "annotations": 31,
+          "phenotypes": [
+            "notochord cell decreased length, abnormal",
+            "notochord cell increased area, abnormal",
+            "notochord cell increased width, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-070912-274",
+          "symbol": "col8a1a",
+          "annotations": 27,
+          "phenotypes": ["notochord bent, abnormal", "notochord deformed, abnormal", "notochord kinked, abnormal"],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-000616-15",
+          "symbol": "foxh1",
+          "annotations": 27,
+          "phenotypes": [
+            "notochord <i>col2a1a</i> expression decreased amount, abnormal",
+            "notochord aplastic, abnormal",
+            "notochord bent, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-070117-2291",
+          "symbol": "qam",
+          "annotations": 26,
+          "phenotypes": ["notochord undulate, abnormal"],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990603-12",
+          "symbol": "wnt11f2",
+          "annotations": 24,
+          "phenotypes": [
+            "notochord decreased length, abnormal",
+            "notochord increased thickness, abnormal",
+            "notochord increased width, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-070117-2023",
+          "symbol": "doc",
+          "annotations": 22,
+          "phenotypes": [
+            "notochord cell decreased size, abnormal",
+            "notochord cell poorly differentiated, abnormal",
+            "notochord cell structure, cavities, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-256",
+          "symbol": "ndr1",
+          "annotations": 21,
+          "phenotypes": [
+            "notochord <i>col2a1a</i> expression decreased amount, abnormal",
+            "notochord aplastic/hypoplastic, abnormal",
+            "notochord malformed, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-020419-29",
+          "symbol": "scarb2a",
+          "annotations": 20,
+          "phenotypes": [
+            "notochord basement membrane increased thickness, abnormal",
+            "notochord basement membrane malformed, abnormal",
+            "notochord basement membrane vacuolated, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-030131-5509",
+          "symbol": "cavin1b",
+          "annotations": 17,
+          "phenotypes": [
+            "notochord caveola decreased amount, abnormal",
+            "notochord cell increased distance notochord cell, abnormal",
+            "notochord damage, ameliorated"
+          ],
+          "species": "Danio rerio"
+        }
+      ]
+    },
+    "ZFA:0000123": {
+      "sources": ["ZFIN"],
+      "route": "direct",
+      "totalGenes": 616,
+      "totalAnnotations": 10225,
+      "unattributed": 5996,
+      "genes": [
+        {
+          "curie": "ZFIN:ZDB-GENE-020503-4",
+          "symbol": "insrb",
+          "annotations": 102,
+          "phenotypes": [
+            "liver <i>acaca</i> expression increased amount, abnormal",
+            "liver <i>acsl1b</i> expression increased amount, abnormal",
+            "liver <i>aldoaa</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040426-1666",
+          "symbol": "becn1",
+          "annotations": 93,
+          "phenotypes": [
+            "liver Ab3-ddit3 labeling increased amount, abnormal",
+            "liver Ab8-hspa5 labeling increased amount, abnormal",
+            "liver ab1-eif2a labeling increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-020503-3",
+          "symbol": "insra",
+          "annotations": 84,
+          "phenotypes": [
+            "liver <i>acaca</i> expression decreased amount, abnormal",
+            "liver <i>acsl1b</i> expression increased amount, abnormal",
+            "liver <i>aldoaa</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040426-2737",
+          "symbol": "lipf",
+          "annotations": 77,
+          "phenotypes": [
+            "liver <i>abhd5a</i> expression amount, ameliorated",
+            "liver <i>abhd5a</i> expression increased amount, abnormal",
+            "liver <i>atf6</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-030131-1723",
+          "symbol": "trappc11",
+          "annotations": 65,
+          "phenotypes": [
+            "liver <i>alg2</i> expression increased amount, abnormal",
+            "liver <i>alg5</i> expression increased amount, abnormal",
+            "liver <i>alg9</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-010607-2",
+          "symbol": "igf1",
+          "annotations": 58,
+          "phenotypes": [
+            "female organism liver <i>igf1</i> expression decreased amount, abnormal",
+            "female organism liver <i>igf1rb</i> expression decreased amount, abnormal",
+            "female organism liver <i>igf2a</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040801-205",
+          "symbol": "socs1a",
+          "annotations": 58,
+          "phenotypes": [
+            "female organism has extra parts of type liver lipid droplet, abnormal",
+            "liver <i>apoa4a</i> expression increased amount, abnormal",
+            "liver <i>foxo1a</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-213",
+          "symbol": "pparg",
+          "annotations": 56,
+          "phenotypes": [
+            "female organism liver <i>pparg</i> expression decreased amount, abnormal",
+            "female organism liver Ab4-pparg labeling decreased amount, abnormal",
+            "female organism liver composition, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-060824-6",
+          "symbol": "wnt2bb",
+          "annotations": 55,
+          "phenotypes": ["liver absent, abnormal", "liver aplastic, abnormal", "liver decreased size, abnormal"],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-030114-7",
+          "symbol": "lars1b",
+          "annotations": 54,
+          "phenotypes": [
+            "liver <i>cp</i> expression decreased amount, abnormal",
+            "liver <i>fabp10a</i> expression amount, ameliorated",
+            "liver <i>fabp10a</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-120913-3",
+          "symbol": "pnpla2",
+          "annotations": 48,
+          "phenotypes": [
+            "liver <i>abhd5a</i> expression increased amount, abnormal",
+            "liver <i>atg12</i> expression amount, ameliorated",
+            "liver <i>atg12</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-110114-1",
+          "symbol": "cyp2r1",
+          "annotations": 46,
+          "phenotypes": [
+            "liver <i>cyp24a1</i> expression decreased amount, abnormal",
+            "liver <i>cyp27a1.4</i> expression increased amount, abnormal",
+            "liver <i>cyp27b1</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-79",
+          "symbol": "nr5a2",
+          "annotations": 43,
+          "phenotypes": [
+            "liver <i>ccnd1</i> expression decreased amount, abnormal",
+            "liver <i>ccne2</i> expression decreased amount, abnormal",
+            "liver <i>fabp10a</i> expression decreased distribution, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-060421-5612",
+          "symbol": "elovl2",
+          "annotations": 40,
+          "phenotypes": [
+            "liver <i>elovl2</i> expression absent, abnormal",
+            "liver <i>elovl2</i> expression decreased amount, abnormal",
+            "liver <i>elovl4a</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040407-2",
+          "symbol": "elovl5",
+          "annotations": 40,
+          "phenotypes": [
+            "liver <i>elovl2</i> expression increased amount, abnormal",
+            "liver <i>elovl4b</i> expression amount, ameliorated",
+            "liver <i>elovl5</i> expression absent, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040901-2",
+          "symbol": "furinb",
+          "annotations": 39,
+          "phenotypes": [
+            "liver <i>ddit3</i> expression amount, ameliorated",
+            "liver <i>ddit3</i> expression decreased amount, abnormal",
+            "liver <i>dnajc3a</i> expression amount, ameliorated"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-070117-2515",
+          "symbol": "npas4l",
+          "annotations": 39,
+          "phenotypes": [
+            "liver <i>cyp51a1</i> expression increased amount, abnormal",
+            "liver <i>ebp</i> expression increased amount, abnormal",
+            "liver <i>fads2</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-090812-3",
+          "symbol": "srebf1",
+          "annotations": 37,
+          "phenotypes": [
+            "liver 1-acylglycerol 20:4 increased amount, abnormal",
+            "liver <i>acaca</i> expression decreased amount, abnormal",
+            "liver <i>acox1</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-030131-3161",
+          "symbol": "npc1",
+          "annotations": 36,
+          "phenotypes": [
+            "liver <i>npc1</i> expression absent, abnormal",
+            "liver Ab2-npc1 labeling absent, abnormal",
+            "liver Cer(d40:2) increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040426-2039",
+          "symbol": "uhrf1",
+          "annotations": 36,
+          "phenotypes": [
+            "liver <i>dennd5b</i> expression decreased amount, abnormal",
+            "liver <i>exoc4</i> expression decreased amount, abnormal",
+            "liver <i>hmgb3b</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040818-1",
+          "symbol": "stat5b",
+          "annotations": 34,
+          "phenotypes": [
+            "male organism liver <i>acp5b</i> expression increased amount, abnormal",
+            "male organism liver <i>blnk</i> expression decreased amount, abnormal",
+            "male organism liver <i>bmp2a</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040702-7",
+          "symbol": "cnr2",
+          "annotations": 33,
+          "phenotypes": [
+            "bile accumulation liver, abnormal",
+            "liver <i>fabp10a</i> expression decreased distribution, abnormal",
+            "liver S-adenosyl-L-homocysteine decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-041010-9",
+          "symbol": "cpt1b",
+          "annotations": 32,
+          "phenotypes": [
+            "liver <i>acox3</i> expression increased amount, abnormal",
+            "liver <i>cpt1b</i> expression absent, abnormal",
+            "liver <i>dgat2</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-070530-2",
+          "symbol": "pex2",
+          "annotations": 32,
+          "phenotypes": [
+            "liver fatty, abnormal",
+            "liver lipid droplet increased amount, abnormal",
+            "liver opaque, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-211",
+          "symbol": "pparab",
+          "annotations": 32,
+          "phenotypes": [
+            "liver <i>bcat1</i> expression decreased amount, abnormal",
+            "liver <i>cpt1aa</i> expression increased amount, abnormal",
+            "liver <i>cpt1b</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        }
+      ]
+    },
+    "XAO:0000179": {
+      "sources": ["XBXL", "XBXT"],
+      "route": "definition",
+      "via": "Xenopus Phenotype Ontology",
+      "totalGenes": 161,
+      "totalAnnotations": 547,
+      "unattributed": 0,
+      "genes": [
+        {
+          "curie": "Xenbase:XB-GENE-981796",
+          "symbol": "atp6v0c.L",
+          "annotations": 22,
+          "phenotypes": ["abnormal eye morphology", "abnormally localised eye", "absent eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17342706",
+          "symbol": "atp6v0c.S",
+          "annotations": 22,
+          "phenotypes": ["abnormal eye morphology", "abnormally localised eye", "absent eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6487557",
+          "symbol": "sipa1l3.L",
+          "annotations": 20,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17334934",
+          "symbol": "sipa1l3.S",
+          "annotations": 20,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-485220",
+          "symbol": "otx2",
+          "annotations": 15,
+          "phenotypes": ["abnormal eye morphology", "absent eye", "decreased size of the eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-1018165",
+          "symbol": "rb1",
+          "annotations": 15,
+          "phenotypes": ["increased size of the eye", "neoplastic eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-976494",
+          "symbol": "rbl1",
+          "annotations": 15,
+          "phenotypes": ["increased size of the eye", "neoplastic eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-486771",
+          "symbol": "gsc",
+          "annotations": 14,
+          "phenotypes": ["abnormal eye morphology", "absent eye", "decreased size of the eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-478452",
+          "symbol": "crx",
+          "annotations": 13,
+          "phenotypes": ["abnormal eye morphology", "absent eye", "decreased size of the eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-1015806",
+          "symbol": "epha4.L",
+          "annotations": 12,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6253098",
+          "symbol": "epha4.S",
+          "annotations": 12,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6486140",
+          "symbol": "smchd1.L",
+          "annotations": 11,
+          "phenotypes": ["abnormal eye", "absent eye", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17345811",
+          "symbol": "smchd1.S",
+          "annotations": 11,
+          "phenotypes": ["abnormal eye", "absent eye", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-482482",
+          "symbol": "lhx1",
+          "annotations": 10,
+          "phenotypes": ["abnormal eye morphology", "absent eye", "decreased size of the eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-854592",
+          "symbol": "hps6",
+          "annotations": 8,
+          "phenotypes": ["abnormal eye morphology", "absent eye", "decreased pigmentation in the eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-989234",
+          "symbol": "acbd6",
+          "annotations": 7,
+          "phenotypes": ["abnormal eye morphology", "absent eye"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17341753",
+          "symbol": "cd63.L",
+          "annotations": 6,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology", "absent eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6460380",
+          "symbol": "crim1.L",
+          "annotations": 6,
+          "phenotypes": ["absent eye", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17336799",
+          "symbol": "crim1.S",
+          "annotations": 6,
+          "phenotypes": ["absent eye", "decreased size of the eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-866599",
+          "symbol": "cyp26a1.L",
+          "annotations": 6,
+          "phenotypes": ["abnormal development of eye", "absent eye"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-866134",
+          "symbol": "dsp.L",
+          "annotations": 6,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17346609",
+          "symbol": "dsp.S",
+          "annotations": 6,
+          "phenotypes": ["abnormal development of eye", "abnormal eye morphology"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17339907",
+          "symbol": "nog4.L",
+          "annotations": 6,
+          "phenotypes": [
+            "abnormal eye morphology",
+            "abnormally medially mislocalised eye",
+            "decreased size of the eye"
+          ],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-865198",
+          "symbol": "nog4.S",
+          "annotations": 6,
+          "phenotypes": [
+            "abnormal eye morphology",
+            "abnormally medially mislocalised eye",
+            "decreased size of the eye"
+          ],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-988578",
+          "symbol": "tyr",
+          "annotations": 6,
+          "phenotypes": ["absent eye", "decreased pigmentation in the eye", "decreased size of the eye"],
+          "species": "Xenopus tropicalis"
+        }
+      ]
+    },
+    "XAO:0003026": {
+      "sources": ["XBXL", "XBXT"],
+      "route": "definition",
+      "via": "Xenopus Phenotype Ontology",
+      "totalGenes": 229,
+      "totalAnnotations": 458,
+      "unattributed": 0,
+      "genes": [
+        {
+          "curie": "Xenbase:XB-GENE-17339424",
+          "symbol": "cdx1.L",
+          "annotations": 7,
+          "phenotypes": ["abnormal bending of tail", "abnormal tail morphology", "decreased length of tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-864834",
+          "symbol": "cdx1.S",
+          "annotations": 7,
+          "phenotypes": ["abnormal bending of tail", "abnormal tail morphology", "decreased length of tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-481750",
+          "symbol": "angptl4",
+          "annotations": 6,
+          "phenotypes": ["abnormal bending of tail", "decreased length of tail", "decreased size of the tail"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-478699",
+          "symbol": "fgfr4",
+          "annotations": 6,
+          "phenotypes": ["abnormal bending of tail", "abnormal tail morphology", "decreased length of tail"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6255400",
+          "symbol": "mab21l3.S",
+          "annotations": 5,
+          "phenotypes": ["abnormally localised tail", "decreased size of the tail", "duplicated tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-864865",
+          "symbol": "sia1.L",
+          "annotations": 5,
+          "phenotypes": ["abnormal tail morphology", "abnormally ventrally curved tail", "decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17334202",
+          "symbol": "smurf2.L",
+          "annotations": 5,
+          "phenotypes": ["decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-865123",
+          "symbol": "smurf2.S",
+          "annotations": 5,
+          "phenotypes": ["decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17331736",
+          "symbol": "Xenbase:XB-GENE-17331736",
+          "annotations": 5,
+          "phenotypes": ["abnormally localised tail", "decreased size of the tail", "duplicated tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17331825",
+          "symbol": "Xenbase:XB-GENE-17331825",
+          "annotations": 5,
+          "phenotypes": ["abnormal tail morphology", "abnormally ventrally curved tail", "decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6256019",
+          "symbol": "abl2.L",
+          "annotations": 4,
+          "phenotypes": ["decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17343202",
+          "symbol": "abl2.S",
+          "annotations": 4,
+          "phenotypes": ["decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17340943",
+          "symbol": "ccdc88c.L",
+          "annotations": 4,
+          "phenotypes": ["abnormal bending of tail", "decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6487050",
+          "symbol": "ccdc88c.S",
+          "annotations": 4,
+          "phenotypes": ["abnormal bending of tail", "decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17332431",
+          "symbol": "chd1.L",
+          "annotations": 4,
+          "phenotypes": ["abnormal tail morphology", "increased apoptosis in tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-960482",
+          "symbol": "chd1.S",
+          "annotations": 4,
+          "phenotypes": ["abnormal tail morphology", "increased apoptosis in tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17337757",
+          "symbol": "dkk1.L",
+          "annotations": 4,
+          "phenotypes": ["abnormal tail", "absent tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-865473",
+          "symbol": "dkk1.S",
+          "annotations": 4,
+          "phenotypes": ["abnormal tail", "absent tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-866134",
+          "symbol": "dsp.L",
+          "annotations": 4,
+          "phenotypes": ["abnormal tail morphology"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-17346609",
+          "symbol": "dsp.S",
+          "annotations": 4,
+          "phenotypes": ["abnormal tail morphology"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-491829",
+          "symbol": "dynlt1",
+          "annotations": 4,
+          "phenotypes": ["abnormal bending of tail", "abnormal tail morphology", "decreased size of the tail"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-1018562",
+          "symbol": "fgfr1.L",
+          "annotations": 4,
+          "phenotypes": ["decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-6254218",
+          "symbol": "fgfr1.S",
+          "annotations": 4,
+          "phenotypes": ["decreased size of the tail"],
+          "species": "Xenopus laevis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-483731",
+          "symbol": "fzd7",
+          "annotations": 4,
+          "phenotypes": ["abnormal bending of tail", "abnormal tail morphology", "decreased length of tail"],
+          "species": "Xenopus tropicalis"
+        },
+        {
+          "curie": "Xenbase:XB-GENE-865531",
+          "symbol": "lef1.L",
+          "annotations": 4,
+          "phenotypes": ["abnormally ventrally curved tail", "decreased size of the tail"],
+          "species": "Xenopus laevis"
+        }
+      ]
+    }
+  }
+}
