@@ -4,6 +4,7 @@ import { Readable } from 'stream';
 
 import streamJsonObjects from './streamJsonObjects.js';
 import parsePhenotypeEntities from './parsePhenotypeEntities.js';
+import resolveAnnotationObjects from './resolveAnnotationObjects.js';
 import writeJson from './writeJson.js';
 
 // Real phenotype annotations for a handful of anatomy terms, so the section
@@ -175,6 +176,7 @@ async function phenotypeEntities(via, entityPrefix) {
 
 const phenotypes = await latestFiles('PHENOTYPE');
 const alleles = await latestFiles('ALLELE');
+const agms = await latestFiles('AGM');
 const bgi = await latestFiles('BGI');
 const terms = {};
 const sources = {};
@@ -198,7 +200,10 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
 
   const want = new Set(wanted);
   const perTerm = new Map(
-    wanted.map((curie) => [curie, { objects: new Map(), annotations: 0, unattributed: 0, statements: new Set() }])
+    wanted.map((curie) => [
+      curie,
+      { objects: new Map(), annotations: 0, unattributed: 0, shared: 0, statements: new Set() },
+    ])
   );
 
   for await (const row of records(file.url)) {
@@ -218,32 +223,38 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
     }
   }
 
-  // An annotation is made against whatever the member scores: a gene, an
-  // allele, a transgene, or — at ZFIN — a fish, which is a genotype plus the
-  // conditions it was raised in. Alleles resolve to their gene through the
-  // Alliance allele file. Fish and transgenes do not resolve through any
-  // published file, so they are counted and dropped rather than guessed at.
-  const unresolved = new Set([...perTerm.values()].flatMap((b) => [...b.objects.keys()]));
-  const geneOf = new Map();
-  for (const id of unresolved) {
-    if (member.isGene(id)) {
-      geneOf.set(id, id);
+  // An annotation is made against whatever the member scores, which is a gene
+  // only some of the time. bin/resolveAnnotationObjects.js walks the rest back
+  // to genes through the allele and AGM files.
+  const objectIds = new Set([...perTerm.values()].flatMap((b) => [...b.objects.keys()]));
+  const { genes, models, reagents } = await resolveAnnotationObjects(objectIds, {
+    isGene: member.isGene,
+    records,
+    alleleUrl: alleles[mod]?.url,
+    agmUrl: agms[mod]?.url,
+  });
+
+  // A model can carry alleles of several genes, so this returns a list where
+  // the first version of this file returned at most one gene. An annotation
+  // scored against such a fish is evidence about every gene it disrupts, and
+  // is counted under each; the term's own annotation total still counts it
+  // once, so the per-gene counts can sum past it. `shared` below is how often
+  // that happens, so the page can say so rather than let a reader add the
+  // column up and find it does not reconcile.
+  const genesOf = (id) => {
+    if (genes.has(id)) {
+      return [id];
     }
-  }
-  if (alleles[mod]) {
-    for await (const allele of records(alleles[mod].url)) {
-      if (!unresolved.has(allele.primaryId) || geneOf.has(allele.primaryId)) {
-        continue;
-      }
-      const gene = allele.alleleObjectRelations?.find((r) => r.objectRelation?.gene)?.objectRelation?.gene;
-      if (gene) {
-        geneOf.set(allele.primaryId, gene);
-      }
+    const model = models.get(id);
+    if (model) {
+      return [...new Set(model.alleles.map((allele) => reagents.get(allele)?.gene).filter(Boolean))];
     }
-  }
+    const gene = reagents.get(id)?.gene;
+    return gene ? [gene] : [];
+  };
 
   const symbols = new Map();
-  const needed = new Set(geneOf.values());
+  const needed = new Set([...objectIds].flatMap(genesOf));
   if (needed.size && bgi[mod]) {
     for await (const gene of records(bgi[mod].url)) {
       const id = gene.basicGeneticEntity?.primaryId;
@@ -264,17 +275,22 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
     // the counts add up as the objects collapse.
     const byGene = new Map();
     for (const [objectId, object] of bucket.objects) {
-      const gene = geneOf.get(objectId);
-      if (!gene) {
+      const implicated = genesOf(objectId);
+      if (!implicated.length) {
         bucket.unattributed += object.annotations;
         continue;
       }
-      const entry = byGene.get(gene) || { annotations: 0, statements: new Set() };
-      entry.annotations += object.annotations;
-      for (const statement of object.statements) {
-        entry.statements.add(statement);
+      if (implicated.length > 1) {
+        bucket.shared += object.annotations;
       }
-      byGene.set(gene, entry);
+      for (const gene of implicated) {
+        const entry = byGene.get(gene) || { annotations: 0, statements: new Set() };
+        entry.annotations += object.annotations;
+        for (const statement of object.statements) {
+          entry.statements.add(statement);
+        }
+        byGene.set(gene, entry);
+      }
     }
 
     const ranked = [...byGene]
@@ -296,12 +312,14 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
       totalGenes: 0,
       totalAnnotations: 0,
       unattributed: 0,
+      shared: 0,
       genes: [],
     };
     entry.sources.push(mod);
     entry.totalGenes += byGene.size;
     entry.totalAnnotations += bucket.annotations;
     entry.unattributed += bucket.unattributed;
+    entry.shared += bucket.shared;
     entry.genes = [...entry.genes, ...ranked.slice(0, GENES_PER_TERM).map((g) => ({ ...g, species: member.species }))]
       .sort((a, b) => b.annotations - a.annotations || a.symbol.localeCompare(b.symbol))
       .slice(0, GENES_PER_TERM);
@@ -309,7 +327,8 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
 
     console.log(
       `  ${curie.padEnd(16)} ${String(bucket.annotations).padStart(6)} annotations  ${String(byGene.size).padStart(5)} genes  ` +
-        `${String(bucket.statements.size).padStart(5)} statements  ${String(bucket.unattributed).padStart(5)} unattributed`
+        `${String(bucket.statements.size).padStart(5)} statements  ${String(bucket.unattributed).padStart(5)} unattributed  ` +
+        `${String(bucket.shared).padStart(5)} shared`
     );
   }
 }

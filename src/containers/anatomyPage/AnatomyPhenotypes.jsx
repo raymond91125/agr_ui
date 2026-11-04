@@ -5,25 +5,7 @@ import { Link } from 'react-router-dom';
 import SpeciesName from '../../components/SpeciesName.jsx';
 import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
-
-// ZFIN writes gene symbols inside a phenotype statement as `<i>acaca</i>`, so
-// a statement is not plain text. The repo renders member markup elsewhere with
-// dangerouslySetInnerHTML; this does not, because the same component will
-// render whatever /api/anatomy/{id} returns once that exists, and by then the
-// strings will not have been through review the way a committed fixture has.
-// Anything that is not the one tag ZFIN uses stays visible as text.
-const ITALIC = /<i>(.*?)<\/i>/g;
-
-const formatStatement = (statement) => {
-  const parts = [];
-  let index = 0;
-  for (const match of statement.matchAll(ITALIC)) {
-    parts.push(statement.slice(index, match.index), <i key={match.index}>{match[1]}</i>);
-    index = match.index + match[0].length;
-  }
-  parts.push(statement.slice(index));
-  return parts;
-};
+import MemberText from './MemberText.jsx';
 
 // Genes whose perturbation gives a phenotype in this structure.
 //
@@ -89,7 +71,7 @@ const AnatomyPhenotypes = ({ term, sample, sources, genesPerTerm }) => {
                 {gene.phenotypes.map((statement, index) => (
                   <React.Fragment key={statement}>
                     {index > 0 && '; '}
-                    {formatStatement(statement)}
+                    <MemberText>{statement}</MemberText>
                   </React.Fragment>
                 ))}
               </td>
@@ -100,8 +82,16 @@ const AnatomyPhenotypes = ({ term, sample, sources, genesPerTerm }) => {
 
       {sample.unattributed > 0 && (
         <p className="text-muted">
-          A further {sample.unattributed.toLocaleString()} annotations are recorded against a genotype or a transgene
-          rather than a gene, and no published Alliance file resolves those to the genes they carry.
+          A further {sample.unattributed.toLocaleString()} annotations reach no gene, being scored either against a
+          genotype that carries no allele of its own — a genetic background and a set of conditions — or against a
+          transgenic insertion the member records against no gene. The reagents themselves are under Reagents and Tools.
+        </p>
+      )}
+      {sample.shared > 0 && (
+        <p className="text-muted">
+          {sample.shared.toLocaleString()} of the {sample.totalAnnotations.toLocaleString()} were scored against a
+          genotype carrying alleles of more than one gene, and are counted under each of them, so the Annotations column
+          sums past that total.
         </p>
       )}
 
