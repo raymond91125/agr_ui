@@ -84,6 +84,9 @@ const AnatomyPage = () => {
   const { term, relations, stages } = data;
   const title = term.name || term.curie;
 
+  const expressionSample = expression?.terms?.[term.curie];
+  const phenotypeSample = phenotypes?.terms?.[term.curie];
+
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
   if (term.synonyms?.length) {
     keywords.push(...term.synonyms);
@@ -122,13 +125,33 @@ const AnatomyPage = () => {
   return (
     <DataPage>
       <HeadMetaTags jsonLd={jsonLd} title={title} />
+      {/* Counts on the three sections that answer "how much is here", and on
+          no others: Developmental Window and Relationships state what the
+          ontology says about the term, and a number beside either would
+          measure the vocabulary rather than the evidence.
+
+          A count has to be a number we can stand behind, so it is omitted
+          rather than zeroed whenever we do not know one. UBERON Mapping is the
+          only section that can honestly show a zero — the mapping table is
+          complete, so no row means no member maps this structure, which is the
+          answer for WBbt:0006748 and worth seeing before the click. Expression
+          and Phenotypes carry a count only for a term in the sample: the
+          Alliance holds annotations for every other term and simply cannot be
+          asked for them by anatomy term, and a grey `0` there would assert
+          that none exist. Undefined renders no badge, which also covers the
+          beat before the species fetch and the fixtures arrive. */}
       <PageNav
         sections={[
           { name: SUMMARY },
           ...(stages ? [{ name: STAGES }] : []),
           ...(relations ? [{ name: RELATIONS }] : []),
-          { name: UBERON_MAPPING },
-          ...(ontology.crossSpecies ? [] : [{ name: EXPRESSION }, { name: PHENOTYPES }]),
+          { name: UBERON_MAPPING, count: species?.rows?.length },
+          ...(ontology.crossSpecies
+            ? []
+            : [
+                { name: EXPRESSION, count: expressionSample?.totalGenes },
+                { name: PHENOTYPES, count: phenotypeSample?.totalGenes },
+              ]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
       >
@@ -190,10 +213,10 @@ const AnatomyPage = () => {
             particular. */}
         {!ontology.crossSpecies && (
           <Subsection title={EXPRESSION}>
-            {expression?.terms?.[term.curie] ? (
+            {expressionSample ? (
               <AnatomyExpression
                 term={term}
-                sample={expression.terms[term.curie]}
+                sample={expressionSample}
                 sources={expression.sources}
                 genesPerTerm={expression.genesPerTerm}
               />
@@ -225,10 +248,10 @@ const AnatomyPage = () => {
             bin/build_anatomy_phenotype_sample.js records why for each. */}
         {!ontology.crossSpecies && (
           <Subsection title={PHENOTYPES}>
-            {phenotypes?.terms?.[term.curie] ? (
+            {phenotypeSample ? (
               <AnatomyPhenotypes
                 term={term}
-                sample={phenotypes.terms[term.curie]}
+                sample={phenotypeSample}
                 sources={phenotypes.sources}
                 genesPerTerm={phenotypes.genesPerTerm}
               />
