@@ -18,8 +18,10 @@ import AnatomyBasicInfo from './AnatomyBasicInfo.jsx';
 import AnatomySpeciesTable from './AnatomySpeciesTable.jsx';
 import AnatomyStageRange from './AnatomyStageRange.jsx';
 import AnatomyRelations from './AnatomyRelations.jsx';
+import AnatomyExpression from './AnatomyExpression.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
+import loadExpressionSample from './expressionSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
@@ -44,6 +46,16 @@ const AnatomyPage = () => {
   // before it can tell whether it has to consult the inverted table at all.
   // It is also the only part of the page that fans out to one request per
   // mapped species.
+  // A fixture, so it is fetched once per session and shared by every anatomy
+  // page. Most terms are not in it; see expressionSample.js for why there is a
+  // fixture at all.
+  const { data: expression } = useQuery({
+    queryKey: ['anatomy-expression-sample'],
+    queryFn: loadExpressionSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -168,18 +180,27 @@ const AnatomyPage = () => {
             particular. */}
         {!ontology.crossSpecies && (
           <Subsection title={EXPRESSION}>
-            <NoData>
-              Expression annotations cannot yet be searched by anatomy term at the Alliance.
-              {ontology.mod && (
-                <>
-                  {' '}
-                  <ExternalLink href={ontology.termUrl(term.curie)}>
-                    View expression for this term at {ontology.mod}
-                  </ExternalLink>
-                  .
-                </>
-              )}
-            </NoData>
+            {expression?.terms?.[term.curie] ? (
+              <AnatomyExpression
+                term={term}
+                sample={expression.terms[term.curie]}
+                sources={expression.sources}
+                genesPerTerm={expression.genesPerTerm}
+              />
+            ) : (
+              <NoData>
+                Expression annotations cannot yet be searched by anatomy term at the Alliance.
+                {ontology.mod && (
+                  <>
+                    {' '}
+                    <ExternalLink href={ontology.termUrl(term.curie)}>
+                      View expression for this term at {ontology.mod}
+                    </ExternalLink>
+                    .
+                  </>
+                )}
+              </NoData>
+            )}
           </Subsection>
         )}
       </PageData>

@@ -1,4 +1,4 @@
-import fs from 'fs';
+import writeJson from './writeJson.js';
 import parseUberonXrefs from './parseUberonXrefs.js';
 
 // Member anatomy term -> the UBERON term(s) that absorb it.
@@ -38,7 +38,7 @@ if (!dataVersion || Object.keys(map).length === 0) {
   throw new Error('parsed no mappings — has the OBO format changed?');
 }
 
-fs.writeFileSync(DESTINATION, `${JSON.stringify({ dataVersion, source: SOURCE, map }, null, 0)}\n`);
+await writeJson(DESTINATION, { dataVersion, source: SOURCE, map });
 
 const byPrefix = {};
 let ambiguous = 0;
