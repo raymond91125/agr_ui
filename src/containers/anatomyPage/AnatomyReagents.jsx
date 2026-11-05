@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
 import MemberText from './MemberText.jsx';
+import SampleTable from './SampleTable.jsx';
 
 // Alleles, transgenes and reporter lines whose phenotype reaches this
 // structure.
@@ -89,7 +90,7 @@ ReagentTable.propTypes = {
   showModels: PropTypes.bool,
 };
 
-const AnatomyReagents = ({ term, sample, sources, reagentsPerTerm }) => {
+const AnatomyReagents = ({ term, sample, sources, ontology }) => {
   const files = sample.sources.map((mod) => sources[mod]).filter(Boolean);
   const showModels = sample.kinds.some((group) => group.reagents.some((reagent) => reagent.throughModels > 0));
 
@@ -125,13 +126,21 @@ const AnatomyReagents = ({ term, sample, sources, reagentsPerTerm }) => {
         <section key={group.kind}>
           <h5>
             {KINDS[group.kind].title}{' '}
-            <span className="text-muted font-weight-normal">
-              {group.total.toLocaleString()}
-              {group.total > group.reagents.length && <> — the {reagentsPerTerm} most annotated are shown</>}
-            </span>
+            <span className="text-muted font-weight-normal">{group.total.toLocaleString()}</span>
           </h5>
           <p className="small text-muted">{KINDS[group.kind].what}</p>
-          <ReagentTable group={group} showModels={showModels} />
+          {/* Per kind, not per section: `transgene` on a term can be well
+              under the threshold while `mutation` is far over it, and the
+              two deserve different treatment on the same page. */}
+          <SampleTable
+            total={group.total}
+            shown={group.reagents.length}
+            noun={KINDS[group.kind].title.toLowerCase()}
+            ontology={ontology}
+            term={term}
+          >
+            <ReagentTable group={group} showModels={showModels} />
+          </SampleTable>
         </section>
       ))}
 
@@ -169,7 +178,7 @@ AnatomyReagents.propTypes = {
   term: PropTypes.object.isRequired,
   sample: PropTypes.object.isRequired,
   sources: PropTypes.object.isRequired,
-  reagentsPerTerm: PropTypes.number,
+  ontology: PropTypes.object,
 };
 
 export default AnatomyReagents;

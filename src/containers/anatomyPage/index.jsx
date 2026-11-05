@@ -229,8 +229,8 @@ const AnatomyPage = () => {
               <AnatomyExpression
                 term={term}
                 sample={expressionSample}
+                ontology={ontology}
                 sources={expression.sources}
-                genesPerTerm={expression.genesPerTerm}
               />
             ) : (
               <NoData>
@@ -265,8 +265,8 @@ const AnatomyPage = () => {
               <AnatomyPhenotypes
                 term={term}
                 sample={phenotypeSample}
+                ontology={ontology}
                 sources={phenotypes.sources}
-                genesPerTerm={phenotypes.genesPerTerm}
               />
             ) : (
               <NoData>
@@ -292,12 +292,7 @@ const AnatomyPage = () => {
             which of the two a reader is looking at. */}
         {reagentSample && (
           <Subsection title={REAGENTS}>
-            <AnatomyReagents
-              term={term}
-              sample={reagentSample}
-              sources={reagents.sources}
-              reagentsPerTerm={reagents.reagentsPerTerm}
-            />
+            <AnatomyReagents term={term} sample={reagentSample} ontology={ontology} sources={reagents.sources} />
           </Subsection>
         )}
       </PageData>
