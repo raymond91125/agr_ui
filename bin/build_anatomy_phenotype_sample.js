@@ -187,6 +187,7 @@ async function phenotypeEntities(via, entityPrefix) {
 const phenotypes = await latestFiles('PHENOTYPE');
 const alleles = await latestFiles('ALLELE');
 const agms = await latestFiles('AGM');
+const constructs = await latestFiles('CONSTRUCT');
 const bgi = await latestFiles('BGI');
 const terms = {};
 const sources = {};
@@ -242,6 +243,7 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
     records,
     alleleUrl: alleles[mod]?.url,
     agmUrl: agms[mod]?.url,
+    constructUrl: constructs[mod]?.url,
   });
 
   // A model can carry alleles of several genes, so this returns a list where

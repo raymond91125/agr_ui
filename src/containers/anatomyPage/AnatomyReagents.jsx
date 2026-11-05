@@ -6,30 +6,105 @@ import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
 import MemberText from './MemberText.jsx';
 
-// Alleles, variations and transgenes whose phenotype reaches this structure.
+// Alleles, transgenes and reporter lines whose phenotype reaches this
+// structure.
 //
 // These are the objects the phenotype annotations were made against. The
 // Phenotypes section resolves each one back to a gene and shows the gene; this
 // one stops a step earlier and shows the thing itself, because a reader who
-// wants to work on a structure wants something they can order, not a gene
-// identifier.
+// wants to work on a structure wants something they can order.
 //
-// Two counts are kept apart on purpose. An annotation made against the reagent
-// is a curator's statement about that reagent. An annotation made against a
-// genotype that happens to carry it is weaker — a fish with three mutations
-// says less about any one of them — and the column says which is which rather
-// than adding them into one number.
+// Split by kind rather than ranked in one list, which is how every member
+// presents it — FlyBase separates Alleles, Insertions and Constructs, ZFIN
+// separates Thisse probes from antibody labelling. A flat table sorted by
+// annotation count answers "which reagent is best studied" when the question
+// a reader arrives with is "what is there". It also hides whole kinds: the
+// 3,179 mutations on wing would fill any top-25 and bury its 80 transgenes.
+const KINDS = {
+  mutation: {
+    title: 'Mutations',
+    what: 'A lesion in the gene — the member records the reagent as an allele of it.',
+  },
+  transgene: {
+    title: 'Transgenes and reporters',
+    what:
+      'Carries a construct rather than damaging a gene. Where the construct expresses a gene of this ' +
+      'species, that gene is named; where it expresses a fluorophore, only the promoter it was driven ' +
+      'from is, which is what makes it a reporter for this structure rather than a lesion in it.',
+  },
+  other: {
+    title: 'Unclassified',
+    what: 'The member names neither a gene nor a construct for these.',
+  },
+};
+
+const ReagentTable = ({ group, showModels }) => (
+  <table className="table">
+    <thead className="text-capitalize">
+      <tr>
+        <th>Reagent</th>
+        <th>{group.kind === 'transgene' ? 'Construct' : 'Gene'}</th>
+        {group.kind === 'transgene' && <th>Gene or driver</th>}
+        <th>Annotations</th>
+        {showModels && <th>Through a genotype</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {group.reagents.map((reagent) => (
+        <tr key={reagent.curie}>
+          <td>
+            <Link to={`/allele/${reagent.curie}`}>
+              <MemberText>{reagent.symbol}</MemberText>
+            </Link>
+          </td>
+          {group.kind === 'transgene' && (
+            <td className="text-muted">{reagent.construct ? <MemberText>{reagent.construct}</MemberText> : '—'}</td>
+          )}
+          <td>
+            {reagent.gene ? (
+              <Link to={`/gene/${reagent.gene.curie}`}>
+                <MemberText>{reagent.gene.symbol}</MemberText>
+              </Link>
+            ) : reagent.driver ? (
+              // Named as a driver, not linked as a gene: the construct is
+              // regulated by this promoter and expresses something else, so
+              // the phenotype is not evidence about it.
+              <span className="text-muted">
+                driven by <MemberText>{reagent.driver}</MemberText>
+              </span>
+            ) : (
+              <span className="text-muted">—</span>
+            )}
+          </td>
+          <td>{reagent.annotations.toLocaleString()}</td>
+          {showModels && <td className="text-muted">{reagent.throughModels.toLocaleString()}</td>}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+ReagentTable.propTypes = {
+  group: PropTypes.object.isRequired,
+  showModels: PropTypes.bool,
+};
+
 const AnatomyReagents = ({ term, sample, sources, reagentsPerTerm }) => {
   const files = sample.sources.map((mod) => sources[mod]).filter(Boolean);
-  const truncated = sample.totalReagents > sample.reagents.length;
-  const throughModels = sample.reagents.some((reagent) => reagent.throughModels > 0);
+  const showModels = sample.kinds.some((group) => group.reagents.some((reagent) => reagent.throughModels > 0));
 
   return (
     <>
       <p className="text-muted">
-        <b>{sample.totalReagents.toLocaleString()} alleles, variations and transgenes</b> have a phenotype annotated to{' '}
-        {term.name}
-        {truncated && <> — the {reagentsPerTerm} most annotated are shown</>}.
+        <b>{sample.totalReagents.toLocaleString()}</b> reagents have a phenotype annotated to {term.name} —{' '}
+        <CommaSeparatedList>
+          {sample.kinds.map((group) => (
+            <span key={group.kind}>
+              {group.total.toLocaleString()} {KINDS[group.kind].title.toLowerCase()}
+            </span>
+          ))}
+        </CommaSeparatedList>
+        .
         {sample.toGene > 0 && (
           <>
             {' '}
@@ -46,44 +121,19 @@ const AnatomyReagents = ({ term, sample, sources, reagentsPerTerm }) => {
         </p>
       )}
 
-      <table className="table">
-        <thead className="text-capitalize">
-          <tr>
-            <th>Reagent</th>
-            <th>Type</th>
-            <th>Gene</th>
-            <th>Annotations</th>
-            {throughModels && <th>Through a genotype</th>}
-          </tr>
-        </thead>
-        <tbody>
-          {sample.reagents.map((reagent) => (
-            <tr key={reagent.curie}>
-              <td>
-                <Link to={`/allele/${reagent.curie}`}>
-                  <MemberText>{reagent.symbol}</MemberText>
-                </Link>
-              </td>
-              <td className="text-muted">{reagent.kind}</td>
-              <td>
-                {reagent.gene ? (
-                  <Link to={`/gene/${reagent.gene.curie}`}>
-                    <MemberText>{reagent.gene.symbol}</MemberText>
-                  </Link>
-                ) : (
-                  // A transgenic insertion the member records against no gene.
-                  // Blank rather than the reagent's own identifier repeated:
-                  // the cell is empty because the relation is absent, which is
-                  // a fact about the reagent worth leaving visible.
-                  <span className="text-muted">—</span>
-                )}
-              </td>
-              <td>{reagent.annotations.toLocaleString()}</td>
-              {throughModels && <td className="text-muted">{reagent.throughModels.toLocaleString()}</td>}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {sample.kinds.map((group) => (
+        <section key={group.kind}>
+          <h5>
+            {KINDS[group.kind].title}{' '}
+            <span className="text-muted font-weight-normal">
+              {group.total.toLocaleString()}
+              {group.total > group.reagents.length && <> — the {reagentsPerTerm} most annotated are shown</>}
+            </span>
+          </h5>
+          <p className="small text-muted">{KINDS[group.kind].what}</p>
+          <ReagentTable group={group} showModels={showModels} />
+        </section>
+      ))}
 
       {sample.models > 0 && (
         <p className="text-muted">
@@ -99,8 +149,8 @@ const AnatomyReagents = ({ term, sample, sources, reagentsPerTerm }) => {
 
       <p className="small text-muted">
         Sample data, and only part of the answer. These are the reagents the Alliance publishes beside its phenotype
-        annotations; antibodies, probes and constructs are curated by the members but are not in any Alliance download,
-        so a member's own term page will show more. Rows are unmodified from the Alliance phenotype and allele{' '}
+        annotations; antibodies and probes are curated by the members but are in no Alliance download, so a member's own
+        term page will show more. Rows are unmodified from the Alliance phenotype, allele and construct{' '}
         {files.length > 1 ? 'files' : 'file'}{' '}
         <CommaSeparatedList>
           {files.map((file) => (

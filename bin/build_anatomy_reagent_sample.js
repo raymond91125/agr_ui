@@ -43,16 +43,16 @@ const DESTINATION = 'public/anatomy-reagent-sample.json';
 
 const REAGENTS_PER_TERM = 25;
 
-// What the member calls the thing, keyed by the identifier it issues. Written
-// out per member rather than inferred, because the same word means different
-// things across them: a ZFIN `ZDB-ALT` covers both a point mutation and a
-// transgenic insertion, where WormBase separates `WBVar` from `WBTransgene`.
+// A reagent's kind comes from the member's own associationType, in
+// bin/resolveAnnotationObjects.js, not from the shape of its identifier. The
+// first version of this file guessed from the prefix and got ZFIN wrong: a
+// `ZDB-ALT` is a point mutation or a transgenic insertion and the identifier
+// does not say which.
 const MEMBERS = {
   WB: {
     species: 'Caenorhabditis elegans',
     anatomy: 'WBbt',
     isGene: (id) => id.startsWith('WB:WBGene'),
-    kindOf: (id) => (id.startsWith('WB:WBTransgene') ? 'transgene' : 'variation'),
     normalize: (curie) => curie.replace(/^WB:/, ''),
     via: {
       prefix: 'WBPhenotype',
@@ -64,13 +64,11 @@ const MEMBERS = {
     species: 'Drosophila melanogaster',
     anatomy: 'FBbt',
     isGene: (id) => id.startsWith('FB:FBgn'),
-    kindOf: () => 'allele',
   },
   ZFIN: {
     species: 'Danio rerio',
     anatomy: 'ZFA',
     isGene: (id) => /^ZFIN:ZDB-(GENE|[A-Z]*RNAG)-/.test(id),
-    kindOf: () => 'allele',
   },
 };
 
@@ -135,6 +133,7 @@ async function phenotypeEntities(via, entityPrefix) {
 const phenotypes = await latestFiles('PHENOTYPE');
 const alleles = await latestFiles('ALLELE');
 const agms = await latestFiles('AGM');
+const constructs = await latestFiles('CONSTRUCT');
 const bgi = await latestFiles('BGI');
 const terms = {};
 const sources = {};
@@ -181,6 +180,7 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
     records,
     alleleUrl: alleles[mod]?.url,
     agmUrl: agms[mod]?.url,
+    constructUrl: constructs[mod]?.url,
   });
 
   const symbols = new Map();
@@ -244,17 +244,43 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
 
     const ranked = [...byReagent]
       .map(([id, entry]) => {
-        const gene = reagents.get(id).gene;
+        const { symbol, kind, gene, driver, constructName } = reagents.get(id);
         return {
           curie: id,
-          symbol: reagents.get(id).symbol || id,
-          kind: member.kindOf(id),
+          symbol: symbol || id,
+          kind,
           gene: gene ? { curie: gene, symbol: symbols.get(gene) || gene } : null,
+          // The promoter the construct was driven from, where the thing it
+          // expresses is not a gene of this species. Tg(-2.8fabp10a:EGFP)
+          // implicates no zebrafish gene and is still worth seeing on liver:
+          // it is a liver reporter line, which is what a reader asking what
+          // is available here most wants to know.
+          driver: driver || undefined,
+          construct: constructName || undefined,
           annotations: entry.annotations,
           throughModels: entry.throughModels,
         };
       })
       .sort((a, b) => b.annotations - a.annotations || a.symbol.localeCompare(b.symbol));
+
+    // Cut per kind rather than over the whole list. A mutation carries far
+    // more annotations than a transgene does, so one list of the top 25 on
+    // FBbt:00004729 is 25 mutations and the reader never learns the term has
+    // transgenes at all. Each kind keeps its own total, which is what the
+    // counts above the tables are for: the question "what is available here"
+    // is answered by the totals, not by whichever rows fit.
+    const kinds = [];
+    for (const kind of ['mutation', 'transgene', 'other']) {
+      const of = ranked.filter((reagent) => reagent.kind === kind);
+      if (of.length) {
+        kinds.push({
+          kind,
+          total: of.length,
+          annotations: of.reduce((sum, reagent) => sum + reagent.annotations, 0),
+          reagents: of.slice(0, REAGENTS_PER_TERM),
+        });
+      }
+    }
 
     terms[curie] = {
       sources: [mod],
@@ -267,14 +293,15 @@ for (const [mod, wanted] of Object.entries(SAMPLE)) {
       models: bucket.models.size,
       modelsEmpty: bucket.modelsEmpty.size,
       unresolved: bucket.unresolved,
-      reagents: ranked.slice(0, REAGENTS_PER_TERM),
+      kinds,
     };
 
     console.log(
       `  ${curie.padEnd(16)} ${String(bucket.annotations).padStart(6)} annotations  ` +
         `${String(byReagent.size).padStart(5)} reagents  ${String(bucket.toGene).padStart(5)} to a gene  ` +
         `${String(bucket.models.size).padStart(5)} models (${bucket.modelsEmpty.size} empty)  ` +
-        `${String(bucket.unresolved).padStart(5)} unresolved`
+        `${String(bucket.unresolved).padStart(5)} unresolved  ` +
+        kinds.map((k) => `${k.kind} ${k.total}`).join(', ')
     );
   }
 }
