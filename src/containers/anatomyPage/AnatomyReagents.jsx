@@ -96,7 +96,7 @@ const AnatomyReagents = ({ term, sample, sources, ontology }) => {
 
   return (
     <>
-      <p className="text-muted">
+      <div className="text-muted mb-3">
         <b>{sample.totalReagents.toLocaleString()}</b> reagents have a phenotype annotated to {term.name} —{' '}
         <CommaSeparatedList>
           {sample.kinds.map((group) => (
@@ -113,7 +113,7 @@ const AnatomyReagents = ({ term, sample, sources, ontology }) => {
             under Phenotypes instead.
           </>
         )}
-      </p>
+      </div>
 
       {sample.route === 'definition' && (
         <p className="text-muted">
@@ -156,7 +156,7 @@ const AnatomyReagents = ({ term, sample, sources, ontology }) => {
         </p>
       )}
 
-      <p className="small text-muted">
+      <div className="small text-muted mb-3">
         Sample data, and only part of the answer. These are the reagents the Alliance publishes beside its phenotype
         annotations; antibodies and probes are curated by the members but are in no Alliance download, so a member's own
         term page will show more. Rows are unmodified from the Alliance phenotype, allele and construct{' '}
@@ -169,7 +169,7 @@ const AnatomyReagents = ({ term, sample, sources, ontology }) => {
           ))}
         </CommaSeparatedList>
         .
-      </p>
+      </div>
     </>
   );
 };
