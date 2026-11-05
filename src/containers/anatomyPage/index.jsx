@@ -22,18 +22,21 @@ import AnatomyExpression from './AnatomyExpression.jsx';
 import AnatomyPhenotypes from './AnatomyPhenotypes.jsx';
 import AnatomyReagents from './AnatomyReagents.jsx';
 import AnatomyImages from './AnatomyImages.jsx';
+import AnatomyMarkers from './AnatomyMarkers.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 import loadExpressionSample from './expressionSample.js';
 import loadPhenotypeSample from './phenotypeSample.js';
 import loadReagentSample from './reagentSample.js';
 import loadImageSample from './imageSample.js';
+import loadMarkerSample from './markerSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
 const PHENOTYPES = 'Phenotypes';
 const REAGENTS = 'Reagents and Tools';
 const IMAGES = 'Images';
+const MARKERS = 'Expression Markers';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
@@ -86,6 +89,13 @@ const AnatomyPage = () => {
     retry: false,
   });
 
+  const { data: markers } = useQuery({
+    queryKey: ['anatomy-marker-sample'],
+    queryFn: loadMarkerSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -108,6 +118,7 @@ const AnatomyPage = () => {
   const phenotypeSample = phenotypes?.terms?.[term.curie];
   const reagentSample = reagents?.terms?.[term.curie];
   const imageSample = images?.terms?.[term.curie];
+  const markerSample = markers?.terms?.[term.curie];
 
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
   if (term.synonyms?.length) {
@@ -172,6 +183,7 @@ const AnatomyPage = () => {
             ? []
             : [
                 { name: EXPRESSION, count: expressionSample?.totalGenes },
+                ...(markerSample ? [{ name: MARKERS, count: markerSample.totalMarkers }] : []),
                 { name: PHENOTYPES, count: phenotypeSample?.totalGenes },
                 ...(reagentSample ? [{ name: REAGENTS, count: reagentSample.totalReagents }] : []),
                 ...(imageSample ? [{ name: IMAGES, count: imageSample.totalImages }] : []),
@@ -258,6 +270,20 @@ const AnatomyPage = () => {
                 )}
               </NoData>
             )}
+          </Subsection>
+        )}
+
+        {/* Directly after expression because it is the same data read for a
+            different question, and a reader who has just seen 2,297 expressed
+            genes needs to be told plainly that these two are a different
+            claim. Hidden everywhere else: WormBase is the only member that
+            curates markers, and on an FBbt or ZFA term the word would mean
+            something else entirely — at MGI and ZFIN a marker is any genomic
+            feature. The whole set is published, so a term with markers always
+            shows all of them. */}
+        {markerSample && (
+          <Subsection title={MARKERS}>
+            <AnatomyMarkers term={term} sample={markerSample} source={markers.source} coverage={markers.coverage} />
           </Subsection>
         )}
 
