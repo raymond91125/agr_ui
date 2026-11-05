@@ -59,12 +59,12 @@ const AnatomyExpression = ({ term, sample, sources, ontology }) => {
       </SampleTable>
 
       {sample.assays?.length > 0 && (
-        <p className="text-muted">
+        <div className="text-muted mb-3">
           Assays: <CommaSeparatedList>{sample.assays}</CommaSeparatedList>
-        </p>
+        </div>
       )}
 
-      <p className="small text-muted">
+      <div className="small text-muted mb-3">
         Sample data. The Alliance holds these annotations but cannot yet be asked for them by anatomy term, so this
         table is built ahead of time for a handful of terms and most anatomy pages have no table at all. Rows are
         unmodified from the Alliance expression {files.length > 1 ? 'files' : 'file'}{' '}
@@ -76,7 +76,7 @@ const AnatomyExpression = ({ term, sample, sources, ontology }) => {
           ))}
         </CommaSeparatedList>
         .
-      </p>
+      </div>
     </>
   );
 };
