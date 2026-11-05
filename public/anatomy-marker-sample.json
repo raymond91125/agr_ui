@@ -1,0 +1,3702 @@
+{
+  "source": {
+    "mod": "WB",
+    "species": "Caenorhabditis elegans",
+    "url": "https://fms.alliancegenome.org/download/EXPRESSION_WB.json.gz",
+    "release": "9.3.0",
+    "uploaded": "2025-11-13"
+  },
+  "coverage": { "terms": 176, "ontologyTerms": 7573 },
+  "excluded": { "root": 27, "cellularComponent": 18 },
+  "terms": {
+    "WBbt:0003672": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker33",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker33",
+          "curie": "WB:WBGene00000493",
+          "symbol": "che-14",
+          "annotations": 1,
+          "statement": "epithelial cell",
+          "publication": "PMID:18308937"
+        },
+        {
+          "id": "Marker32",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker32",
+          "curie": "WB:WBGene00001006",
+          "symbol": "dlg-1",
+          "annotations": 1,
+          "statement": "epithelial cell",
+          "publication": "PMID:18308937"
+        }
+      ]
+    },
+    "WBbt:0003675": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker38",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker38",
+          "curie": "WB:WBGene00003515",
+          "symbol": "myo-3",
+          "annotations": 1,
+          "statement": "muscle cell",
+          "publication": "PMID:18308937"
+        }
+      ]
+    },
+    "WBbt:0003679": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 4,
+      "markers": [
+        {
+          "id": "Marker118",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker118",
+          "curie": "WB:WBGene00009100",
+          "symbol": "rgef-1",
+          "annotations": 1,
+          "statement": "neuron",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker39",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker39",
+          "curie": "WB:WBGene00006843",
+          "symbol": "unc-119",
+          "annotations": 1,
+          "statement": "neuron",
+          "publication": "PMID:18308937"
+        },
+        {
+          "id": "Marker50",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker50",
+          "curie": "WB:WBGene00006843",
+          "symbol": "unc-119",
+          "annotations": 1,
+          "statement": "neuron",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker119",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker119",
+          "curie": "WB:WBGene00006769",
+          "symbol": "unc-33",
+          "annotations": 1,
+          "statement": "neuron",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003826": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker15",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker15",
+          "curie": "WB:WBGene00000457",
+          "symbol": "ceh-36",
+          "annotations": 1,
+          "statement": "AWCR",
+          "publication": "PMID:16921378"
+        },
+        {
+          "id": "Marker91",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker91",
+          "curie": "WB:WBGene00001250",
+          "symbol": "elt-2",
+          "annotations": 3,
+          "statement": "AWCR",
+          "publication": "PMID:19204119"
+        },
+        {
+          "id": "Marker108",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker108",
+          "curie": "WB:WBGene00006070",
+          "symbol": "str-2",
+          "annotations": 1,
+          "statement": "AWCR",
+          "publication": "PMID:17113567"
+        }
+      ]
+    },
+    "WBbt:0003827": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker15",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker15",
+          "curie": "WB:WBGene00000457",
+          "symbol": "ceh-36",
+          "annotations": 1,
+          "statement": "AWCL",
+          "publication": "PMID:16921378"
+        },
+        {
+          "id": "Marker91",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker91",
+          "curie": "WB:WBGene00001250",
+          "symbol": "elt-2",
+          "annotations": 3,
+          "statement": "AWCL",
+          "publication": "PMID:19204119"
+        },
+        {
+          "id": "Marker108",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker108",
+          "curie": "WB:WBGene00006070",
+          "symbol": "str-2",
+          "annotations": 1,
+          "statement": "AWCL",
+          "publication": "PMID:17113567"
+        }
+      ]
+    },
+    "WBbt:0003828": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker85",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker85",
+          "curie": "WB:WBGene00006069",
+          "symbol": "str-1",
+          "annotations": 1,
+          "statement": "AWBR",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0003829": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker85",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker85",
+          "curie": "WB:WBGene00006069",
+          "symbol": "str-1",
+          "annotations": 1,
+          "statement": "AWBL",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0003830": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker104",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker104",
+          "curie": "WB:WBGene00003856",
+          "symbol": "odr-10",
+          "annotations": 1,
+          "statement": "AWAR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker84",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker84",
+          "curie": "WB:WBGene00003856",
+          "symbol": "odr-10",
+          "annotations": 1,
+          "statement": "AWAR",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0003831": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker104",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker104",
+          "curie": "WB:WBGene00003856",
+          "symbol": "odr-10",
+          "annotations": 1,
+          "statement": "AWAL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker84",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker84",
+          "curie": "WB:WBGene00003856",
+          "symbol": "odr-10",
+          "annotations": 1,
+          "statement": "AWAL",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0003832": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker71",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker71",
+          "curie": "WB:WBGene00003168",
+          "symbol": "mec-4",
+          "annotations": 1,
+          "statement": "AVM",
+          "publication": "PMID:18385318"
+        }
+      ]
+    },
+    "WBbt:0003843": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker57",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker57",
+          "curie": "WB:WBGene00006762",
+          "symbol": "unc-25",
+          "annotations": 1,
+          "statement": "AVL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003844": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker56",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker56",
+          "curie": "WB:WBGene00001444",
+          "symbol": "flp-1",
+          "annotations": 1,
+          "statement": "AVKR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003845": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker56",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker56",
+          "curie": "WB:WBGene00001444",
+          "symbol": "flp-1",
+          "annotations": 1,
+          "statement": "AVKL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003867": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker92",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker92",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AVBR",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0003868": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker92",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker92",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AVBL",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0003887": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 4,
+      "markers": [
+        {
+          "id": "Marker102",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker102",
+          "curie": "WB:WBGene00000903",
+          "symbol": "daf-7",
+          "annotations": 1,
+          "statement": "ASIR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "ASIR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker111",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker111",
+          "curie": "WB:WBGene00006979",
+          "symbol": "zig-2",
+          "annotations": 1,
+          "statement": "ASIR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker112",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker112",
+          "curie": "WB:WBGene00006980",
+          "symbol": "zig-3",
+          "annotations": 1,
+          "statement": "ASIR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003888": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 4,
+      "markers": [
+        {
+          "id": "Marker102",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker102",
+          "curie": "WB:WBGene00000903",
+          "symbol": "daf-7",
+          "annotations": 1,
+          "statement": "ASIL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "ASIL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker111",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker111",
+          "curie": "WB:WBGene00006979",
+          "symbol": "zig-2",
+          "annotations": 1,
+          "statement": "ASIL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker112",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker112",
+          "curie": "WB:WBGene00006980",
+          "symbol": "zig-3",
+          "annotations": 1,
+          "statement": "ASIL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003889": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker74",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker74",
+          "curie": "WB:WBGene00005032",
+          "symbol": "sra-6",
+          "annotations": 1,
+          "statement": "ASHR",
+          "publication": "PMID:18173744"
+        }
+      ]
+    },
+    "WBbt:0003890": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker74",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker74",
+          "curie": "WB:WBGene00005032",
+          "symbol": "sra-6",
+          "annotations": 1,
+          "statement": "ASHL",
+          "publication": "PMID:18173744"
+        }
+      ]
+    },
+    "WBbt:0003903": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 9,
+      "markers": [
+        {
+          "id": "Marker15",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker15",
+          "curie": "WB:WBGene00000457",
+          "symbol": "ceh-36",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:16921378"
+        },
+        {
+          "id": "Marker98",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker98",
+          "curie": "WB:WBGene00000457",
+          "symbol": "ceh-36",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker100",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker100",
+          "curie": "WB:WBGene00000483",
+          "symbol": "che-1",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker101",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker101",
+          "curie": "WB:WBGene00000483",
+          "symbol": "che-1",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker97",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker97",
+          "curie": "WB:WBGene00000584",
+          "symbol": "cog-1",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker42",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker42",
+          "curie": "WB:WBGene00001449",
+          "symbol": "flp-6",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:12952888"
+        },
+        {
+          "id": "Marker14",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker14",
+          "curie": "WB:WBGene00001532",
+          "symbol": "gcy-5",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:17141609"
+        },
+        {
+          "id": "Marker67",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker67",
+          "curie": "WB:WBGene00001532",
+          "symbol": "gcy-5",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:18677319"
+        },
+        {
+          "id": "Marker99",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker99",
+          "curie": "WB:WBGene00003886",
+          "symbol": "osm-6",
+          "annotations": 1,
+          "statement": "ASER",
+          "publication": "PMID:19641012"
+        }
+      ]
+    },
+    "WBbt:0003904": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 9,
+      "markers": [
+        {
+          "id": "Marker15",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker15",
+          "curie": "WB:WBGene00000457",
+          "symbol": "ceh-36",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:16921378"
+        },
+        {
+          "id": "Marker98",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker98",
+          "curie": "WB:WBGene00000457",
+          "symbol": "ceh-36",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker100",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker100",
+          "curie": "WB:WBGene00000483",
+          "symbol": "che-1",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker101",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker101",
+          "curie": "WB:WBGene00000483",
+          "symbol": "che-1",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker42",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker42",
+          "curie": "WB:WBGene00001449",
+          "symbol": "flp-6",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:12952888"
+        },
+        {
+          "id": "Marker13",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker13",
+          "curie": "WB:WBGene00001534",
+          "symbol": "gcy-7",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:17141609"
+        },
+        {
+          "id": "Marker41",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker41",
+          "curie": "WB:WBGene00002988",
+          "symbol": "lim-6",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:12952888"
+        },
+        {
+          "id": "Marker96",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker96",
+          "curie": "WB:WBGene00003088",
+          "symbol": "lsy-6",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:19641012"
+        },
+        {
+          "id": "Marker99",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker99",
+          "curie": "WB:WBGene00003886",
+          "symbol": "osm-6",
+          "annotations": 1,
+          "statement": "ASEL",
+          "publication": "PMID:19641012"
+        }
+      ]
+    },
+    "WBbt:0003937": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker93",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker93",
+          "curie": "WB:WBGene00004777",
+          "symbol": "ser-2",
+          "annotations": 1,
+          "statement": "ALNR",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0003938": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 4,
+      "markers": [
+        {
+          "id": "Marker63",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker63",
+          "curie": "WB:WBGene00000435",
+          "symbol": "ceh-10",
+          "annotations": 1,
+          "statement": "RID",
+          "publication": "PMID:14568548"
+        },
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "RID",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker64",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker64",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "RID",
+          "publication": "PMID:14568548"
+        },
+        {
+          "id": "Marker65",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker65",
+          "curie": "WB:WBGene00006982",
+          "symbol": "zig-5",
+          "annotations": 1,
+          "statement": "RID",
+          "publication": "PMID:14568548"
+        }
+      ]
+    },
+    "WBbt:0003939": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker93",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker93",
+          "curie": "WB:WBGene00004777",
+          "symbol": "ser-2",
+          "annotations": 1,
+          "statement": "ALNL",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0003957": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "AIZR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker103",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker103",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "AIZR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003959": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "AIZL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker103",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker103",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "AIZL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003961": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 9,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker3",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker3",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:12883006"
+        },
+        {
+          "id": "Marker51",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker51",
+          "curie": "WB:WBGene00004777",
+          "symbol": "ser-2",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker52",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker52",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker53",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker53",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker54",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker54",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker109",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker109",
+          "curie": "WB:WBGene00006654",
+          "symbol": "ttx-3",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:14568548"
+        },
+        {
+          "id": "Marker22",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker22",
+          "curie": "WB:WBGene00006654",
+          "symbol": "ttx-3",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:18316179"
+        },
+        {
+          "id": "Marker66",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker66",
+          "curie": "WB:WBGene00006654",
+          "symbol": "ttx-3",
+          "annotations": 1,
+          "statement": "AIYR",
+          "publication": "PMID:14568548"
+        }
+      ]
+    },
+    "WBbt:0003963": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 9,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker3",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker3",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:12883006"
+        },
+        {
+          "id": "Marker51",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker51",
+          "curie": "WB:WBGene00004777",
+          "symbol": "ser-2",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker52",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker52",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker53",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker53",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker54",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker54",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker109",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker109",
+          "curie": "WB:WBGene00006654",
+          "symbol": "ttx-3",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:14568548"
+        },
+        {
+          "id": "Marker22",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker22",
+          "curie": "WB:WBGene00006654",
+          "symbol": "ttx-3",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:18316179"
+        },
+        {
+          "id": "Marker66",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker66",
+          "curie": "WB:WBGene00006654",
+          "symbol": "ttx-3",
+          "annotations": 1,
+          "statement": "AIYL",
+          "publication": "PMID:14568548"
+        }
+      ]
+    },
+    "WBbt:0003966": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R9BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003968": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R9BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003969": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker112",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker112",
+          "curie": "WB:WBGene00006980",
+          "symbol": "zig-3",
+          "annotations": 1,
+          "statement": "AIMR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003970": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R9AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003971": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R9AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003983": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker112",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker112",
+          "curie": "WB:WBGene00006980",
+          "symbol": "zig-3",
+          "annotations": 1,
+          "statement": "AIML",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003987": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker52",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker52",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIAR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003988": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R8BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003989": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker52",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker52",
+          "curie": "WB:WBGene00005037",
+          "symbol": "sra-11",
+          "annotations": 1,
+          "statement": "AIAL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003990": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R8BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003991": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker58",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker58",
+          "curie": "WB:WBGene00001535",
+          "symbol": "gcy-8",
+          "annotations": 1,
+          "statement": "AFDR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker86",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker86",
+          "curie": "WB:WBGene00001535",
+          "symbol": "gcy-8",
+          "annotations": 1,
+          "statement": "AFDR",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0003992": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R8AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003993": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker58",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker58",
+          "curie": "WB:WBGene00001535",
+          "symbol": "gcy-8",
+          "annotations": 1,
+          "statement": "AFDL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker86",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker86",
+          "curie": "WB:WBGene00001535",
+          "symbol": "gcy-8",
+          "annotations": 1,
+          "statement": "AFDL",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0003994": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R8AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0003995": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker116",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker116",
+          "curie": "WB:WBGene00005071",
+          "symbol": "srb-6",
+          "annotations": 1,
+          "statement": "ADLR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker59",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker59",
+          "curie": "WB:WBGene00005149",
+          "symbol": "sre-1",
+          "annotations": 1,
+          "statement": "ADLR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0003997": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker116",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker116",
+          "curie": "WB:WBGene00005071",
+          "symbol": "srb-6",
+          "annotations": 1,
+          "statement": "ADLL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker59",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker59",
+          "curie": "WB:WBGene00005149",
+          "symbol": "sre-1",
+          "annotations": 1,
+          "statement": "ADLL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004000": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R7BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004001": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R7BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004002": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R7AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004004": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ADEshR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004005": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ADEshL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004006": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R7AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004012": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R6BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004014": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R6BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004016": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R6AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004018": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R6AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004021": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R5BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004022": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R5BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004023": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R5AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004024": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R5AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004027": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R4BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004028": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R4BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004029": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R4AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004030": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R4AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004033": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R3BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004034": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R3BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004035": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R3AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004036": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R3AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004039": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R2BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004040": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R2BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004041": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R2AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004042": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R2AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004046": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R1BR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004048": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R1BL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004050": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R1AR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004052": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "R1AL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004070": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 4,
+      "markers": [
+        {
+          "id": "Marker43",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker43",
+          "curie": "WB:WBGene00001664",
+          "symbol": "gpa-2",
+          "annotations": 1,
+          "statement": "PVT",
+          "publication": "PMID:12490565"
+        },
+        {
+          "id": "Marker44",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker44",
+          "curie": "WB:WBGene00004030",
+          "symbol": "pin-2",
+          "annotations": 1,
+          "statement": "PVT",
+          "publication": "PMID:12490565"
+        },
+        {
+          "id": "Marker45",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker45",
+          "curie": "WB:WBGene00010315",
+          "symbol": "sqr-1",
+          "annotations": 1,
+          "statement": "PVT",
+          "publication": "PMID:12490565"
+        },
+        {
+          "id": "Marker46",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker46",
+          "curie": "WB:WBGene00006783",
+          "symbol": "unc-47",
+          "annotations": 1,
+          "statement": "PVT",
+          "publication": "PMID:12490565"
+        }
+      ]
+    },
+    "WBbt:0004074": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker47",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker47",
+          "curie": "WB:WBGene00005032",
+          "symbol": "sra-6",
+          "annotations": 1,
+          "statement": "PVQR",
+          "publication": "PMID:12490565"
+        }
+      ]
+    },
+    "WBbt:0004076": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker47",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker47",
+          "curie": "WB:WBGene00005032",
+          "symbol": "sra-6",
+          "annotations": 1,
+          "statement": "PVQL",
+          "publication": "PMID:12490565"
+        }
+      ]
+    },
+    "WBbt:0004086": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "PVM",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004368": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "PDEsoR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004369": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "PDEsoL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004370": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "PDEshR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004371": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "PDEshL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004385": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "PDB",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004386": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker36",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker36",
+          "curie": "WB:WBGene00000037",
+          "symbol": "ace-3",
+          "annotations": 2,
+          "statement": "PDA",
+          "publication": "PMID:18308937"
+        },
+        {
+          "id": "Marker114",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker114",
+          "curie": "WB:WBGene00000584",
+          "symbol": "cog-1",
+          "annotations": 1,
+          "statement": "PDA",
+          "publication": "PMID:18308937"
+        },
+        {
+          "id": "Marker37",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker37",
+          "curie": "WB:WBGene00001373",
+          "symbol": "exp-1",
+          "annotations": 1,
+          "statement": "PDA",
+          "publication": "PMID:18308937"
+        }
+      ]
+    },
+    "WBbt:0004423": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQsoVR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004424": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQsoVL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004425": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQsoDR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004426": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQsoDL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004427": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQshVR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004428": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQshVL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004429": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQshDR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004430": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLQshDL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004431": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker83",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker83",
+          "curie": "WB:WBGene00003889",
+          "symbol": "osm-9",
+          "annotations": 1,
+          "statement": "OLQVR",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0004437": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker83",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker83",
+          "curie": "WB:WBGene00003889",
+          "symbol": "osm-9",
+          "annotations": 1,
+          "statement": "OLQVL",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0004438": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker83",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker83",
+          "curie": "WB:WBGene00003889",
+          "symbol": "osm-9",
+          "annotations": 1,
+          "statement": "OLQDR",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0004439": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker83",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker83",
+          "curie": "WB:WBGene00003889",
+          "symbol": "osm-9",
+          "annotations": 1,
+          "statement": "OLQDL",
+          "publication": "PMID:17314406"
+        }
+      ]
+    },
+    "WBbt:0004440": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLLsoR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004441": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLLsoL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004442": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLLshR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004443": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "OLLshL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004446": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker120",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker120",
+          "curie": "WB:WBGene00006600",
+          "symbol": "tph-1",
+          "annotations": 1,
+          "statement": "NSMR",
+          "publication": "PMID:18400083"
+        }
+      ]
+    },
+    "WBbt:0004457": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker120",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker120",
+          "curie": "WB:WBGene00006600",
+          "symbol": "tph-1",
+          "annotations": 1,
+          "statement": "NSML",
+          "publication": "PMID:18400083"
+        }
+      ]
+    },
+    "WBbt:0004465": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "M5 neuron",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004489": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker68",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker68",
+          "curie": "WB:WBGene00001953",
+          "symbol": "hlh-8",
+          "annotations": 1,
+          "statement": "M cell",
+          "publication": "PMID:18676815"
+        }
+      ]
+    },
+    "WBbt:0004501": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILsoVR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004503": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILsoVL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004517": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILsoR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004518": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILsoL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004519": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILsoDR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004521": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILsoDL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004522": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker78",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker78",
+          "curie": "WB:WBGene00002992",
+          "symbol": "lin-3",
+          "annotations": 1,
+          "statement": "anchor cell",
+          "publication": "PMID:18700817"
+        }
+      ]
+    },
+    "WBbt:0004523": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILshVR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004525": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILshVL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004527": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILshR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004529": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILshL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004531": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILshDR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004533": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ILshDL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004757": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "HSNR",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker88",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker88",
+          "curie": "WB:WBGene00003739",
+          "symbol": "nlp-1",
+          "annotations": 1,
+          "statement": "HSNR",
+          "publication": "PMID:19211678"
+        },
+        {
+          "id": "Marker79",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker79",
+          "curie": "WB:WBGene00006818",
+          "symbol": "unc-86",
+          "annotations": 1,
+          "statement": "HSNR",
+          "publication": "PMID:18505863"
+        }
+      ]
+    },
+    "WBbt:0004758": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "HSNL",
+          "publication": "PMID:11493519"
+        },
+        {
+          "id": "Marker88",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker88",
+          "curie": "WB:WBGene00003739",
+          "symbol": "nlp-1",
+          "annotations": 1,
+          "statement": "HSNL",
+          "publication": "PMID:19211678"
+        },
+        {
+          "id": "Marker79",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker79",
+          "curie": "WB:WBGene00006818",
+          "symbol": "unc-86",
+          "annotations": 1,
+          "statement": "HSNL",
+          "publication": "PMID:18505863"
+        }
+      ]
+    },
+    "WBbt:0004761": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "HOB",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004821": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "DVC",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004822": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "DVB",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004923": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker29",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker29",
+          "curie": "WB:WBGene00001961",
+          "symbol": "hlh-17",
+          "annotations": 1,
+          "statement": "CEPshVR",
+          "publication": "PMID:18508862"
+        },
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "CEPshVR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004925": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker29",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker29",
+          "curie": "WB:WBGene00001961",
+          "symbol": "hlh-17",
+          "annotations": 1,
+          "statement": "CEPshVL",
+          "publication": "PMID:18508862"
+        },
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "CEPshVL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004927": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker29",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker29",
+          "curie": "WB:WBGene00001961",
+          "symbol": "hlh-17",
+          "annotations": 1,
+          "statement": "CEPshDR",
+          "publication": "PMID:18508862"
+        },
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "CEPshDR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004929": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker29",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker29",
+          "curie": "WB:WBGene00001961",
+          "symbol": "hlh-17",
+          "annotations": 1,
+          "statement": "CEPshDL",
+          "publication": "PMID:18508862"
+        },
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "CEPshDL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004931": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker31",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker31",
+          "curie": "WB:WBGene00000934",
+          "symbol": "dat-1",
+          "annotations": 1,
+          "statement": "CEPVR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004933": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker31",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker31",
+          "curie": "WB:WBGene00000934",
+          "symbol": "dat-1",
+          "annotations": 1,
+          "statement": "CEPVL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004937": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker31",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker31",
+          "curie": "WB:WBGene00000934",
+          "symbol": "dat-1",
+          "annotations": 1,
+          "statement": "CEPDR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004938": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker31",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker31",
+          "curie": "WB:WBGene00000934",
+          "symbol": "dat-1",
+          "annotations": 1,
+          "statement": "CEPDL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0004939": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "CEMVR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004941": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "CEMVL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004943": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "CEMDR",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004945": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "CEMDL",
+          "publication": "PMID:18261976"
+        }
+      ]
+    },
+    "WBbt:0004947": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "CANR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004949": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "CANL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004969": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker94",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker94",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDVR",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker95",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker95",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDVR",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0004970": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker94",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker94",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDVL",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker95",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker95",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDVL",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0004971": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker94",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker94",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDDR",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker95",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker95",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDDR",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker55",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker55",
+          "curie": "WB:WBGene00006614",
+          "symbol": "trp-1",
+          "annotations": 1,
+          "statement": "SMDDR",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004972": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker94",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker94",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDDL",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker95",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker95",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "SMDDL",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker55",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker55",
+          "curie": "WB:WBGene00006614",
+          "symbol": "trp-1",
+          "annotations": 1,
+          "statement": "SMDDL",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0004991": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker93",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker93",
+          "curie": "WB:WBGene00004777",
+          "symbol": "ser-2",
+          "annotations": 1,
+          "statement": "SDQR",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0004993": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker93",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker93",
+          "curie": "WB:WBGene00004777",
+          "symbol": "ser-2",
+          "annotations": 1,
+          "statement": "SDQL",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0005033": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker94",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker94",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "RMDR",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker95",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker95",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "RMDR",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0005037": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker94",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker94",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "RMDL",
+          "publication": "PMID:19477154"
+        },
+        {
+          "id": "Marker95",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker95",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "RMDL",
+          "publication": "PMID:19477154"
+        }
+      ]
+    },
+    "WBbt:0005045": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 3,
+      "markers": [
+        {
+          "id": "Marker60",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker60",
+          "curie": "WB:WBGene00001612",
+          "symbol": "glr-1",
+          "annotations": 1,
+          "statement": "RIS",
+          "publication": "PMID:14568548"
+        },
+        {
+          "id": "Marker62",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker62",
+          "curie": "WB:WBGene00006783",
+          "symbol": "unc-47",
+          "annotations": 1,
+          "statement": "RIS",
+          "publication": "PMID:14568548"
+        },
+        {
+          "id": "Marker61",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker61",
+          "curie": "WB:WBGene00006982",
+          "symbol": "zig-5",
+          "annotations": 1,
+          "statement": "RIS",
+          "publication": "PMID:14568548"
+        }
+      ]
+    },
+    "WBbt:0005117": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "inner labial neuron",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0005190": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker69",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker69",
+          "curie": "WB:WBGene00004912",
+          "symbol": "sng-1",
+          "annotations": 1,
+          "statement": "GABAergic neuron",
+          "publication": "PMID:18599311"
+        },
+        {
+          "id": "Marker21",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker21",
+          "curie": "WB:WBGene00006783",
+          "symbol": "unc-47",
+          "annotations": 1,
+          "statement": "GABAergic neuron",
+          "publication": "PMID:17942601"
+        }
+      ]
+    },
+    "WBbt:0005237": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker10",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker10",
+          "curie": "WB:WBGene00003168",
+          "symbol": "mec-4",
+          "annotations": 1,
+          "statement": "touch receptor neuron",
+          "publication": "PMID:16636145"
+        },
+        {
+          "id": "Marker72",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker72",
+          "curie": "WB:WBGene00003168",
+          "symbol": "mec-4",
+          "annotations": 1,
+          "statement": "touch receptor neuron",
+          "publication": "PMID:18670436"
+        }
+      ]
+    },
+    "WBbt:0005274": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker89",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker89",
+          "curie": "WB:WBGene00006852",
+          "symbol": "unc-129",
+          "annotations": 1,
+          "statement": "DB neuron",
+          "publication": "PMID:19169249"
+        }
+      ]
+    },
+    "WBbt:0005278": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker89",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker89",
+          "curie": "WB:WBGene00006852",
+          "symbol": "unc-129",
+          "annotations": 1,
+          "statement": "DA neuron",
+          "publication": "PMID:19169249"
+        }
+      ]
+    },
+    "WBbt:0005300": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker29",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker29",
+          "curie": "WB:WBGene00001961",
+          "symbol": "hlh-17",
+          "annotations": 1,
+          "statement": "ventral cord neuron (partial)",
+          "publication": "PMID:18508862"
+        },
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "ventral cord neuron",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0005337": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker121",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker121",
+          "curie": "WB:WBGene00004041",
+          "symbol": "plg-1",
+          "annotations": 1,
+          "statement": "vas deferens",
+          "publication": "PMID:18633349"
+        }
+      ]
+    },
+    "WBbt:0005339": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker90",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker90",
+          "curie": "WB:WBGene00006744",
+          "symbol": "unc-4",
+          "annotations": 1,
+          "statement": "VA neuron",
+          "publication": "PMID:19209348"
+        }
+      ]
+    },
+    "WBbt:0005342": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "uterine muscle",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0005394": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker73",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker73",
+          "curie": "WB:WBGene00003886",
+          "symbol": "osm-6",
+          "annotations": 1,
+          "statement": "amphid neuron",
+          "publication": "PMID:18173744"
+        }
+      ]
+    },
+    "WBbt:0005602": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ADEsoL",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0005603": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker30",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker30",
+          "curie": "WB:WBGene00004224",
+          "symbol": "ptr-10",
+          "annotations": 1,
+          "statement": "ADEsoR",
+          "publication": "PMID:18508862"
+        }
+      ]
+    },
+    "WBbt:0005753": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker122",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker122",
+          "curie": "WB:WBGene00000100",
+          "symbol": "ajm-1",
+          "annotations": 1,
+          "statement": "seam cell",
+          "publication": "PMID:19713957"
+        }
+      ]
+    },
+    "WBbt:0005772": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker26",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker26",
+          "curie": "WB:WBGene00001250",
+          "symbol": "elt-2",
+          "annotations": 1,
+          "statement": "intestine",
+          "publication": "PMID:18287204"
+        },
+        {
+          "id": "Marker25",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker25",
+          "curie": "WB:WBGene00001311",
+          "symbol": "end-3",
+          "annotations": 1,
+          "statement": "intestine",
+          "publication": "PMID:18287204"
+        }
+      ]
+    },
+    "WBbt:0005773": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker113",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker113",
+          "curie": "WB:WBGene00001193",
+          "symbol": "egl-26",
+          "annotations": 1,
+          "statement": "rectum",
+          "publication": "PMID:18308937"
+        },
+        {
+          "id": "Marker107",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker107",
+          "curie": "WB:WBGene00004773",
+          "symbol": "sem-4",
+          "annotations": 1,
+          "statement": "rectum",
+          "publication": "PMID:18308937"
+        }
+      ]
+    },
+    "WBbt:0005776": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker41",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker41",
+          "curie": "WB:WBGene00002988",
+          "symbol": "lim-6",
+          "annotations": 1,
+          "statement": "excretory gland cell",
+          "publication": "PMID:12952888"
+        }
+      ]
+    },
+    "WBbt:0005800": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker35",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker35",
+          "curie": "WB:WBGene00001174",
+          "symbol": "egl-5",
+          "annotations": 1,
+          "statement": "rectal epithelium",
+          "publication": "PMID:18308937"
+        },
+        {
+          "id": "Marker34",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker34",
+          "curie": "WB:WBGene00003012",
+          "symbol": "lin-26",
+          "annotations": 1,
+          "statement": "rectal epithelium",
+          "publication": "PMID:18308937"
+        }
+      ]
+    },
+    "WBbt:0005812": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "excretory cell",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0005813": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker8",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker8",
+          "curie": "WB:WBGene00001863",
+          "symbol": "him-4",
+          "annotations": 1,
+          "statement": "body wall musculature",
+          "publication": "PMID:15930100"
+        },
+        {
+          "id": "Marker80",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker80",
+          "curie": "WB:WBGene00003515",
+          "symbol": "myo-3",
+          "annotations": 1,
+          "statement": "body wall musculature",
+          "publication": "PMID:18174190"
+        }
+      ]
+    },
+    "WBbt:0005829": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker2",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker2",
+          "curie": "WB:WBGene00006784",
+          "symbol": "unc-49",
+          "annotations": 1,
+          "statement": "ventral nerve cord",
+          "publication": "PMID:12684444"
+        }
+      ]
+    },
+    "WBbt:0006749": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker27",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker27",
+          "curie": "WB:WBGene00004035",
+          "symbol": "pkd-2",
+          "annotations": 1,
+          "statement": "nerve ring",
+          "publication": "PMID:18261976"
+        },
+        {
+          "id": "Marker2",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker2",
+          "curie": "WB:WBGene00006784",
+          "symbol": "unc-49",
+          "annotations": 1,
+          "statement": "nerve ring",
+          "publication": "PMID:12684444"
+        }
+      ]
+    },
+    "WBbt:0006750": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker2",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker2",
+          "curie": "WB:WBGene00006784",
+          "symbol": "unc-49",
+          "annotations": 1,
+          "statement": "dorsal nerve cord",
+          "publication": "PMID:12684444"
+        }
+      ]
+    },
+    "WBbt:0006753": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker82",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker82",
+          "curie": "WB:WBGene00003883",
+          "symbol": "osm-1",
+          "annotations": 1,
+          "statement": "phasmid neuron",
+          "publication": "PMID:17314406"
+        },
+        {
+          "id": "Marker73",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker73",
+          "curie": "WB:WBGene00003886",
+          "symbol": "osm-6",
+          "annotations": 1,
+          "statement": "phasmid neuron",
+          "publication": "PMID:18173744"
+        }
+      ]
+    },
+    "WBbt:0006801": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker49",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker49",
+          "curie": "WB:WBGene00002181",
+          "symbol": "kal-1",
+          "annotations": 1,
+          "statement": "outer labial neuron",
+          "publication": "PMID:11493519"
+        }
+      ]
+    },
+    "WBbt:0007803": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker40",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker40",
+          "curie": "WB:WBGene00000415",
+          "symbol": "ced-1",
+          "annotations": 1,
+          "statement": "engulfing cell",
+          "publication": "PMID:18308937"
+        }
+      ]
+    },
+    "WBbt:0008112": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker18",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker18",
+          "curie": "WB:WBGene00019599",
+          "symbol": "acds-10",
+          "annotations": 1,
+          "statement": "P3.p hermaphrodite",
+          "publication": "PMID:16239437"
+        }
+      ]
+    },
+    "WBbt:0008117": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker18",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker18",
+          "curie": "WB:WBGene00019599",
+          "symbol": "acds-10",
+          "annotations": 1,
+          "statement": "P4.p hermaphrodite",
+          "publication": "PMID:16239437"
+        }
+      ]
+    },
+    "WBbt:0008121": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 4,
+      "markers": [
+        {
+          "id": "Marker17",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker17",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "P5.p hermaphrodite",
+          "publication": "PMID:16239437"
+        },
+        {
+          "id": "Marker77",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker77",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "P5.p hermaphrodite",
+          "publication": "PMID:18700817"
+        },
+        {
+          "id": "Marker106",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker106",
+          "curie": "WB:WBGene00003043",
+          "symbol": "lip-1",
+          "annotations": 1,
+          "statement": "P5.p hermaphrodite",
+          "publication": "PMID:18700817"
+        },
+        {
+          "id": "Marker12",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker12",
+          "curie": "WB:WBGene00003043",
+          "symbol": "lip-1",
+          "annotations": 1,
+          "statement": "P5.p hermaphrodite",
+          "publication": "PMID:17511512"
+        }
+      ]
+    },
+    "WBbt:0008125": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 2,
+      "markers": [
+        {
+          "id": "Marker105",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker105",
+          "curie": "WB:WBGene00001185",
+          "symbol": "egl-17",
+          "annotations": 1,
+          "statement": "P6.p hermaphrodite",
+          "publication": "PMID:18700817"
+        },
+        {
+          "id": "Marker11",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker11",
+          "curie": "WB:WBGene00001185",
+          "symbol": "egl-17",
+          "annotations": 1,
+          "statement": "P6.p hermaphrodite",
+          "publication": "PMID:17511512"
+        }
+      ]
+    },
+    "WBbt:0008129": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 5,
+      "markers": [
+        {
+          "id": "Marker16",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker16",
+          "curie": "WB:WBGene00001185",
+          "symbol": "egl-17",
+          "annotations": 1,
+          "statement": "P7.p hermaphrodite",
+          "publication": "PMID:16239437"
+        },
+        {
+          "id": "Marker17",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker17",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "P7.p hermaphrodite",
+          "publication": "PMID:16239437"
+        },
+        {
+          "id": "Marker77",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker77",
+          "curie": "WB:WBGene00003000",
+          "symbol": "lin-11",
+          "annotations": 1,
+          "statement": "P7.p hermaphrodite",
+          "publication": "PMID:18700817"
+        },
+        {
+          "id": "Marker106",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker106",
+          "curie": "WB:WBGene00003043",
+          "symbol": "lip-1",
+          "annotations": 1,
+          "statement": "P7.p hermaphrodite",
+          "publication": "PMID:18700817"
+        },
+        {
+          "id": "Marker12",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker12",
+          "curie": "WB:WBGene00003043",
+          "symbol": "lip-1",
+          "annotations": 1,
+          "statement": "P7.p hermaphrodite",
+          "publication": "PMID:17511512"
+        }
+      ]
+    },
+    "WBbt:0008133": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "totalMarkers": 1,
+      "markers": [
+        {
+          "id": "Marker18",
+          "url": "https://www.wormbase.org/species/all/expr_pattern/Marker18",
+          "curie": "WB:WBGene00019599",
+          "symbol": "acds-10",
+          "annotations": 1,
+          "statement": "P8.p hermaphrodite",
+          "publication": "PMID:16239437"
+        }
+      ]
+    }
+  }
+}
