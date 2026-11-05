@@ -5,25 +5,8 @@ import { Link } from 'react-router-dom';
 import SpeciesName from '../../components/SpeciesName.jsx';
 import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
-
-// ZFIN writes gene symbols inside a phenotype statement as `<i>acaca</i>`, so
-// a statement is not plain text. The repo renders member markup elsewhere with
-// dangerouslySetInnerHTML; this does not, because the same component will
-// render whatever /api/anatomy/{id} returns once that exists, and by then the
-// strings will not have been through review the way a committed fixture has.
-// Anything that is not the one tag ZFIN uses stays visible as text.
-const ITALIC = /<i>(.*?)<\/i>/g;
-
-const formatStatement = (statement) => {
-  const parts = [];
-  let index = 0;
-  for (const match of statement.matchAll(ITALIC)) {
-    parts.push(statement.slice(index, match.index), <i key={match.index}>{match[1]}</i>);
-    index = match.index + match[0].length;
-  }
-  parts.push(statement.slice(index));
-  return parts;
-};
+import MemberText from './MemberText.jsx';
+import SampleTable from './SampleTable.jsx';
 
 // Genes whose perturbation gives a phenotype in this structure.
 //
@@ -38,7 +21,7 @@ const formatStatement = (statement) => {
 // rows reached this page through an ontology's reasoning rather than through a
 // curator's statement about this structure. A reader cannot weigh a row
 // without being told which of the two it is.
-const AnatomyPhenotypes = ({ term, sample, sources, genesPerTerm }) => {
+const AnatomyPhenotypes = ({ term, sample, sources, ontology }) => {
   const species = [...new Set(sample.genes.map((gene) => gene.species))];
   const files = sample.sources.map((mod) => sources[mod]).filter(Boolean);
   const truncated = sample.totalGenes > sample.genes.length;
@@ -48,7 +31,7 @@ const AnatomyPhenotypes = ({ term, sample, sources, genesPerTerm }) => {
       <p className="text-muted">
         <b>{sample.totalGenes.toLocaleString()} genes</b> have a phenotype annotated to {term.name}, across{' '}
         {sample.totalAnnotations.toLocaleString()} annotations
-        {truncated && <> — the {genesPerTerm} most annotated are shown</>}.
+        {truncated && <> — more than any one table should hold</>}.
       </p>
 
       {sample.route === 'definition' && (
@@ -58,50 +41,60 @@ const AnatomyPhenotypes = ({ term, sample, sources, genesPerTerm }) => {
         </p>
       )}
 
-      <table className="table">
-        <thead className="text-capitalize">
-          <tr>
-            <th>Gene</th>
-            {species.length > 1 && <th>Species</th>}
-            <th>Annotations</th>
-            <th>Phenotype</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sample.genes.map((gene) => (
-            <tr key={gene.curie}>
-              <td>
-                <Link to={`/gene/${gene.curie}`}>{gene.symbol}</Link>
-              </td>
-              {species.length > 1 && (
+      <SampleTable total={sample.totalGenes} shown={sample.genes.length} noun="genes" ontology={ontology} term={term}>
+        <table className="table">
+          <thead className="text-capitalize">
+            <tr>
+              <th>Gene</th>
+              {species.length > 1 && <th>Species</th>}
+              <th>Annotations</th>
+              <th>Phenotype</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sample.genes.map((gene) => (
+              <tr key={gene.curie}>
                 <td>
-                  <SpeciesName>{gene.species}</SpeciesName>
+                  <Link to={`/gene/${gene.curie}`}>{gene.symbol}</Link>
                 </td>
-              )}
-              <td>{gene.annotations.toLocaleString()}</td>
-              {/* As the member wrote it. The members differ in what a
+                {species.length > 1 && (
+                  <td>
+                    <SpeciesName>{gene.species}</SpeciesName>
+                  </td>
+                )}
+                <td>{gene.annotations.toLocaleString()}</td>
+                {/* As the member wrote it. The members differ in what a
                   phenotype statement is: ZFIN composes a quality with the
                   structure, so a row reads `notochord undulate, abnormal`,
                   while FlyBase records only the structure a phenotype is
                   manifest in and a row reads `wing`. Normalizing the two would
                   invent a quality FlyBase never curated. */}
-              <td className="text-muted">
-                {gene.phenotypes.map((statement, index) => (
-                  <React.Fragment key={statement}>
-                    {index > 0 && '; '}
-                    {formatStatement(statement)}
-                  </React.Fragment>
-                ))}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <td className="text-muted">
+                  {gene.phenotypes.map((statement, index) => (
+                    <React.Fragment key={statement}>
+                      {index > 0 && '; '}
+                      <MemberText>{statement}</MemberText>
+                    </React.Fragment>
+                  ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </SampleTable>
 
       {sample.unattributed > 0 && (
         <p className="text-muted">
-          A further {sample.unattributed.toLocaleString()} annotations are recorded against a genotype or a transgene
-          rather than a gene, and no published Alliance file resolves those to the genes they carry.
+          A further {sample.unattributed.toLocaleString()} annotations reach no gene, being scored either against a
+          genotype that carries no allele of its own — a genetic background and a set of conditions — or against a
+          transgenic insertion the member records against no gene. The reagents themselves are under Reagents and Tools.
+        </p>
+      )}
+      {sample.shared > 0 && (
+        <p className="text-muted">
+          {sample.shared.toLocaleString()} of the {sample.totalAnnotations.toLocaleString()} were scored against a
+          genotype carrying alleles of more than one gene, and are counted under each of them, so the Annotations column
+          sums past that total.
         </p>
       )}
 
@@ -126,7 +119,7 @@ AnatomyPhenotypes.propTypes = {
   term: PropTypes.object.isRequired,
   sample: PropTypes.object.isRequired,
   sources: PropTypes.object.isRequired,
-  genesPerTerm: PropTypes.number,
+  ontology: PropTypes.object,
 };
 
 export default AnatomyPhenotypes;

@@ -20,14 +20,17 @@ import AnatomyStageRange from './AnatomyStageRange.jsx';
 import AnatomyRelations from './AnatomyRelations.jsx';
 import AnatomyExpression from './AnatomyExpression.jsx';
 import AnatomyPhenotypes from './AnatomyPhenotypes.jsx';
+import AnatomyReagents from './AnatomyReagents.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 import loadExpressionSample from './expressionSample.js';
 import loadPhenotypeSample from './phenotypeSample.js';
+import loadReagentSample from './reagentSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
 const PHENOTYPES = 'Phenotypes';
+const REAGENTS = 'Reagents and Tools';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
@@ -66,6 +69,13 @@ const AnatomyPage = () => {
     retry: false,
   });
 
+  const { data: reagents } = useQuery({
+    queryKey: ['anatomy-reagent-sample'],
+    queryFn: loadReagentSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -86,6 +96,7 @@ const AnatomyPage = () => {
 
   const expressionSample = expression?.terms?.[term.curie];
   const phenotypeSample = phenotypes?.terms?.[term.curie];
+  const reagentSample = reagents?.terms?.[term.curie];
 
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
   if (term.synonyms?.length) {
@@ -151,6 +162,7 @@ const AnatomyPage = () => {
             : [
                 { name: EXPRESSION, count: expressionSample?.totalGenes },
                 { name: PHENOTYPES, count: phenotypeSample?.totalGenes },
+                ...(reagentSample ? [{ name: REAGENTS, count: reagentSample.totalReagents }] : []),
               ]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
@@ -217,8 +229,8 @@ const AnatomyPage = () => {
               <AnatomyExpression
                 term={term}
                 sample={expressionSample}
+                ontology={ontology}
                 sources={expression.sources}
-                genesPerTerm={expression.genesPerTerm}
               />
             ) : (
               <NoData>
@@ -244,16 +256,17 @@ const AnatomyPage = () => {
             WormBase and Xenbase annotate to a phenotype-ontology term, and the
             structure is only in that term's logical definition — a claim by
             the ontology rather than by the curator who scored the animal.
-            MGI, RGD, SGD and HUMAN reach no member anatomy ontology at all;
-            bin/build_anatomy_phenotype_sample.js records why for each. */}
+            MGI, RGD, SGD and HUMAN submit no annotation that reaches a member
+            anatomy ontology; bin/build_anatomy_phenotype_sample.js records why
+            for each, and why MGI is not the same case as the other three. */}
         {!ontology.crossSpecies && (
           <Subsection title={PHENOTYPES}>
             {phenotypeSample ? (
               <AnatomyPhenotypes
                 term={term}
                 sample={phenotypeSample}
+                ontology={ontology}
                 sources={phenotypes.sources}
-                genesPerTerm={phenotypes.genesPerTerm}
               />
             ) : (
               <NoData>
@@ -266,6 +279,20 @@ const AnatomyPage = () => {
                 )}
               </NoData>
             )}
+          </Subsection>
+        )}
+
+        {/* Hidden outright where there is nothing to resolve, rather than
+            shown empty. Xenbase scores every phenotype annotation against a
+            gene and the Alliance publishes no allele file for either Xenopus
+            species, so the question has no answer there — Tier A, the same
+            case as Developmental Window on a WBbt term. Where a member does
+            keep reagents, the section appears only for a term in the sample
+            for the usual reason, and the absence of a count in the index says
+            which of the two a reader is looking at. */}
+        {reagentSample && (
+          <Subsection title={REAGENTS}>
+            <AnatomyReagents term={term} sample={reagentSample} ontology={ontology} sources={reagents.sources} />
           </Subsection>
         )}
       </PageData>

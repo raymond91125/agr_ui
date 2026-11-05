@@ -1,0 +1,2326 @@
+{
+  "reagentsPerTerm": 25,
+  "sources": {
+    "WB": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_WB.json.gz",
+      "release": "9.2.0",
+      "uploaded": "2025-11-13",
+      "species": "Caenorhabditis elegans",
+      "allele": {
+        "url": "https://fms.alliancegenome.org/download/ALLELE_WB.json.gz",
+        "release": "9.2.0",
+        "uploaded": "2025-11-13"
+      },
+      "agm": {
+        "url": "https://fms.alliancegenome.org/download/AGM_WB.json.gz",
+        "release": "9.1.0",
+        "uploaded": "2025-11-13"
+      },
+      "via": "C. elegans Phenotype Ontology",
+      "viaVersion": "http://purl.obolibrary.org/obo/wbphenotype/releases/2026-04-15/wbphenotype-base.owl"
+    },
+    "FB": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_FB.json.gz",
+      "release": "9.2.0",
+      "uploaded": "2026-03-05",
+      "species": "Drosophila melanogaster",
+      "allele": {
+        "url": "https://fms.alliancegenome.org/download/ALLELE_FB.json.gz",
+        "release": "9.2.0",
+        "uploaded": "2026-03-05"
+      },
+      "agm": {
+        "url": "https://fms.alliancegenome.org/download/AGM_FB.json.gz",
+        "release": "9.1.0",
+        "uploaded": "2026-03-05"
+      }
+    },
+    "ZFIN": {
+      "url": "https://fms.alliancegenome.org/download/PHENOTYPE_ZFIN.json.gz",
+      "release": "9.2.0",
+      "uploaded": "2026-09-23",
+      "species": "Danio rerio",
+      "allele": {
+        "url": "https://fms.alliancegenome.org/download/ALLELE_ZFIN.json.gz",
+        "release": "9.2.0",
+        "uploaded": "2026-08-04"
+      },
+      "agm": {
+        "url": "https://fms.alliancegenome.org/download/AGM_ZFIN.json.gz",
+        "release": "9.1.0",
+        "uploaded": "2026-08-04"
+      }
+    }
+  },
+  "terms": {
+    "WBbt:0005772": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "route": "definition",
+      "via": "C. elegans Phenotype Ontology",
+      "totalReagents": 53,
+      "totalAnnotations": 108,
+      "toGene": 54,
+      "models": 0,
+      "modelsEmpty": 0,
+      "unresolved": 0,
+      "kinds": [
+        {
+          "kind": "mutation",
+          "total": 53,
+          "annotations": 54,
+          "reagents": [
+            {
+              "curie": "WB:WBVar00094648",
+              "symbol": "or10",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003394", "symbol": "mom-1" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00000381",
+              "symbol": "b274",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003916", "symbol": "par-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00000669",
+              "symbol": "ca15",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00001250", "symbol": "elt-2" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00144481",
+              "symbol": "e2012",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003916", "symbol": "par-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00145351",
+              "symbol": "fw8",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00000275", "symbol": "bub-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088012",
+              "symbol": "it32",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003916", "symbol": "par-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088013",
+              "symbol": "it33",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003919", "symbol": "par-4" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088023",
+              "symbol": "it47",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003919", "symbol": "par-4" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00087992",
+              "symbol": "it5",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003917", "symbol": "par-2" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088026",
+              "symbol": "it55",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003920", "symbol": "par-5" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088265",
+              "symbol": "kr15",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00013034", "symbol": "tat-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088523",
+              "symbol": "lw19",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003920", "symbol": "par-5" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00088524",
+              "symbol": "lw23",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003920", "symbol": "par-5" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00090962",
+              "symbol": "ne141",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003395", "symbol": "mom-2" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00090957",
+              "symbol": "ne19",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003396", "symbol": "mom-4" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00090998",
+              "symbol": "ne1982",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00006943", "symbol": "wrm-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00090987",
+              "symbol": "ne874",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003395", "symbol": "mom-2" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00092378",
+              "symbol": "ok1110",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00044068", "symbol": "syd-9" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00091507",
+              "symbol": "ok198",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00018788", "symbol": "shc-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00093368",
+              "symbol": "ok2204",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00014228", "symbol": "mett-10" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00091865",
+              "symbol": "ok579",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00004101", "symbol": "hgrs-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00092033",
+              "symbol": "ok753",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00007047", "symbol": "wts-1" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00094649",
+              "symbol": "or11",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003396", "symbol": "mom-4" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00094662",
+              "symbol": "or33",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003395", "symbol": "mom-2" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00094665",
+              "symbol": "or39",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003396", "symbol": "mom-4" },
+              "annotations": 1,
+              "throughModels": 0
+            }
+          ]
+        }
+      ]
+    },
+    "WBbt:0006748": {
+      "sources": ["WB"],
+      "species": "Caenorhabditis elegans",
+      "route": "definition",
+      "via": "C. elegans Phenotype Ontology",
+      "totalReagents": 336,
+      "totalAnnotations": 926,
+      "toGene": 460,
+      "models": 0,
+      "modelsEmpty": 0,
+      "unresolved": 0,
+      "kinds": [
+        {
+          "kind": "mutation",
+          "total": 322,
+          "annotations": 449,
+          "reagents": [
+            {
+              "curie": "WB:WBVar00089919",
+              "symbol": "n1046",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002335", "symbol": "let-60" },
+              "annotations": 13,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089283",
+              "symbol": "n137",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "annotations": 8,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089401",
+              "symbol": "n301",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003017", "symbol": "lin-31" },
+              "annotations": 7,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00143882",
+              "symbol": "e1275",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002990", "symbol": "lin-1" },
+              "annotations": 6,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089402",
+              "symbol": "n302",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "annotations": 5,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089468",
+              "symbol": "n379",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "annotations": 5,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089663",
+              "symbol": "n676",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "annotations": 5,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00145412",
+              "symbol": "ga80",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00000238", "symbol": "bar-1" },
+              "annotations": 4,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089843",
+              "symbol": "n941",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "annotations": 4,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00248884",
+              "symbol": "sy1",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002299", "symbol": "let-23" },
+              "annotations": 4,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00144008",
+              "symbol": "e1446",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003011", "symbol": "lin-25" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00143343",
+              "symbol": "e620",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003007", "symbol": "lin-18" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00145416",
+              "symbol": "ga89",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002335", "symbol": "let-60" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089203",
+              "symbol": "mu38",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00004202", "symbol": "pry-1" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089918",
+              "symbol": "n1045",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002299", "symbol": "let-23" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089926",
+              "symbol": "n1053",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003017", "symbol": "lin-31" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089405",
+              "symbol": "n304",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002990", "symbol": "lin-1" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089608",
+              "symbol": "n578",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00001204", "symbol": "egl-38" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00089659",
+              "symbol": "n671",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003006", "symbol": "lin-17" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00091454",
+              "symbol": "oj28",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00006300", "symbol": "stu-15" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00091446",
+              "symbol": "oj7",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00006988", "symbol": "zyg-1" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00241641",
+              "symbol": "rt142",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00003891", "symbol": "osm-11" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00143908",
+              "symbol": "e1309",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002991", "symbol": "lin-2" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00143988",
+              "symbol": "e1413",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002996", "symbol": "lin-7" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBVar00144007",
+              "symbol": "e1439",
+              "kind": "mutation",
+              "gene": { "curie": "WB:WBGene00002999", "symbol": "lin-10" },
+              "annotations": 2,
+              "throughModels": 0
+            }
+          ]
+        },
+        {
+          "kind": "transgene",
+          "total": 13,
+          "annotations": 15,
+          "reagents": [
+            {
+              "curie": "WB:WBTransgene00000040",
+              "symbol": "arIs12",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "driver": "lin-12",
+              "construct": "WBCnstr00000040",
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00000525",
+              "symbol": "gaIs37",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00003401", "symbol": "mpk-1" },
+              "driver": "hsp-16.41",
+              "construct": "WBCnstr00000524",
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00015957",
+              "symbol": "bhEx31",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00002992", "symbol": "lin-3" },
+              "driver": "hsp-16.41",
+              "construct": "pRH51",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00000524",
+              "symbol": "gaIs36",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00003401", "symbol": "mpk-1" },
+              "construct": "WBCnstr00000523",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00023077",
+              "symbol": "gbEx555a",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00004310", "symbol": "ras-1" },
+              "driver": "hsp-16.41",
+              "construct": "WBCnstr00022879",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00023078",
+              "symbol": "gbEx557a",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00004310", "symbol": "ras-1" },
+              "driver": "hsp-16.41",
+              "construct": "WBCnstr00022880",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00000613",
+              "symbol": "huIs1",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00000238", "symbol": "bar-1" },
+              "driver": "hsp-16.2",
+              "construct": "pHCK19",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00000790",
+              "symbol": "kuIs12",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00002335", "symbol": "let-60" },
+              "driver": "let-60",
+              "construct": "pMH132.1",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00000809",
+              "symbol": "kuIs57",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00003030", "symbol": "lin-45" },
+              "driver": "col-10",
+              "construct": "WBCnstr00000804",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00017600",
+              "symbol": "mfIs72",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "driver": "lin-31",
+              "construct": "WBCnstr00016997",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00017601",
+              "symbol": "mfIs76",
+              "kind": "transgene",
+              "gene": { "curie": "WB:WBGene00003001", "symbol": "lin-12" },
+              "driver": "lin-31",
+              "construct": "WBCnstr00016998",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00022976",
+              "symbol": "WBTransgene00022976",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "hsp-16.2",
+              "construct": "WBCnstr00022758",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "WB:WBTransgene00022977",
+              "symbol": "WBTransgene00022977",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "hsp-16.2",
+              "construct": "WBCnstr00022757",
+              "annotations": 1,
+              "throughModels": 0
+            }
+          ]
+        },
+        {
+          "kind": "other",
+          "total": 1,
+          "annotations": 2,
+          "reagents": [
+            {
+              "curie": "WB:WBTransgene00025241",
+              "symbol": "WBTransgene00025241",
+              "kind": "other",
+              "gene": null,
+              "annotations": 2,
+              "throughModels": 0
+            }
+          ]
+        }
+      ]
+    },
+    "FBbt:00004729": {
+      "sources": ["FB"],
+      "species": "Drosophila melanogaster",
+      "route": "direct",
+      "totalReagents": 3259,
+      "totalAnnotations": 6158,
+      "toGene": 2150,
+      "models": 0,
+      "modelsEmpty": 0,
+      "unresolved": 1,
+      "kinds": [
+        {
+          "kind": "mutation",
+          "total": 3179,
+          "annotations": 3919,
+          "reagents": [
+            {
+              "curie": "FB:FBal0193144",
+              "symbol": "Pink1<sup>B9</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0029891", "symbol": "Pink1" },
+              "annotations": 23,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0012701",
+              "symbol": "N<sup>55e11</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004647", "symbol": "N" },
+              "annotations": 20,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0001934",
+              "symbol": "ct<sup>6</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004198", "symbol": "ct" },
+              "annotations": 13,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0018612",
+              "symbol": "y<sup>2</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004034", "symbol": "y" },
+              "annotations": 13,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0018482",
+              "symbol": "wg<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0284084", "symbol": "wg" },
+              "annotations": 12,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0032671",
+              "symbol": "sd<sup>ETX4</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003345", "symbol": "sd" },
+              "annotations": 11,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0005484",
+              "symbol": "hh<sup>Mrt</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004644", "symbol": "hh" },
+              "annotations": 10,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0012890",
+              "symbol": "N<sup>nd-1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004647", "symbol": "N" },
+              "annotations": 10,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0017563",
+              "symbol": "Ubx<sup>Cbx-1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003944", "symbol": "Ubx" },
+              "annotations": 10,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0017868",
+              "symbol": "vg<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003975", "symbol": "vg" },
+              "annotations": 10,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0005580",
+              "symbol": "if<sup>3</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0001250", "symbol": "if" },
+              "annotations": 9,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0012892",
+              "symbol": "N<sup>nd-3</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004647", "symbol": "N" },
+              "annotations": 9,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0012685",
+              "symbol": "mys<sup>8</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004657", "symbol": "mys" },
+              "annotations": 8,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0189571",
+              "symbol": "park<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0041100", "symbol": "park" },
+              "annotations": 8,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0017976",
+              "symbol": "vg<sup>83b27</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003975", "symbol": "vg" },
+              "annotations": 8,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0013553",
+              "symbol": "Pc<sup>3</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003042", "symbol": "Pc" },
+              "annotations": 7,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0398912",
+              "symbol": "Ser<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004197", "symbol": "Ser" },
+              "annotations": 7,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0015418",
+              "symbol": "Ser<sup>Bd-3</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004197", "symbol": "Ser" },
+              "annotations": 7,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0018509",
+              "symbol": "wg<sup>l-17</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0284084", "symbol": "wg" },
+              "annotations": 7,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0002000",
+              "symbol": "ct<sup>K</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004198", "symbol": "ct" },
+              "annotations": 6,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0003002",
+              "symbol": "dpp<sup>d5</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000490", "symbol": "dpp" },
+              "annotations": 6,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0003003",
+              "symbol": "dpp<sup>d6</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000490", "symbol": "dpp" },
+              "annotations": 6,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0045232",
+              "symbol": "Ubx<sup>1:Cbx-1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003944", "symbol": "Ubx" },
+              "annotations": 6,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0030502",
+              "symbol": "ap<sup>UGO35</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0267978", "symbol": "ap" },
+              "annotations": 5,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0001938",
+              "symbol": "ct<sup>53d</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004198", "symbol": "ct" },
+              "annotations": 5,
+              "throughModels": 0
+            }
+          ]
+        },
+        {
+          "kind": "transgene",
+          "total": 80,
+          "annotations": 88,
+          "reagents": [
+            {
+              "curie": "FB:FBal0029996",
+              "symbol": "N<sup>int.hs</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004647", "symbol": "N" },
+              "driver": "Hsp70",
+              "construct": "P{hsp70-Notch.intra}",
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0046862",
+              "symbol": "y<sup>D-786</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004034", "symbol": "y" },
+              "construct": "P{D-786}",
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0045514",
+              "symbol": "dpp<sup>FRT.f.αTub84B</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000490", "symbol": "dpp" },
+              "driver": "αTub84B",
+              "construct": "P{αTub84B(FRT.f<sup>+</sup>)dpp.Z}",
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0043121",
+              "symbol": "hh<sup>αTub84B.PB</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004644", "symbol": "hh" },
+              "driver": "αTub84B",
+              "construct": "P{αTub84B(-FRT)hh.B}",
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0050825",
+              "symbol": "wg<sup>Ubx.PD</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0284084", "symbol": "wg" },
+              "driver": "Ubx",
+              "construct": "P{wg.Ubx.D}",
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0036046",
+              "symbol": "y<sup>D91</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004034", "symbol": "y" },
+              "construct": "P{D-91}",
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0042812",
+              "symbol": "al<sup>αTub84B.PC</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000061", "symbol": "al" },
+              "driver": "αTub84B",
+              "construct": "P{αTub84B(-FRT)al.C}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0039369",
+              "symbol": "aos<sup>hs.PSa</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004569", "symbol": "aos" },
+              "driver": "Hsp70",
+              "construct": "P{hs-argos.S}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0039371",
+              "symbol": "aos<sup>hs.sev</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004569", "symbol": "aos" },
+              "driver": "Hsp70",
+              "construct": "P{sev-hs-argos}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0030503",
+              "symbol": "ap<sup>hs.PB</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0267978", "symbol": "ap" },
+              "driver": "Hsp70",
+              "construct": "P{hs-ap}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0259176",
+              "symbol": "Arpc4<sup>KK102487</sup>",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "P{KK102487}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0297920",
+              "symbol": "arr<sup>αTub84B.PS</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000119", "symbol": "arr" },
+              "driver": "αTub84B",
+              "construct": "M{tub(-FRT)arr}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0029041",
+              "symbol": "B-H2<sup>hs.PH</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004854", "symbol": "B-H2" },
+              "construct": "P{hs-B-H2.H}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0057740",
+              "symbol": "br<sup>BRcore.TNT.Q1.Z1.hs</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0283451", "symbol": "br" },
+              "construct": "P{hs-BRC-Z1}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0086887",
+              "symbol": "Cdk7<sup>P140S</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0003449", "symbol": "snf" },
+              "driver": "Cdk7",
+              "construct": "P{Cdk7<sup>P140S</sup>}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0102794",
+              "symbol": "ci<sup>αTub84B.Tag:MYC,Tag:HA</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0004859", "symbol": "ci" },
+              "driver": "αTub84B",
+              "construct": "P{αTub84B-MYC.ci.HA}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0049436",
+              "symbol": "dpp<sup>BP.hs</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000490", "symbol": "dpp" },
+              "driver": "Hsp70",
+              "construct": "P{hs-dpp.BP}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0034440",
+              "symbol": "dsh<sup>w</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000499", "symbol": "dsh" },
+              "driver": "dsh",
+              "construct": "P{dsh.w}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0039306",
+              "symbol": "dx<sup>TX0</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000524", "symbol": "dx" },
+              "driver": "dx",
+              "construct": "P{TX0}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0086625",
+              "symbol": "fj<sup>hs.PB</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000658", "symbol": "fj" },
+              "driver": "Hsp70",
+              "construct": "P{hsp70-fj.B}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0159229",
+              "symbol": "fj<sup>t14.Tag:Golgi(hGALNT3)</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000658", "symbol": "fj" },
+              "driver": "fj",
+              "construct": "P{fj.t14::GNT}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0121773",
+              "symbol": "fng<sup>a.hs</sup>",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "P{hs-fng.a}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0155276",
+              "symbol": "ftz<sup>αTub84B.PA</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0001077", "symbol": "ftz" },
+              "driver": "αTub84B",
+              "construct": "P{Tubα1(-FRT)ftz}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0155279",
+              "symbol": "ftz<sup>Δ257-316.αTub84B</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0001077", "symbol": "ftz" },
+              "driver": "αTub84B",
+              "construct": "P{Tubα1(-FRT)ftz.Δ257-316}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0049546",
+              "symbol": "fu<sup>BS</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0001079", "symbol": "fu" },
+              "driver": "fu",
+              "construct": "P{BS}",
+              "annotations": 1,
+              "throughModels": 0
+            }
+          ]
+        }
+      ]
+    },
+    "FBbt:00001882": {
+      "sources": ["FB"],
+      "species": "Drosophila melanogaster",
+      "route": "direct",
+      "totalReagents": 135,
+      "totalAnnotations": 265,
+      "toGene": 114,
+      "models": 0,
+      "modelsEmpty": 0,
+      "unresolved": 0,
+      "kinds": [
+        {
+          "kind": "mutation",
+          "total": 132,
+          "annotations": 148,
+          "reagents": [
+            {
+              "curie": "FB:FBal0039417",
+              "symbol": "if<sup>B4</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0001250", "symbol": "if" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0012688",
+              "symbol": "mys<sup>11</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004657", "symbol": "mys" },
+              "annotations": 3,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0003072",
+              "symbol": "dpp<sup>s2</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000490", "symbol": "dpp" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0003076",
+              "symbol": "dpp<sup>s6</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000490", "symbol": "dpp" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0031493",
+              "symbol": "hkb<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0261434", "symbol": "hkb" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0031494",
+              "symbol": "hkb<sup>2</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0261434", "symbol": "hkb" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0089211",
+              "symbol": "if<sup>2B1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0001250", "symbol": "if" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0089199",
+              "symbol": "if<sup>C2B</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0001250", "symbol": "if" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0011515",
+              "symbol": "lab<sup>2</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0002522", "symbol": "lab" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0033789",
+              "symbol": "Mef2<sup>22-21</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0011656", "symbol": "Mef2" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0039653",
+              "symbol": "mew<sup>M6</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004456", "symbol": "mew" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0175709",
+              "symbol": "Myc<sup>4</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0262656", "symbol": "Myc" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0244826",
+              "symbol": "Pngl<sup>ex14</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0033050", "symbol": "Pngl" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0016082",
+              "symbol": "srp<sup>3</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0003507", "symbol": "srp" },
+              "annotations": 2,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0000081",
+              "symbol": "abd-A<sup>M1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000014", "symbol": "abd-A" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0239233",
+              "symbol": "AkhR<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0025595", "symbol": "AkhR" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0157358",
+              "symbol": "Alk<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0040505", "symbol": "Alk" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0246370",
+              "symbol": "AMPKα<sup>Δ39</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0023169", "symbol": "AMPKα" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0295308",
+              "symbol": "Atg2<sup>unspecified</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0044452", "symbol": "Atg2" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0157024",
+              "symbol": "Atg8a<sup>KG07569</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0052672", "symbol": "Atg8a" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0034201",
+              "symbol": "bap<sup>208</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0004862", "symbol": "bap" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0001175",
+              "symbol": "bly<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000200", "symbol": "bly" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0001176",
+              "symbol": "bly<sup>2</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0000200", "symbol": "bly" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0195572",
+              "symbol": "bmm<sup>1</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0036449", "symbol": "bmm" },
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0006657",
+              "symbol": "br<sup>2Bc-2</sup>",
+              "kind": "mutation",
+              "gene": { "curie": "FB:FBgn0283451", "symbol": "br" },
+              "annotations": 1,
+              "throughModels": 0
+            }
+          ]
+        },
+        {
+          "kind": "transgene",
+          "total": 3,
+          "annotations": 3,
+          "reagents": [
+            {
+              "curie": "FB:FBal0177478",
+              "symbol": "Diap1<sup>RNAi.hs</sup>",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "Hsp70",
+              "construct": "P{hs-Diap1.RNAi}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0137557",
+              "symbol": "EcR<sup>GAL4::LBD.hs</sup>",
+              "kind": "transgene",
+              "gene": { "curie": "FB:FBgn0000546", "symbol": "EcR" },
+              "driver": "Hsp70",
+              "construct": "P{hs-GAL4-EcR.LBD}",
+              "annotations": 1,
+              "throughModels": 0
+            },
+            {
+              "curie": "FB:FBal0118550",
+              "symbol": "EcR<sup>RNAi.hs.PL</sup>",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "Hsp70",
+              "construct": "P{hs-EcR.RNAi.L}",
+              "annotations": 1,
+              "throughModels": 0
+            }
+          ]
+        }
+      ]
+    },
+    "ZFA:0000135": {
+      "sources": ["ZFIN"],
+      "species": "Danio rerio",
+      "route": "direct",
+      "totalReagents": 473,
+      "totalAnnotations": 4450,
+      "toGene": 1511,
+      "models": 1050,
+      "modelsEmpty": 427,
+      "unresolved": 718,
+      "kinds": [
+        {
+          "kind": "mutation",
+          "total": 412,
+          "annotations": 2159,
+          "reagents": [
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-1302",
+              "symbol": "tx226",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990603-12", "symbol": "wnt11f2" },
+              "annotations": 39,
+              "throughModels": 29
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-130918-12",
+              "symbol": "la835-2Tg",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-080722-29", "symbol": "ngs" },
+              "annotations": 32,
+              "throughModels": 16
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170405-2",
+              "symbol": "stl27",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-980526-68", "symbol": "stat3" },
+              "annotations": 30,
+              "throughModels": 15
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-496",
+              "symbol": "m168",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990415-22", "symbol": "dharma" },
+              "annotations": 26,
+              "throughModels": 15
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-696",
+              "symbol": "m466",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-021226-3", "symbol": "lamc1" },
+              "annotations": 26,
+              "throughModels": 13
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-200708-1",
+              "symbol": "cq75",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040826-2", "symbol": "dstyk" },
+              "annotations": 25,
+              "throughModels": 14
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-488",
+              "symbol": "m341",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-010724-7", "symbol": "copb2" },
+              "annotations": 22,
+              "throughModels": 11
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-430",
+              "symbol": "m456",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-020905-2", "symbol": "copa" },
+              "annotations": 22,
+              "throughModels": 11
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-1548",
+              "symbol": "tm285",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030219-38", "symbol": "copb1" },
+              "annotations": 22,
+              "throughModels": 11
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-020430-12",
+              "symbol": "hi1463Tg",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-020419-29", "symbol": "scarb2a" },
+              "annotations": 20,
+              "throughModels": 10
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-517",
+              "symbol": "m189",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-021226-1", "symbol": "lamb1a" },
+              "annotations": 20,
+              "throughModels": 10
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-531",
+              "symbol": "m768",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-000616-15", "symbol": "foxh1" },
+              "annotations": 20,
+              "throughModels": 10
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-470",
+              "symbol": "n1",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990415-75", "symbol": "noto" },
+              "annotations": 18,
+              "throughModels": 12
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-1630",
+              "symbol": "ta98",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-980526-87", "symbol": "wnt5b" },
+              "annotations": 18,
+              "throughModels": 14
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-000913-2",
+              "symbol": "cz35",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990415-256", "symbol": "ndr1" },
+              "annotations": 16,
+              "throughModels": 10
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-130411-3",
+              "symbol": "hu4581",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040724-172", "symbol": "enpp1" },
+              "annotations": 16,
+              "throughModels": 12
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-180417-4",
+              "symbol": "a145",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990630-10", "symbol": "lft1" },
+              "annotations": 14,
+              "throughModels": 11
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-070809-2",
+              "symbol": "gw1",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-090112-3", "symbol": "fbn3" },
+              "annotations": 13,
+              "throughModels": 8
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-518",
+              "symbol": "m190",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-060118-1", "symbol": "lama1" },
+              "annotations": 13,
+              "throughModels": 7
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-230426-8",
+              "symbol": "b1327",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-010724-7", "symbol": "copb2" },
+              "annotations": 12,
+              "throughModels": 6
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-532",
+              "symbol": "m208",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-070912-274", "symbol": "col8a1a" },
+              "annotations": 12,
+              "throughModels": 6
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-120727-65",
+              "symbol": "sa1768",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-070326-1", "symbol": "plod2" },
+              "annotations": 12,
+              "throughModels": 6
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-1757",
+              "symbol": "tc240",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-020507-3", "symbol": "vangl2" },
+              "annotations": 12,
+              "throughModels": 7
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-1817",
+              "symbol": "tt258",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-070117-2023", "symbol": "doc" },
+              "annotations": 12,
+              "throughModels": 6
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-980203-469",
+              "symbol": "m134",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990415-198", "symbol": "tdgf1" },
+              "annotations": 10,
+              "throughModels": 5
+            }
+          ]
+        },
+        {
+          "kind": "transgene",
+          "total": 61,
+          "annotations": 239,
+          "reagents": [
+            {
+              "curie": "ZFIN:ZDB-ALT-090702-2",
+              "symbol": "io006Tg",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "Tg(UAS:EGFP-Hsa.HRAS_G12V)",
+              "annotations": 35,
+              "throughModels": 35
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-090702-3",
+              "symbol": "hzm1Et",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "kita",
+              "construct": "Et(kita:GAL4TA4,UAS:mCherry)",
+              "annotations": 25,
+              "throughModels": 25
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-201008-4",
+              "symbol": "zf3125Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "myl7",
+              "construct": "Tg(rr.col2a1a.2:KALTA4,myl7:EGFP)",
+              "annotations": 10,
+              "throughModels": 10
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-130911-7",
+              "symbol": "zf392Et",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "gata2a",
+              "construct": "Et(gata2a:EGFP)",
+              "annotations": 10,
+              "throughModels": 5
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-140818-1",
+              "symbol": "fb201Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "shhb",
+              "construct": "Tg(shhb:GAL4)",
+              "annotations": 8,
+              "throughModels": 8
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-140912-3",
+              "symbol": "hu8811Tg",
+              "kind": "transgene",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040724-172", "symbol": "enpp1" },
+              "driver": "myl7",
+              "construct": "Tg(5xUAS:enpp1-TagRFP,myl7:mTurquoise)",
+              "annotations": 8,
+              "throughModels": 8
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-250618-6",
+              "symbol": "udm401Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "actb2",
+              "construct": "Tg(actb2:EGFP-CAAX,myl7:EGFP)",
+              "annotations": 8,
+              "throughModels": 4
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-011017-8",
+              "symbol": "y1Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fli1",
+              "construct": "Tg(fli1:EGFP)",
+              "annotations": 8,
+              "throughModels": 5
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-110315-2",
+              "symbol": "nksagff214aGt",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "Gt(GAL4FF)",
+              "annotations": 6,
+              "throughModels": 6
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-130409-1",
+              "symbol": "pd1023Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "rcn3",
+              "construct": "Tg(rcn3:GAL4)",
+              "annotations": 6,
+              "throughModels": 6
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170907-5",
+              "symbol": "pd1152Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "col8a1a",
+              "construct": "Tg(col8a1a:GFP-CAAX)",
+              "annotations": 6,
+              "throughModels": 3
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-120221-7",
+              "symbol": "zf279Et",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "shhb",
+              "construct": "Et(shhb:KALTA4,UAS-E1B:mCherry)",
+              "annotations": 5,
+              "throughModels": 5
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-070316-1",
+              "symbol": "c264Tg",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "Tg(UAS-E1B:NTR-mCherry)",
+              "annotations": 4,
+              "throughModels": 4
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-051004-2",
+              "symbol": "ml1Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "gsc",
+              "construct": "Tg(-1.8gsc:GFP)",
+              "annotations": 4,
+              "throughModels": 4
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-111205-1",
+              "symbol": "nu12Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "col2a1a",
+              "construct": "Tg(-1.7col2a1a:EGFP-CAAX)",
+              "annotations": 4,
+              "throughModels": 2
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-120723-3",
+              "symbol": "nz101Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "lyve1b",
+              "construct": "Tg(-5.2lyve1b:DsRed)",
+              "annotations": 4,
+              "throughModels": 2
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-060322-2",
+              "symbol": "pd1Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "hsp70l",
+              "construct": "Tg(hsp70l:dnfgfr1a-EGFP)",
+              "annotations": 4,
+              "throughModels": 4
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-050503-2",
+              "symbol": "w30Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "hsp70l",
+              "construct": "Tg(hsp70l:dnXla.Bmpr1a-GFP)",
+              "annotations": 4,
+              "throughModels": 4
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-060821-4",
+              "symbol": "y7Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fli1",
+              "construct": "Tg(fli1:nEGFP)",
+              "annotations": 4,
+              "throughModels": 2
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-211103-4",
+              "symbol": "cq76Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "actb1",
+              "construct": "Tg(actb1:ras-GFP)",
+              "annotations": 3,
+              "throughModels": 3
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-070118-2",
+              "symbol": "i114Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "mpx",
+              "construct": "Tg(mpx:GFP)",
+              "annotations": 3,
+              "throughModels": 3
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-240515-24",
+              "symbol": "iis9Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "gata2a",
+              "construct": "Tg(FRT-Xla.Actc1:DsRed-GAB-FRT,LOXP-en.nog2e3-LOXP-gata2a:EGFP-5HS4)",
+              "annotations": 3,
+              "throughModels": 3
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170907-3",
+              "symbol": "pd1150Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "col9a2",
+              "construct": "Tg(col9a2:mCherry)",
+              "annotations": 3,
+              "throughModels": 2
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170907-4",
+              "symbol": "pd1151Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "col9a2",
+              "construct": "Tg(col9a2:GFP-CAAX)",
+              "annotations": 3,
+              "throughModels": 3
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-040621-6",
+              "symbol": "rw015dTg",
+              "kind": "transgene",
+              "gene": { "curie": "ZFIN:ZDB-GENE-010306-3", "symbol": "slit2" },
+              "driver": "hsp70l",
+              "construct": "Tg(hsp70l:slit2-GFP)",
+              "annotations": 3,
+              "throughModels": 3
+            }
+          ]
+        }
+      ]
+    },
+    "ZFA:0000123": {
+      "sources": ["ZFIN"],
+      "species": "Danio rerio",
+      "route": "direct",
+      "totalReagents": 913,
+      "totalAnnotations": 10225,
+      "toGene": 2132,
+      "models": 1566,
+      "modelsEmpty": 203,
+      "unresolved": 1709,
+      "kinds": [
+        {
+          "kind": "mutation",
+          "total": 655,
+          "annotations": 4918,
+          "reagents": [
+            {
+              "curie": "ZFIN:ZDB-ALT-050428-2",
+              "symbol": "zdf1",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990415-270", "symbol": "tp53" },
+              "annotations": 173,
+              "throughModels": 172
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-190705-11",
+              "symbol": "ihb358",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-020503-4", "symbol": "insrb" },
+              "annotations": 102,
+              "throughModels": 51
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-211116-2",
+              "symbol": "ecn5",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040426-2737", "symbol": "lipf" },
+              "annotations": 90,
+              "throughModels": 45
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-190705-10",
+              "symbol": "ihb357",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-020503-3", "symbol": "insra" },
+              "annotations": 84,
+              "throughModels": 42
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-200810-3",
+              "symbol": "hza56",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040426-1666", "symbol": "becn1" },
+              "annotations": 76,
+              "throughModels": 38
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-040726-4",
+              "symbol": "hi1532bTg",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030131-1723", "symbol": "trappc11" },
+              "annotations": 65,
+              "throughModels": 34
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-240228-3",
+              "symbol": "zf3739",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-010607-2", "symbol": "igf1" },
+              "annotations": 58,
+              "throughModels": 29
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-211116-5",
+              "symbol": "ecn8",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-120913-3", "symbol": "pnpla2" },
+              "annotations": 56,
+              "throughModels": 28
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170608-5",
+              "symbol": "ihb153",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-110114-1", "symbol": "cyp2r1" },
+              "annotations": 54,
+              "throughModels": 27
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-060824-4",
+              "symbol": "s403",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-060824-6", "symbol": "wnt2bb" },
+              "annotations": 49,
+              "throughModels": 32
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-140623-4",
+              "symbol": "ihb33",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040801-205", "symbol": "socs1a" },
+              "annotations": 44,
+              "throughModels": 22
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-220112-1",
+              "symbol": "ouc1002",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030912-13", "symbol": "bmp8a" },
+              "annotations": 44,
+              "throughModels": 22
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-231212-3",
+              "symbol": "s741",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040901-2", "symbol": "furinb" },
+              "annotations": 44,
+              "throughModels": 22
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-231025-4",
+              "symbol": "zf3641",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030131-3776", "symbol": "ptena" },
+              "annotations": 43,
+              "throughModels": 43
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-231025-7",
+              "symbol": "zf3644",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030616-47", "symbol": "ptenb" },
+              "annotations": 43,
+              "throughModels": 43
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-220328-5",
+              "symbol": "zf3426",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-060421-5612", "symbol": "elovl2" },
+              "annotations": 40,
+              "throughModels": 26
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-220328-6",
+              "symbol": "zf3427",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040407-2", "symbol": "elovl5" },
+              "annotations": 40,
+              "throughModels": 26
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-100311-14",
+              "symbol": "fh318",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030723-2", "symbol": "nfe2l2a" },
+              "annotations": 37,
+              "throughModels": 19
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-040712-4",
+              "symbol": "hi272Tg",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040426-2039", "symbol": "uhrf1" },
+              "annotations": 37,
+              "throughModels": 20
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-240131-12",
+              "symbol": "zf3729",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-990415-213", "symbol": "pparg" },
+              "annotations": 36,
+              "throughModels": 18
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-240424-6",
+              "symbol": "zf3756",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-090812-3", "symbol": "srebf1" },
+              "annotations": 36,
+              "throughModels": 18
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-250617-1",
+              "symbol": "zf4118",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-120509-1", "symbol": "il6" },
+              "annotations": 36,
+              "throughModels": 18
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170228-3",
+              "symbol": "zf680",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040702-7", "symbol": "cnr2" },
+              "annotations": 36,
+              "throughModels": 19
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-230915-1",
+              "symbol": "cq107",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030131-9643", "symbol": "ftcd" },
+              "annotations": 34,
+              "throughModels": 20
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-180523-4",
+              "symbol": "ihb396",
+              "kind": "mutation",
+              "gene": { "curie": "ZFIN:ZDB-GENE-040818-1", "symbol": "stat5b" },
+              "annotations": 34,
+              "throughModels": 17
+            }
+          ]
+        },
+        {
+          "kind": "transgene",
+          "total": 258,
+          "annotations": 3094,
+          "reagents": [
+            {
+              "curie": "ZFIN:ZDB-ALT-151022-1",
+              "symbol": "gz32Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:RTTA)",
+              "annotations": 385,
+              "throughModels": 385
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-090424-3",
+              "symbol": "gz15Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "ela3l",
+              "construct": "Tg(ela3l:EGFP)",
+              "annotations": 190,
+              "throughModels": 141
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-060627-2",
+              "symbol": "as3Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(-2.8fabp10a:EGFP)",
+              "annotations": 149,
+              "throughModels": 125
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-131205-3",
+              "symbol": "nn1002Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:HBV.HBx-mCherry,myl7:EGFP)",
+              "annotations": 119,
+              "throughModels": 119
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-121218-1",
+              "symbol": "gz26Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "krt4",
+              "construct": "Tg(krt4:GFP)",
+              "annotations": 109,
+              "throughModels": 109
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-131205-4",
+              "symbol": "nn1003Tg",
+              "kind": "transgene",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030131-3809", "symbol": "src" },
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:src,myl7:EGFP)",
+              "annotations": 96,
+              "throughModels": 96
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-191023-4",
+              "symbol": "zf3013Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:RTTA,TETRE:GAL4)",
+              "annotations": 78,
+              "throughModels": 78
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-030702-2",
+              "symbol": "s854Tg",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "Tg(Xla.Eef1a1:GFP)",
+              "annotations": 74,
+              "throughModels": 50
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-140326-1",
+              "symbol": "gz15aTg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:DsRed)",
+              "annotations": 67,
+              "throughModels": 65
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-140326-2",
+              "symbol": "s931Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:CFP-NTR)",
+              "annotations": 58,
+              "throughModels": 58
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-150922-3",
+              "symbol": "cq1Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:Dendra2-NTR)",
+              "annotations": 56,
+              "throughModels": 56
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-120926-4",
+              "symbol": "gz25Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "krt4",
+              "construct": "Tg(krt4:GFP)",
+              "annotations": 46,
+              "throughModels": 46
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-150814-3",
+              "symbol": "s704Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:Xla.Ctnnb1,cryaa:Venus)",
+              "annotations": 45,
+              "throughModels": 45
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-011017-8",
+              "symbol": "y1Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fli1",
+              "construct": "Tg(fli1:EGFP)",
+              "annotations": 44,
+              "throughModels": 33
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-090625-1",
+              "symbol": "um14Tg",
+              "kind": "transgene",
+              "gene": null,
+              "construct": "Tg(EPV.Tp1-Mmu.Hbb:EGFP)",
+              "annotations": 38,
+              "throughModels": 29
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-220309-3",
+              "symbol": "oi2Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg3(fabp10a:mCherry)",
+              "annotations": 33,
+              "throughModels": 18
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-170606-1",
+              "symbol": "zf689Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:Cre,cryaa:Venus)",
+              "annotations": 32,
+              "throughModels": 32
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-080109-1",
+              "symbol": "gz4Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:DsRed)",
+              "annotations": 30,
+              "throughModels": 22
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-131205-5",
+              "symbol": "nn1004Tg",
+              "kind": "transgene",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030131-3809", "symbol": "src" },
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:src,myl7:EGFP)",
+              "annotations": 30,
+              "throughModels": 30
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-071109-3",
+              "symbol": "nz50Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "lyz",
+              "construct": "Tg(lyz:DsRed2)",
+              "annotations": 29,
+              "throughModels": 29
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-161017-5",
+              "symbol": "s705Tg",
+              "kind": "transgene",
+              "gene": { "curie": "ZFIN:ZDB-GENE-030131-9710", "symbol": "yap1" },
+              "driver": "fabp10a",
+              "construct": "Tg(-2.8fabp10a:yap1_S87A,cryaa:Venus)",
+              "annotations": 28,
+              "throughModels": 28
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-081212-4",
+              "symbol": "s896Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "kdrl",
+              "construct": "Tg(kdrl:Hsa.HRAS-mCherry)",
+              "annotations": 28,
+              "throughModels": 25
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-110503-3",
+              "symbol": "s939Tg",
+              "kind": "transgene",
+              "gene": { "curie": "ZFIN:ZDB-GENE-031118-36", "symbol": "hist2h2l" },
+              "construct": "Tg(EPV.Tp1-Mmu.Hbb:hist2h2l-mCherry)",
+              "annotations": 28,
+              "throughModels": 26
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-180815-6",
+              "symbol": "zf1071Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "fabp10a",
+              "construct": "Tg(fabp10a:EGFP)",
+              "annotations": 28,
+              "throughModels": 28
+            },
+            {
+              "curie": "ZFIN:ZDB-ALT-110128-40",
+              "symbol": "pd24Tg",
+              "kind": "transgene",
+              "gene": null,
+              "driver": "hand2",
+              "construct": "TgBAC(hand2:EGFP)",
+              "annotations": 27,
+              "throughModels": 18
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

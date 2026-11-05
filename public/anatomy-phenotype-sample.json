@@ -3,7 +3,7 @@
   "sources": {
     "WB": {
       "url": "https://fms.alliancegenome.org/download/PHENOTYPE_WB.json.gz",
-      "release": "8.3.0",
+      "release": "9.3.0",
       "uploaded": "2025-11-13",
       "species": "Caenorhabditis elegans",
       "via": "C. elegans Phenotype Ontology",
@@ -11,13 +11,13 @@
     },
     "FB": {
       "url": "https://fms.alliancegenome.org/download/PHENOTYPE_FB.json.gz",
-      "release": "9.0.0",
+      "release": "9.3.0",
       "uploaded": "2026-03-05",
       "species": "Drosophila melanogaster"
     },
     "ZFIN": {
       "url": "https://fms.alliancegenome.org/download/PHENOTYPE_ZFIN.json.gz",
-      "release": "9.2.0",
+      "release": "9.3.0",
       "uploaded": "2026-09-23",
       "species": "Danio rerio"
     },
@@ -46,6 +46,7 @@
       "totalGenes": 27,
       "totalAnnotations": 108,
       "unattributed": 0,
+      "shared": 0,
       "genes": [
         {
           "curie": "WB:WBGene00003395",
@@ -230,19 +231,20 @@
       "via": "C. elegans Phenotype Ontology",
       "totalGenes": 132,
       "totalAnnotations": 926,
-      "unattributed": 17,
+      "unattributed": 4,
+      "shared": 0,
       "genes": [
         {
           "curie": "WB:WBGene00003001",
           "symbol": "lin-12",
-          "annotations": 80,
+          "annotations": 84,
           "phenotypes": ["everted vulva", "multivulva", "protruding vulva"],
           "species": "Caenorhabditis elegans"
         },
         {
           "curie": "WB:WBGene00002335",
           "symbol": "let-60",
-          "annotations": 59,
+          "annotations": 60,
           "phenotypes": ["multivulva", "vulvaless"],
           "species": "Caenorhabditis elegans"
         },
@@ -317,6 +319,13 @@
           "species": "Caenorhabditis elegans"
         },
         {
+          "curie": "WB:WBGene00000238",
+          "symbol": "bar-1",
+          "annotations": 14,
+          "phenotypes": ["multivulva", "protruding vulva", "vulva morphology variant"],
+          "species": "Caenorhabditis elegans"
+        },
+        {
           "curie": "WB:WBGene00002639",
           "symbol": "let-420",
           "annotations": 14,
@@ -328,13 +337,6 @@
           "symbol": "lin-33",
           "annotations": 14,
           "phenotypes": ["vulvaless"],
-          "species": "Caenorhabditis elegans"
-        },
-        {
-          "curie": "WB:WBGene00000238",
-          "symbol": "bar-1",
-          "annotations": 13,
-          "phenotypes": ["multivulva", "protruding vulva", "vulva morphology variant"],
           "species": "Caenorhabditis elegans"
         },
         {
@@ -361,7 +363,7 @@
         {
           "curie": "WB:WBGene00002992",
           "symbol": "lin-3",
-          "annotations": 11,
+          "annotations": 12,
           "phenotypes": ["multivulva", "vulvaless"],
           "species": "Caenorhabditis elegans"
         },
@@ -412,14 +414,15 @@
     "FBbt:00004729": {
       "sources": ["FB"],
       "route": "direct",
-      "totalGenes": 1012,
+      "totalGenes": 1013,
       "totalAnnotations": 6158,
-      "unattributed": 89,
+      "unattributed": 3,
+      "shared": 0,
       "genes": [
         {
           "curie": "FB:FBgn0004034",
           "symbol": "y",
-          "annotations": 238,
+          "annotations": 252,
           "phenotypes": ["wing"],
           "species": "Drosophila melanogaster"
         },
@@ -433,7 +436,7 @@
         {
           "curie": "FB:FBgn0004647",
           "symbol": "N",
-          "annotations": 206,
+          "annotations": 209,
           "phenotypes": ["wing", "wing | adult stage", "wing | cold sensitive"],
           "species": "Drosophila melanogaster"
         },
@@ -454,7 +457,7 @@
         {
           "curie": "FB:FBgn0003944",
           "symbol": "Ubx",
-          "annotations": 87,
+          "annotations": 89,
           "phenotypes": ["wing", "wing | ectopic", "wing | ectopic | somatic clone"],
           "species": "Drosophila melanogaster"
         },
@@ -473,6 +476,13 @@
           "species": "Drosophila melanogaster"
         },
         {
+          "curie": "FB:FBgn0284084",
+          "symbol": "wg",
+          "annotations": 78,
+          "phenotypes": ["wing", "wing | conditional", "wing | ectopic | somatic clone"],
+          "species": "Drosophila melanogaster"
+        },
+        {
           "curie": "FB:FBgn0265598",
           "symbol": "Bx",
           "annotations": 76,
@@ -480,30 +490,23 @@
           "species": "Drosophila melanogaster"
         },
         {
-          "curie": "FB:FBgn0284084",
-          "symbol": "wg",
-          "annotations": 75,
-          "phenotypes": ["wing", "wing | conditional", "wing | ectopic | somatic clone"],
-          "species": "Drosophila melanogaster"
-        },
-        {
           "curie": "FB:FBgn0267978",
           "symbol": "ap",
-          "annotations": 70,
+          "annotations": 71,
           "phenotypes": ["wing", "wing | absent", "wing | heat sensitive"],
           "species": "Drosophila melanogaster"
         },
         {
           "curie": "FB:FBgn0000490",
           "symbol": "dpp",
-          "annotations": 61,
+          "annotations": 64,
           "phenotypes": ["wing", "wing | distal", "wing | ectopic"],
           "species": "Drosophila melanogaster"
         },
         {
           "curie": "FB:FBgn0003090",
           "symbol": "pk",
-          "annotations": 55,
+          "annotations": 56,
           "phenotypes": [
             "wing",
             "wing | cell autonomous | somatic clone",
@@ -561,23 +564,23 @@
           "species": "Drosophila melanogaster"
         },
         {
-          "curie": "FB:FBgn0001085",
-          "symbol": "fz",
-          "annotations": 38,
-          "phenotypes": ["wing", "wing | P-stage", "wing | cell non-autonomous | somatic clone"],
+          "curie": "FB:FBgn0004644",
+          "symbol": "hh",
+          "annotations": 41,
+          "phenotypes": ["wing", "wing | anterior", "wing | anterior | distal"],
           "species": "Drosophila melanogaster"
         },
         {
-          "curie": "FB:FBgn0004644",
-          "symbol": "hh",
-          "annotations": 38,
-          "phenotypes": ["wing", "wing | anterior", "wing | anterior | distal"],
+          "curie": "FB:FBgn0001085",
+          "symbol": "fz",
+          "annotations": 40,
+          "phenotypes": ["wing", "wing | P-stage", "wing | cell non-autonomous | somatic clone"],
           "species": "Drosophila melanogaster"
         },
         {
           "curie": "FB:FBgn0001250",
           "symbol": "if",
-          "annotations": 36,
+          "annotations": 37,
           "phenotypes": ["wing", "wing | cold sensitive", "wing | somatic clone"],
           "species": "Drosophila melanogaster"
         },
@@ -602,7 +605,8 @@
       "route": "direct",
       "totalGenes": 82,
       "totalAnnotations": 265,
-      "unattributed": 3,
+      "unattributed": 2,
+      "shared": 0,
       "genes": [
         {
           "curie": "FB:FBgn0001250",
@@ -672,6 +676,13 @@
           "species": "Drosophila melanogaster"
         },
         {
+          "curie": "FB:FBgn0000546",
+          "symbol": "EcR",
+          "annotations": 5,
+          "phenotypes": ["embryonic/larval midgut | embryonic stage", "embryonic/larval midgut | heat sensitive"],
+          "species": "Drosophila melanogaster"
+        },
+        {
           "curie": "FB:FBgn0002522",
           "symbol": "lab",
           "annotations": 5,
@@ -700,13 +711,6 @@
           "symbol": "β-Spec",
           "annotations": 5,
           "phenotypes": ["embryonic/larval midgut | embryonic stage"],
-          "species": "Drosophila melanogaster"
-        },
-        {
-          "curie": "FB:FBgn0000546",
-          "symbol": "EcR",
-          "annotations": 4,
-          "phenotypes": ["embryonic/larval midgut | embryonic stage", "embryonic/larval midgut | heat sensitive"],
           "species": "Drosophila melanogaster"
         },
         {
@@ -807,14 +811,15 @@
     "ZFA:0000135": {
       "sources": ["ZFIN"],
       "route": "direct",
-      "totalGenes": 426,
+      "totalGenes": 453,
       "totalAnnotations": 4450,
-      "unattributed": 1940,
+      "unattributed": 833,
+      "shared": 49,
       "genes": [
         {
           "curie": "ZFIN:ZDB-GENE-060118-1",
           "symbol": "lama1",
-          "annotations": 199,
+          "annotations": 299,
           "phenotypes": [
             "notochord anterior region undifferentiated, abnormal",
             "notochord cell structure, abnormal",
@@ -825,7 +830,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-021226-3",
           "symbol": "lamc1",
-          "annotations": 168,
+          "annotations": 251,
           "phenotypes": [
             "notochord apoptotic, abnormal",
             "notochord basement membrane disorganized, abnormal",
@@ -836,7 +841,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-021226-1",
           "symbol": "lamb1a",
-          "annotations": 115,
+          "annotations": 172,
           "phenotypes": [
             "notochord apoptotic, abnormal",
             "notochord basement membrane disorganized, abnormal",
@@ -847,7 +852,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-020905-2",
           "symbol": "copa",
-          "annotations": 62,
+          "annotations": 92,
           "phenotypes": [
             "notochord Golgi apparatus structure, abnormal",
             "notochord apoptotic, abnormal",
@@ -858,7 +863,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-010724-7",
           "symbol": "copb2",
-          "annotations": 58,
+          "annotations": 87,
           "phenotypes": [
             "notochord Golgi apparatus ab1-golga2 labeling spatial pattern, abnormal",
             "notochord Golgi apparatus structure, abnormal",
@@ -869,7 +874,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-040801-106",
           "symbol": "glrbb",
-          "annotations": 54,
+          "annotations": 81,
           "phenotypes": [
             "notochord degenerate, abnormal",
             "notochord morphology, abnormal",
@@ -880,7 +885,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-030219-38",
           "symbol": "copb1",
-          "annotations": 53,
+          "annotations": 79,
           "phenotypes": [
             "notochord Golgi apparatus structure, abnormal",
             "notochord apoptotic, abnormal",
@@ -891,7 +896,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-020905-1",
           "symbol": "atp2a1",
-          "annotations": 51,
+          "annotations": 78,
           "phenotypes": [
             "notochord condensed, abnormal",
             "notochord damaged, abnormal",
@@ -902,7 +907,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-980526-437",
           "symbol": "tbxta",
-          "annotations": 51,
+          "annotations": 77,
           "phenotypes": [
             "notochord <i>col9a2</i> expression absent, abnormal",
             "notochord <i>col9a2</i> expression decreased amount, abnormal",
@@ -913,47 +918,58 @@
         {
           "curie": "ZFIN:ZDB-GENE-020507-3",
           "symbol": "vangl2",
-          "annotations": 44,
+          "annotations": 69,
           "phenotypes": [
             "notochord anatomical margin straight, abnormal",
             "notochord apoptotic process increased process quality, abnormal",
-            "notochord cell orientation notochord, abnormal"
+            "notochord cell circular, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-980526-87",
           "symbol": "wnt5b",
-          "annotations": 37,
+          "annotations": 64,
           "phenotypes": [
             "notochord decreased length, abnormal",
             "notochord increased width, abnormal",
-            "notochord quality, abnormal"
+            "notochord kinked, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-021031-4",
-          "symbol": "plod3",
-          "annotations": 35,
+          "curie": "ZFIN:ZDB-GENE-990603-12",
+          "symbol": "wnt11f2",
+          "annotations": 54,
           "phenotypes": [
-            "notochord cell spherical, abnormal",
             "notochord decreased length, abnormal",
-            "notochord degenerate, abnormal"
+            "notochord increased thickness, abnormal",
+            "notochord increased width, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-75",
+          "symbol": "noto",
+          "annotations": 53,
+          "phenotypes": [
+            "notochord absent, abnormal",
+            "notochord aplastic, abnormal",
+            "notochord aplastic/hypoplastic, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-990415-22",
           "symbol": "dharma",
-          "annotations": 32,
+          "annotations": 52,
           "phenotypes": ["notochord absent, abnormal", "notochord aplastic, abnormal", "notochord broken, abnormal"],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-040826-2",
           "symbol": "dstyk",
-          "annotations": 32,
+          "annotations": 52,
           "phenotypes": [
             "notochord <i>cmn</i> expression decreased amount, abnormal",
             "notochord <i>col11a2</i> expression decreased amount, abnormal",
@@ -964,7 +980,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-080722-29",
           "symbol": "ngs",
-          "annotations": 32,
+          "annotations": 48,
           "phenotypes": [
             "notochord anatomical space mislocalised, abnormal",
             "notochord cell decreased size, abnormal",
@@ -973,20 +989,9 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-990415-75",
-          "symbol": "noto",
-          "annotations": 32,
-          "phenotypes": [
-            "notochord absent, abnormal",
-            "notochord aplastic, abnormal",
-            "notochord aplastic/hypoplastic, abnormal"
-          ],
-          "species": "Danio rerio"
-        },
-        {
           "curie": "ZFIN:ZDB-GENE-980526-68",
           "symbol": "stat3",
-          "annotations": 31,
+          "annotations": 46,
           "phenotypes": [
             "notochord cell decreased length, abnormal",
             "notochord cell increased area, abnormal",
@@ -995,16 +1000,20 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-070912-274",
-          "symbol": "col8a1a",
-          "annotations": 27,
-          "phenotypes": ["notochord bent, abnormal", "notochord deformed, abnormal", "notochord kinked, abnormal"],
+          "curie": "ZFIN:ZDB-GENE-021031-4",
+          "symbol": "plod3",
+          "annotations": 45,
+          "phenotypes": [
+            "notochord cell spherical, abnormal",
+            "notochord decreased length, abnormal",
+            "notochord degenerate, abnormal"
+          ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-000616-15",
           "symbol": "foxh1",
-          "annotations": 27,
+          "annotations": 41,
           "phenotypes": [
             "notochord <i>col2a1a</i> expression decreased amount, abnormal",
             "notochord aplastic, abnormal",
@@ -1013,27 +1022,23 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-070117-2291",
-          "symbol": "qam",
-          "annotations": 26,
-          "phenotypes": ["notochord undulate, abnormal"],
+          "curie": "ZFIN:ZDB-GENE-070912-274",
+          "symbol": "col8a1a",
+          "annotations": 39,
+          "phenotypes": ["notochord bent, abnormal", "notochord deformed, abnormal", "notochord kinked, abnormal"],
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-990603-12",
-          "symbol": "wnt11f2",
-          "annotations": 24,
-          "phenotypes": [
-            "notochord decreased length, abnormal",
-            "notochord increased thickness, abnormal",
-            "notochord increased width, abnormal"
-          ],
+          "curie": "ZFIN:ZDB-GENE-070117-2291",
+          "symbol": "qam",
+          "annotations": 39,
+          "phenotypes": ["notochord undulate, abnormal"],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-070117-2023",
           "symbol": "doc",
-          "annotations": 22,
+          "annotations": 34,
           "phenotypes": [
             "notochord cell decreased size, abnormal",
             "notochord cell poorly differentiated, abnormal",
@@ -1044,33 +1049,33 @@
         {
           "curie": "ZFIN:ZDB-GENE-990415-256",
           "symbol": "ndr1",
-          "annotations": 21,
+          "annotations": 34,
           "phenotypes": [
             "notochord <i>col2a1a</i> expression decreased amount, abnormal",
             "notochord aplastic/hypoplastic, abnormal",
-            "notochord malformed, abnormal"
+            "notochord decreased length, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-070117-2188",
+          "symbol": "mgt",
+          "annotations": 30,
+          "phenotypes": [
+            "notochord cell spherical, abnormal",
+            "notochord decreased length, abnormal",
+            "notochord morphology, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-020419-29",
           "symbol": "scarb2a",
-          "annotations": 20,
+          "annotations": 30,
           "phenotypes": [
             "notochord basement membrane increased thickness, abnormal",
             "notochord basement membrane malformed, abnormal",
             "notochord basement membrane vacuolated, abnormal"
-          ],
-          "species": "Danio rerio"
-        },
-        {
-          "curie": "ZFIN:ZDB-GENE-030131-5509",
-          "symbol": "cavin1b",
-          "annotations": 17,
-          "phenotypes": [
-            "notochord caveola decreased amount, abnormal",
-            "notochord cell increased distance notochord cell, abnormal",
-            "notochord damage, ameliorated"
           ],
           "species": "Danio rerio"
         }
@@ -1079,14 +1084,26 @@
     "ZFA:0000123": {
       "sources": ["ZFIN"],
       "route": "direct",
-      "totalGenes": 616,
+      "totalGenes": 688,
       "totalAnnotations": 10225,
-      "unattributed": 5996,
+      "unattributed": 2985,
+      "shared": 335,
       "genes": [
+        {
+          "curie": "ZFIN:ZDB-GENE-990415-270",
+          "symbol": "tp53",
+          "annotations": 207,
+          "phenotypes": [
+            "liver <i>acat2</i> expression decreased amount, abnormal",
+            "liver <i>acat2</i> expression increased amount, abnormal",
+            "liver <i>aldh7a1</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
         {
           "curie": "ZFIN:ZDB-GENE-020503-4",
           "symbol": "insrb",
-          "annotations": 102,
+          "annotations": 153,
           "phenotypes": [
             "liver <i>acaca</i> expression increased amount, abnormal",
             "liver <i>acsl1b</i> expression increased amount, abnormal",
@@ -1097,7 +1114,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-040426-1666",
           "symbol": "becn1",
-          "annotations": 93,
+          "annotations": 140,
           "phenotypes": [
             "liver Ab3-ddit3 labeling increased amount, abnormal",
             "liver Ab8-hspa5 labeling increased amount, abnormal",
@@ -1108,7 +1125,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-020503-3",
           "symbol": "insra",
-          "annotations": 84,
+          "annotations": 126,
           "phenotypes": [
             "liver <i>acaca</i> expression decreased amount, abnormal",
             "liver <i>acsl1b</i> expression increased amount, abnormal",
@@ -1117,9 +1134,20 @@
           "species": "Danio rerio"
         },
         {
+          "curie": "ZFIN:ZDB-GENE-030131-3809",
+          "symbol": "src",
+          "annotations": 126,
+          "phenotypes": [
+            "liver <i>acat2</i> expression decreased amount, abnormal",
+            "liver <i>acat2</i> expression increased amount, abnormal",
+            "liver <i>aldh7a1</i> expression decreased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
           "curie": "ZFIN:ZDB-GENE-040426-2737",
           "symbol": "lipf",
-          "annotations": 77,
+          "annotations": 122,
           "phenotypes": [
             "liver <i>abhd5a</i> expression amount, ameliorated",
             "liver <i>abhd5a</i> expression increased amount, abnormal",
@@ -1128,20 +1156,16 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-030131-1723",
-          "symbol": "trappc11",
-          "annotations": 65,
-          "phenotypes": [
-            "liver <i>alg2</i> expression increased amount, abnormal",
-            "liver <i>alg5</i> expression increased amount, abnormal",
-            "liver <i>alg9</i> expression increased amount, abnormal"
-          ],
+          "curie": "ZFIN:ZDB-GENE-060824-6",
+          "symbol": "wnt2bb",
+          "annotations": 103,
+          "phenotypes": ["liver absent, abnormal", "liver aplastic, abnormal", "liver decreased size, abnormal"],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-010607-2",
           "symbol": "igf1",
-          "annotations": 58,
+          "annotations": 102,
           "phenotypes": [
             "female organism liver <i>igf1</i> expression decreased amount, abnormal",
             "female organism liver <i>igf1rb</i> expression decreased amount, abnormal",
@@ -1150,20 +1174,20 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-040801-205",
-          "symbol": "socs1a",
-          "annotations": 58,
+          "curie": "ZFIN:ZDB-GENE-030131-1723",
+          "symbol": "trappc11",
+          "annotations": 99,
           "phenotypes": [
-            "female organism has extra parts of type liver lipid droplet, abnormal",
-            "liver <i>apoa4a</i> expression increased amount, abnormal",
-            "liver <i>foxo1a</i> expression increased amount, abnormal"
+            "liver <i>alg2</i> expression increased amount, abnormal",
+            "liver <i>alg5</i> expression increased amount, abnormal",
+            "liver <i>alg9</i> expression increased amount, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-990415-213",
           "symbol": "pparg",
-          "annotations": 56,
+          "annotations": 89,
           "phenotypes": [
             "female organism liver <i>pparg</i> expression decreased amount, abnormal",
             "female organism liver Ab4-pparg labeling decreased amount, abnormal",
@@ -1172,16 +1196,9 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-060824-6",
-          "symbol": "wnt2bb",
-          "annotations": 55,
-          "phenotypes": ["liver absent, abnormal", "liver aplastic, abnormal", "liver decreased size, abnormal"],
-          "species": "Danio rerio"
-        },
-        {
           "curie": "ZFIN:ZDB-GENE-030114-7",
           "symbol": "lars1b",
-          "annotations": 54,
+          "annotations": 87,
           "phenotypes": [
             "liver <i>cp</i> expression decreased amount, abnormal",
             "liver <i>fabp10a</i> expression amount, ameliorated",
@@ -1190,9 +1207,20 @@
           "species": "Danio rerio"
         },
         {
+          "curie": "ZFIN:ZDB-GENE-040801-205",
+          "symbol": "socs1a",
+          "annotations": 87,
+          "phenotypes": [
+            "female organism has extra parts of type liver lipid droplet, abnormal",
+            "liver <i>apoa4a</i> expression increased amount, abnormal",
+            "liver <i>foxo1a</i> expression increased amount, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
           "curie": "ZFIN:ZDB-GENE-120913-3",
           "symbol": "pnpla2",
-          "annotations": 48,
+          "annotations": 76,
           "phenotypes": [
             "liver <i>abhd5a</i> expression increased amount, abnormal",
             "liver <i>atg12</i> expression amount, ameliorated",
@@ -1203,7 +1231,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-110114-1",
           "symbol": "cyp2r1",
-          "annotations": 46,
+          "annotations": 74,
           "phenotypes": [
             "liver <i>cyp24a1</i> expression decreased amount, abnormal",
             "liver <i>cyp27a1.4</i> expression increased amount, abnormal",
@@ -1212,20 +1240,9 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-990415-79",
-          "symbol": "nr5a2",
-          "annotations": 43,
-          "phenotypes": [
-            "liver <i>ccnd1</i> expression decreased amount, abnormal",
-            "liver <i>ccne2</i> expression decreased amount, abnormal",
-            "liver <i>fabp10a</i> expression decreased distribution, abnormal"
-          ],
-          "species": "Danio rerio"
-        },
-        {
           "curie": "ZFIN:ZDB-GENE-060421-5612",
           "symbol": "elovl2",
-          "annotations": 40,
+          "annotations": 72,
           "phenotypes": [
             "liver <i>elovl2</i> expression absent, abnormal",
             "liver <i>elovl2</i> expression decreased amount, abnormal",
@@ -1236,29 +1253,29 @@
         {
           "curie": "ZFIN:ZDB-GENE-040407-2",
           "symbol": "elovl5",
-          "annotations": 40,
+          "annotations": 72,
           "phenotypes": [
+            "liver <i>elovl2</i> expression decreased amount, abnormal",
             "liver <i>elovl2</i> expression increased amount, abnormal",
-            "liver <i>elovl4b</i> expression amount, ameliorated",
-            "liver <i>elovl5</i> expression absent, abnormal"
+            "liver <i>elovl4a</i> expression increased amount, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-040901-2",
-          "symbol": "furinb",
-          "annotations": 39,
+          "curie": "ZFIN:ZDB-GENE-030131-9710",
+          "symbol": "yap1",
+          "annotations": 65,
           "phenotypes": [
-            "liver <i>ddit3</i> expression amount, ameliorated",
-            "liver <i>ddit3</i> expression decreased amount, abnormal",
-            "liver <i>dnajc3a</i> expression amount, ameliorated"
+            "liver <i>amotl2b</i> expression increased amount, abnormal",
+            "liver <i>ccn1l2</i> expression increased amount, abnormal",
+            "liver <i>ccn2a</i> expression increased amount, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-070117-2515",
           "symbol": "npas4l",
-          "annotations": 39,
+          "annotations": 63,
           "phenotypes": [
             "liver <i>cyp51a1</i> expression increased amount, abnormal",
             "liver <i>ebp</i> expression increased amount, abnormal",
@@ -1267,20 +1284,31 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-090812-3",
-          "symbol": "srebf1",
-          "annotations": 37,
+          "curie": "ZFIN:ZDB-GENE-990415-79",
+          "symbol": "nr5a2",
+          "annotations": 63,
           "phenotypes": [
-            "liver 1-acylglycerol 20:4 increased amount, abnormal",
-            "liver <i>acaca</i> expression decreased amount, abnormal",
-            "liver <i>acox1</i> expression increased amount, abnormal"
+            "liver <i>ccnd1</i> expression decreased amount, abnormal",
+            "liver <i>ccne2</i> expression decreased amount, abnormal",
+            "liver <i>fabp10a</i> expression decreased distribution, abnormal"
+          ],
+          "species": "Danio rerio"
+        },
+        {
+          "curie": "ZFIN:ZDB-GENE-040901-2",
+          "symbol": "furinb",
+          "annotations": 61,
+          "phenotypes": [
+            "liver <i>ddit3</i> expression amount, ameliorated",
+            "liver <i>ddit3</i> expression decreased amount, abnormal",
+            "liver <i>dnajc3a</i> expression amount, ameliorated"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-030131-3161",
           "symbol": "npc1",
-          "annotations": 36,
+          "annotations": 57,
           "phenotypes": [
             "liver <i>npc1</i> expression absent, abnormal",
             "liver Ab2-npc1 labeling absent, abnormal",
@@ -1291,7 +1319,7 @@
         {
           "curie": "ZFIN:ZDB-GENE-040426-2039",
           "symbol": "uhrf1",
-          "annotations": 36,
+          "annotations": 57,
           "phenotypes": [
             "liver <i>dennd5b</i> expression decreased amount, abnormal",
             "liver <i>exoc4</i> expression decreased amount, abnormal",
@@ -1300,20 +1328,20 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-040818-1",
-          "symbol": "stat5b",
-          "annotations": 34,
+          "curie": "ZFIN:ZDB-GENE-090812-3",
+          "symbol": "srebf1",
+          "annotations": 55,
           "phenotypes": [
-            "male organism liver <i>acp5b</i> expression increased amount, abnormal",
-            "male organism liver <i>blnk</i> expression decreased amount, abnormal",
-            "male organism liver <i>bmp2a</i> expression decreased amount, abnormal"
+            "liver 1-acylglycerol 20:4 increased amount, abnormal",
+            "liver <i>acaca</i> expression decreased amount, abnormal",
+            "liver <i>acox1</i> expression increased amount, abnormal"
           ],
           "species": "Danio rerio"
         },
         {
           "curie": "ZFIN:ZDB-GENE-040702-7",
           "symbol": "cnr2",
-          "annotations": 33,
+          "annotations": 52,
           "phenotypes": [
             "bile accumulation liver, abnormal",
             "liver <i>fabp10a</i> expression decreased distribution, abnormal",
@@ -1322,35 +1350,13 @@
           "species": "Danio rerio"
         },
         {
-          "curie": "ZFIN:ZDB-GENE-041010-9",
-          "symbol": "cpt1b",
-          "annotations": 32,
+          "curie": "ZFIN:ZDB-GENE-040818-1",
+          "symbol": "stat5b",
+          "annotations": 51,
           "phenotypes": [
-            "liver <i>acox3</i> expression increased amount, abnormal",
-            "liver <i>cpt1b</i> expression absent, abnormal",
-            "liver <i>dgat2</i> expression increased amount, abnormal"
-          ],
-          "species": "Danio rerio"
-        },
-        {
-          "curie": "ZFIN:ZDB-GENE-070530-2",
-          "symbol": "pex2",
-          "annotations": 32,
-          "phenotypes": [
-            "liver fatty, abnormal",
-            "liver lipid droplet increased amount, abnormal",
-            "liver opaque, abnormal"
-          ],
-          "species": "Danio rerio"
-        },
-        {
-          "curie": "ZFIN:ZDB-GENE-990415-211",
-          "symbol": "pparab",
-          "annotations": 32,
-          "phenotypes": [
-            "liver <i>bcat1</i> expression decreased amount, abnormal",
-            "liver <i>cpt1aa</i> expression increased amount, abnormal",
-            "liver <i>cpt1b</i> expression decreased amount, abnormal"
+            "male organism liver <i>acp5b</i> expression increased amount, abnormal",
+            "male organism liver <i>blnk</i> expression decreased amount, abnormal",
+            "male organism liver <i>bmp2a</i> expression decreased amount, abnormal"
           ],
           "species": "Danio rerio"
         }
@@ -1363,6 +1369,7 @@
       "totalGenes": 161,
       "totalAnnotations": 547,
       "unattributed": 0,
+      "shared": 0,
       "genes": [
         {
           "curie": "Xenbase:XB-GENE-981796",
@@ -1556,6 +1563,7 @@
       "totalGenes": 229,
       "totalAnnotations": 458,
       "unattributed": 0,
+      "shared": 0,
       "genes": [
         {
           "curie": "Xenbase:XB-GENE-17339424",
