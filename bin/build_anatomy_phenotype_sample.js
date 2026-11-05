@@ -48,6 +48,16 @@ import writeJson from './writeJson.js';
 //             phenotype scored in an adult would land on it unremarked. That
 //             is rare — one term in a hundred sampled stops before TS26 — but
 //             it is silent when it happens.
+//
+//             Reading MGI's own term page settles part of this. It already
+//             offers `phenotype terms associated with this structure`, and
+//             hangs 14,418 phenotype annotations on EMAPA:16894 beside
+//             8,465,417 expression results. So the association exists and the
+//             member maintains it; what is missing is a route to it through
+//             the Alliance, because PHENOTYPE_MGI carries MP and nothing else.
+//             A second hop here would be reconstructing what MGI computes
+//             already, which is an argument for asking GXD for the mapping
+//             rather than for inferring it.
 //   SGD       APO. No anatomy axis, and no anatomy ontology for yeast.
 //   HUMAN     HP. Its definitions name UBERON, which is the cross-species
 //             page, where phenotype is a question about no species in

@@ -256,8 +256,9 @@ const AnatomyPage = () => {
             WormBase and Xenbase annotate to a phenotype-ontology term, and the
             structure is only in that term's logical definition — a claim by
             the ontology rather than by the curator who scored the animal.
-            MGI, RGD, SGD and HUMAN reach no member anatomy ontology at all;
-            bin/build_anatomy_phenotype_sample.js records why for each. */}
+            MGI, RGD, SGD and HUMAN submit no annotation that reaches a member
+            anatomy ontology; bin/build_anatomy_phenotype_sample.js records why
+            for each, and why MGI is not the same case as the other three. */}
         {!ontology.crossSpecies && (
           <Subsection title={PHENOTYPES}>
             {phenotypeSample ? (
