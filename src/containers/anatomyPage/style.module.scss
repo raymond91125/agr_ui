@@ -1,0 +1,37 @@
+@import '../../theme.module';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.figure {
+  width: 10rem;
+  margin: 0;
+}
+
+// A fixed box with the image contained inside it, not cropped to fill. These
+// come from a dozen different publications at a dozen different aspect ratios,
+// and cropping an anatomical figure to fit a grid can cut out the structure
+// the reader came to see.
+.thumb {
+  display: block;
+  width: 10rem;
+  height: 7.5rem;
+  object-fit: contain;
+  background-color: $gray-100;
+  border: 1px solid $gray-300;
+  border-radius: 2px;
+}
+
+.caption {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
