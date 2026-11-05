@@ -21,16 +21,19 @@ import AnatomyRelations from './AnatomyRelations.jsx';
 import AnatomyExpression from './AnatomyExpression.jsx';
 import AnatomyPhenotypes from './AnatomyPhenotypes.jsx';
 import AnatomyReagents from './AnatomyReagents.jsx';
+import AnatomyImages from './AnatomyImages.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 import loadExpressionSample from './expressionSample.js';
 import loadPhenotypeSample from './phenotypeSample.js';
 import loadReagentSample from './reagentSample.js';
+import loadImageSample from './imageSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
 const PHENOTYPES = 'Phenotypes';
 const REAGENTS = 'Reagents and Tools';
+const IMAGES = 'Images';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
@@ -76,6 +79,13 @@ const AnatomyPage = () => {
     retry: false,
   });
 
+  const { data: images } = useQuery({
+    queryKey: ['anatomy-image-sample'],
+    queryFn: loadImageSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -97,6 +107,7 @@ const AnatomyPage = () => {
   const expressionSample = expression?.terms?.[term.curie];
   const phenotypeSample = phenotypes?.terms?.[term.curie];
   const reagentSample = reagents?.terms?.[term.curie];
+  const imageSample = images?.terms?.[term.curie];
 
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
   if (term.synonyms?.length) {
@@ -163,6 +174,7 @@ const AnatomyPage = () => {
                 { name: EXPRESSION, count: expressionSample?.totalGenes },
                 { name: PHENOTYPES, count: phenotypeSample?.totalGenes },
                 ...(reagentSample ? [{ name: REAGENTS, count: reagentSample.totalReagents }] : []),
+                ...(imageSample ? [{ name: IMAGES, count: imageSample.totalImages }] : []),
               ]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
         ]}
@@ -293,6 +305,26 @@ const AnatomyPage = () => {
         {reagentSample && (
           <Subsection title={REAGENTS}>
             <AnatomyReagents term={term} sample={reagentSample} ontology={ontology} sources={reagents.sources} />
+          </Subsection>
+        )}
+
+        {/* Hidden wherever there is nothing, which is most of the time and
+            for two different reasons worth keeping apart. Five of the six
+            member vocabularies publish no figure against an anatomy term at
+            all — the Alliance has no image datatype, and only ZFIN keys
+            pictures to the term rather than to a gene — so on a WBbt or EMAPA
+            page this is Tier A, like Developmental Window on a WBbt term.
+            On a ZFA page it is the usual sample limit instead. Neither case
+            earns an empty block promising pictures, and the missing count in
+            the index is what tells the two apart.
+
+            Last on the page on purpose. It is the only section serving
+            nothing of its own: the thumbnails are fetched from ZFIN by the
+            reader's browser, so a slow or unreachable ZFIN costs the reader
+            nothing above the fold. */}
+        {imageSample && (
+          <Subsection title={IMAGES}>
+            <AnatomyImages term={term} sample={imageSample} ontology={ontology} source={images.source} />
           </Subsection>
         )}
       </PageData>

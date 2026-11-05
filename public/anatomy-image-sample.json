@@ -1,0 +1,155 @@
+{
+  "source": { "mod": "ZFIN", "species": "Danio rerio", "home": "https://zfin.org", "retrieved": "2026-11-05" },
+  "terms": {
+    "ZFA:0000135": {
+      "sources": ["ZFIN"],
+      "species": "Danio rerio",
+      "totalImages": 12,
+      "images": [
+        {
+          "id": "ZDB-IMAGE-100806-49",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-49_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-49",
+          "published": false,
+          "genes": [],
+          "stages": ["Protruding-mouth"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-11",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-11_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-11",
+          "published": false,
+          "genes": [],
+          "stages": ["Prim-5"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-12",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-12_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-12",
+          "published": false,
+          "genes": [],
+          "stages": ["Prim-5"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-1",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-1_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-1",
+          "published": false,
+          "genes": [],
+          "stages": ["Prim-5"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-20",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-20_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-20",
+          "published": false,
+          "genes": [],
+          "stages": ["Long-pec"]
+        },
+        {
+          "id": "ZDB-IMAGE-020802-344",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-020802-344_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-020802-344",
+          "label": "Thisse et al., 2001, Fig. 3",
+          "published": true,
+          "genes": ["tbxta"],
+          "stages": ["1-4 somites", "5-9 somites"]
+        },
+        {
+          "id": "ZDB-IMAGE-030328-446",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-030328-446_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-030328-446",
+          "label": "Thisse et al., 2001, Fig. 4",
+          "published": true,
+          "genes": ["bmp2b"],
+          "stages": ["20-25 somites", "Prim-5"]
+        },
+        {
+          "id": "ZDB-IMAGE-020802-211",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-020802-211_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-020802-211",
+          "label": "Thisse et al., 2001, Fig. 5",
+          "published": true,
+          "genes": ["tbxta"],
+          "stages": ["20-25 somites", "Prim-5"]
+        },
+        {
+          "id": "ZDB-IMAGE-020802-359",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-020802-359_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-020802-359",
+          "label": "Thisse et al., 2001, Fig. 5",
+          "published": true,
+          "genes": ["tbxta"],
+          "stages": ["20-25 somites", "Prim-5"]
+        },
+        {
+          "id": "ZDB-IMAGE-030328-454",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-030328-454_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-030328-454",
+          "label": "Thisse et al., 2001, Fig. 5",
+          "published": true,
+          "genes": ["bmp2b"],
+          "stages": ["Prim-15", "Prim-25"]
+        },
+        {
+          "id": "ZDB-IMAGE-020802-216",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-020802-216_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-020802-216",
+          "label": "Thisse et al., 2001, Fig. 4",
+          "published": true,
+          "genes": ["tbxta"],
+          "stages": ["14-19 somites"]
+        },
+        {
+          "id": "ZDB-IMAGE-030328-434",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-030328-434_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-030328-434",
+          "label": "Thisse et al., 2001, Fig. 4",
+          "published": true,
+          "genes": ["bmp2b"],
+          "stages": ["20-25 somites", "Prim-5"]
+        }
+      ]
+    },
+    "ZFA:0000123": {
+      "sources": ["ZFIN"],
+      "species": "Danio rerio",
+      "totalImages": 4,
+      "images": [
+        {
+          "id": "ZDB-IMAGE-030328-454",
+          "thumb": "https://zfin.org/imageLoadUp/2001/ZDB-PUB-010810-1/ZDB-IMAGE-030328-454_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-030328-454",
+          "label": "Thisse et al., 2001, Fig. 5",
+          "published": true,
+          "genes": ["bmp2b"],
+          "stages": ["Prim-15", "Prim-25"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-73",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-73_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-73",
+          "published": false,
+          "genes": [],
+          "stages": ["Day 5"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-41",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-41_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-41",
+          "published": false,
+          "genes": [],
+          "stages": ["Protruding-mouth"]
+        },
+        {
+          "id": "ZDB-IMAGE-100806-60",
+          "thumb": "https://zfin.org/imageLoadUp/ZDB-IMAGE-100806-60_thumb.jpg",
+          "page": "https://zfin.org/action/image/view/ZDB-IMAGE-100806-60",
+          "published": false,
+          "genes": [],
+          "stages": ["Day 5"]
+        }
+      ]
+    }
+  }
+}
