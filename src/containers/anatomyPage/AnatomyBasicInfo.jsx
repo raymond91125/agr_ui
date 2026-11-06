@@ -7,7 +7,7 @@ import SynonymList from '../../components/synonymList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
 import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import { SPECIES_ANATOMY_ONTOLOGIES } from '../ontologyBrowser/ontologies.js';
-import toExternalResources from './externalResources.js';
+import toExternalResources, { toVocabularyXrefs } from './externalResources.js';
 
 const SPECIES_PREFIXES = new Set(SPECIES_ANATOMY_ONTOLOGIES.map((o) => o.curiePrefix.toUpperCase()));
 
@@ -39,8 +39,18 @@ const AnatomyBasicInfo = ({ ontology, term }) => {
   // table, so listing them again here would say the same thing twice. The
   // legacy anatomy ontologies UBERON absorbed (CARO, TAO, MA, AAO, BTO) have no
   // page of ours and stay in cross-references.
+  // On the cross-species page the leftover references join this row rather
+  // than being dropped. UBERON maps a structure into 115 other vocabularies
+  // — FMA, SNOMED, UMLS, NCIT, MeSH, the Allen brain atlases — and every one
+  // of those is this row's claim, the same structure under another
+  // identifier. They are not added on a member page: there the same slot
+  // also holds papers and curators, which is what the strict allowlist in
+  // src/lib/ols.js is for.
   const xrefs = ontology.crossSpecies
-    ? (term.xrefs || []).filter(({ curie }) => !SPECIES_PREFIXES.has(curie.split(':')[0].toUpperCase()))
+    ? [
+        ...(term.xrefs || []).filter(({ curie }) => !SPECIES_PREFIXES.has(curie.split(':')[0].toUpperCase())),
+        ...toVocabularyXrefs(term.resources),
+      ]
     : term.xrefs;
 
   // Not the same claim as a cross-reference, and so not the same row:
