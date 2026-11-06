@@ -6,7 +6,7 @@ import writeJson from './writeJson.js';
 // The resources WormBase keeps about its anatomy terms — WormAtlas pages,
 // WormWiring and NemaNode connectome views, the Neuralnet browser, the Zhen
 // lab's 3D neuron viewer — which reach no Alliance download, no OLS record and
-// not WBbt itself. externalResources.js says so: WormBase "keeps them in ACEDB
+// not WBbt itself. externalResources.js said so: WormBase "keeps them in ACEDB
 // rather than in WBbt, so they reach no download and no OLS record and cannot
 // be read from here at all". This file is that route.
 //
@@ -18,6 +18,11 @@ import writeJson from './writeJson.js';
 // WBbt page can concatenate these onto `term.resources`, and the allowlist in
 // externalResources.js decides what is shown, as it does for FlyBase.
 //
+// Entries also carry `name` where a term has more than one link into the same
+// resource and the two are not interchangeable: which EM series, which
+// Neuralnet view, which WormAtlas chapter. The page prints the resource once
+// and these in brackets after it.
+//
 // What is a resource and what is not, decided here, with the counts as of
 // WS298 and checks made on 2026-11-06 by request:
 //
@@ -27,20 +32,26 @@ import writeJson from './writeJson.js';
 //   NemaNode    225 terms  200.
 //   ZhenLab3D   180 terms  200 over https; ACEDB's template says http and
 //                          the host redirects, so https is built directly.
-//   Neuralnet   410 terms  200 over http ONLY; https gets no answer. Two
-//                          links on many neurons, `m=0` and `m=1`, whose
-//                          meaning the site's scripts do not reveal; both
-//                          are kept as stored.
-//   WormAtlas  1977 terms  Verified in a browser, not by script. ACEDB's
-//                          template is http://wormatlas.org/%s, which
-//                          redirects to https://wormatlas.cropsci.illinois.edu
-//                          WITHOUT the slash before the path, so every stored
-//                          link is dead as written. The URL here is built on
-//                          that host with the slash restored, and it loads in
-//                          a browser. A script cannot confirm it: the server
-//                          stalls a modern TLS handshake and, with an older
-//                          one, sends an incomplete certificate chain, both of
-//                          which browsers work around.
+//   Neuralnet   410 terms  200 over http ONLY; https gets no answer. Many
+//                          neurons carry two links, `m=0` and `m=1`. The
+//                          site's own form names them: m is `multiple`, 1 is
+//                          "Groups of cells" and 0 is "Individual cells", so
+//                          both are kept and named.
+//   WormAtlas  1977 terms  All 191 distinct pages loaded in a browser.
+//
+// WormAtlas needs its own paragraph, because the stored link is dead and the
+// obvious repair is dead too. ACEDB's template is http://wormatlas.org/%s,
+// which 302s to https://wormatlas.cropsci.illinois.edu WITHOUT the slash
+// before the path, so every stored link lands on a mangled host. Rebuilding
+// it on wormatlas.cropsci.illinois.edu answers 200 but that host is NOT in
+// the certificate — it covers cpsc-worm.cropsci.illinois.edu, wormatlas.org,
+// www.wormatlas.org and the two wormimage.org names — so a browser stops at a
+// privacy interstitial. The working URL is https://wormatlas.org/<path>: the
+// name matches, the certificate is current, and Chrome fetches the missing
+// intermediate itself. curl still refuses it ("unable to get local issuer
+// certificate") because it does not chase the issuer URL, which is why these
+// were checked in a browser rather than by script — all 191, by their page
+// titles, which is also where WORMATLAS_CHAPTERS below comes from.
 //
 // Left out, with reasons, so nobody re-derives them:
 //
@@ -63,6 +74,76 @@ import writeJson from './writeJson.js';
 const DESTINATION = 'public/anatomy-wbbt-resources.json';
 const CHECKED = '2026-11-06';
 
+// The handbook chapter each WormAtlas directory holds, from the page's own
+// <title> — "Hermaphrodite - Alimentary System - Intestine" — shortened to
+// what distinguishes it from the other chapters a term might also link to.
+// The hermaphrodite is WormAtlas's unmarked case and stays unmarked here.
+//
+// Three directories hold a page called Procframeset.html and they are three
+// different chapters, so the system is part of the name: the proctodeum is
+// described once under the male epidermal system, once under the alimentary
+// and once under the reproductive.
+const WORMATLAS_CHAPTERS = {
+  'dauer/cuticle': 'cuticle, dauer',
+  'dauer/pharynx': 'pharynx, dauer',
+  'hermaphrodite/alimentary': 'alimentary system',
+  'hermaphrodite/atypical': 'atypical cells',
+  'hermaphrodite/coelomocyte': 'coelomocyte system',
+  'hermaphrodite/cuticle': 'cuticle',
+  'hermaphrodite/egglaying apparatus': 'egg-laying apparatus',
+  'hermaphrodite/excretory': 'excretory system',
+  'hermaphrodite/germ line': 'germ line',
+  'hermaphrodite/hypodermis': 'hypodermis',
+  'hermaphrodite/interfacial': 'interfacial cells',
+  'hermaphrodite/intestine': 'intestine',
+  'hermaphrodite/introduction': 'introduction',
+  'hermaphrodite/muscleGLR': 'GLR cells',
+  'hermaphrodite/muscleheadcell': 'head mesodermal cell',
+  'hermaphrodite/muscleintro': 'muscle system',
+  'hermaphrodite/musclenonstriated': 'nonstriated muscle',
+  'hermaphrodite/musclesomatic': 'somatic muscle',
+  'hermaphrodite/neuronalsupport': 'neuronal support cells',
+  'hermaphrodite/pericellular': 'pericellular structures',
+  'hermaphrodite/pharynx': 'pharynx',
+  'hermaphrodite/rectum': 'rectum and anus',
+  'hermaphrodite/reproductive': 'reproductive system',
+  'hermaphrodite/seam cells': 'seam cells',
+  'hermaphrodite/somatic gonad': 'somatic gonad',
+  'male/alimdef': 'defecation muscles, male',
+  'male/alimproct': 'proctodeum, male alimentary system',
+  'male/epithelial': 'epithelial system, male',
+  'male/germline': 'germ line, male',
+  'male/hook': 'hook',
+  'male/hypodermis': 'hypodermis, male',
+  'male/introduction': 'introduction, male',
+  'male/muscleintro': 'muscle system, male',
+  'male/musclemale': 'male-specific muscles',
+  'male/postcloacal': 'postcloacal sensilla',
+  'male/proctodeum': 'proctodeum, male epidermal system',
+  'male/rays': 'rays',
+  'male/reproproctodeum': 'proctodeum, male reproductive system',
+  'male/somaticgonad': 'somatic gonad, male',
+  'male/spicules': 'spicules',
+};
+
+// Neuron pages are named by the file, which is the cell: AVMframeset.html is
+// AVM. Checked against all 151 of them; WormAtlas's own title disagrees on
+// three (DB is titled DBN, DD DDN, SPD SPC) and the WBbt name wins, since
+// that is the term the reader came from. Neuronframeset.html is the index.
+const wormAtlasName = (value) => {
+  const segments = value.split('/');
+  const file = segments.pop().replace(/frameset\.html$/i, '');
+  const chapter = segments.join('/');
+  if (chapter === 'neurons/Individual Neurons') {
+    return file === 'Neuron' ? 'individual neurons' : file;
+  }
+  const name = WORMATLAS_CHAPTERS[chapter];
+  if (!name) {
+    throw new Error(`WormAtlas chapter with no name: ${value}`);
+  }
+  return name;
+};
+
 // database -> how to turn ACEDB's stored value into { id, url }.
 const BUILD = {
   WormWiring: (value) => {
@@ -75,8 +156,18 @@ const BUILD = {
   },
   NemaNode: (value) => ({ id: value, url: `https://nemanode.org/?in=${encodeURIComponent(value)}` }),
   ZhenLab3D: (value) => ({ id: value, url: `https://zhen-tools.com/#/3d-viewer?neurons=${encodeURIComponent(value)}` }),
-  Neuralnet: (value) => ({ id: value, url: `http://wormweb.org/neuralnet#${value}` }),
-  WormAtlas: (value) => ({ id: value, url: `https://wormatlas.cropsci.illinois.edu/${encodeURI(value)}` }),
+  Neuralnet: (value) => ({
+    id: value,
+    // The site defaults to grouping when m is absent or unreadable, so that
+    // is what an unmarked link gets called here.
+    name: new URLSearchParams(value).get('m') === '0' ? 'individual cells' : 'groups of cells',
+    url: `http://wormweb.org/neuralnet#${value}`,
+  }),
+  WormAtlas: (value) => ({
+    id: value,
+    name: wormAtlasName(value),
+    url: `https://wormatlas.org/${encodeURI(value)}`,
+  }),
 };
 
 const RESOURCES = {
@@ -88,8 +179,8 @@ const RESOURCES = {
     label: 'WormAtlas',
     verified: CHECKED,
     note:
-      'stored links redirect to a broken URL; rebuilt on wormatlas.cropsci.illinois.edu, which loads in a ' +
-      'browser but not from a script (TLS handshake stalls, certificate chain incomplete)',
+      "ACEDB's links are dead as stored and the host they redirect to is not in the certificate; rebuilt on " +
+      'wormatlas.org, where all 191 pages were loaded in a browser',
   },
 };
 

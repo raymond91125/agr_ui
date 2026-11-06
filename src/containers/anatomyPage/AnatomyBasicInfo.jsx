@@ -34,7 +34,7 @@ const toCrossReferences = (xrefs) =>
 // which merged `is a` with `part of` — the one distinction an anatomy ontology
 // exists to draw. They are in Relationships now, under the relation that was
 // actually asserted.
-const AnatomyBasicInfo = ({ ontology, term }) => {
+const AnatomyBasicInfo = ({ ontology, term, resources: modResources }) => {
   // On the cross-species page the member mappings are the UBERON Mapping
   // table, so listing them again here would say the same thing twice. The
   // legacy anatomy ontologies UBERON absorbed (CARO, TAO, MA, AAO, BTO) have no
@@ -55,8 +55,10 @@ const AnatomyBasicInfo = ({ ontology, term }) => {
 
   // Not the same claim as a cross-reference, and so not the same row:
   // externalResources.js has what each of these is and why the list is an
-  // allowlist. In practice only FBbt fills it.
-  const resources = toExternalResources(term.resources);
+  // allowlist. FBbt and UBERON carry theirs in the ontology, so they arrive
+  // on the term; WormBase keeps its own in ACEDB, so they arrive separately
+  // as `modResources` and are simply added to the same list.
+  const resources = toExternalResources([...(term.resources || []), ...(modResources || [])]);
 
   return (
     <AttributeList>
@@ -91,23 +93,41 @@ const AnatomyBasicInfo = ({ ontology, term }) => {
         {xrefs?.length > 0 && <CrossReferenceList crossReferences={toCrossReferences(xrefs)} />}
       </AttributeValue>
 
-      {/* Omitted entirely rather than shown as `None`, which every other
-          vocabulary would read on every term. A blank here would assert that
-          nobody has built anything about this structure, and for WBbt that is
-          flatly untrue — WormAtlas, WormWiring, NemaNode and Neuralnet cover
-          about half of it. They are in ACEDB rather than in the ontology, so
-          this page cannot see them, which is a gap in the route and not in
-          the literature. Saying nothing is the honest version of that. */}
+      {/* Omitted entirely rather than shown as `None`, which ZFA, EMAPA and
+          XAO would read on every term. A blank row would assert that nobody
+          has built anything about this structure, and we only know that
+          nobody has published it where we can see. Saying nothing is the
+          honest version of that. */}
       {resources.length > 0 && (
         <>
           <AttributeLabel>External Resources</AttributeLabel>
           <AttributeValue>
             <CommaSeparatedList>
-              {resources.map((resource) => (
-                <ExternalLink key={resource.key} href={resource.href}>
-                  {resource.label}
-                </ExternalLink>
-              ))}
+              {resources.map((resource) =>
+                resource.links.length === 1 ? (
+                  <ExternalLink key={resource.key} href={resource.links[0].href}>
+                    {resource.label}
+                  </ExternalLink>
+                ) : (
+                  // Several links into one resource: name it once and let
+                  // what distinguishes them follow, so a worm neuron reads
+                  // `WormWiring (JSH, N2U, n930)` rather than three
+                  // indistinguishable copies of the same word. A nested
+                  // CommaSeparatedList is a <ul> inside an <li>, which is
+                  // legal, inline, and gets the same separators.
+                  <span key={resource.key}>
+                    {resource.label} (
+                    <CommaSeparatedList>
+                      {resource.links.map((link) => (
+                        <ExternalLink key={link.key} href={link.href}>
+                          {link.name}
+                        </ExternalLink>
+                      ))}
+                    </CommaSeparatedList>
+                    )
+                  </span>
+                )
+              )}
             </CommaSeparatedList>
           </AttributeValue>
         </>
@@ -119,6 +139,8 @@ const AnatomyBasicInfo = ({ ontology, term }) => {
 AnatomyBasicInfo.propTypes = {
   ontology: PropTypes.object.isRequired,
   term: PropTypes.object.isRequired,
+  // Resources the member keeps outside its ontology; WormBase only, so far.
+  resources: PropTypes.array,
 };
 
 export default AnatomyBasicInfo;
