@@ -5,7 +5,9 @@ import { AttributeList, AttributeLabel, AttributeValue } from '../../components/
 import CrossReferenceList from '../../components/crossReferenceList.jsx';
 import SynonymList from '../../components/synonymList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
+import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import { SPECIES_ANATOMY_ONTOLOGIES } from '../ontologyBrowser/ontologies.js';
+import toExternalResources from './externalResources.js';
 
 const SPECIES_PREFIXES = new Set(SPECIES_ANATOMY_ONTOLOGIES.map((o) => o.curiePrefix.toUpperCase()));
 
@@ -41,6 +43,11 @@ const AnatomyBasicInfo = ({ ontology, term }) => {
     ? (term.xrefs || []).filter(({ curie }) => !SPECIES_PREFIXES.has(curie.split(':')[0].toUpperCase()))
     : term.xrefs;
 
+  // Not the same claim as a cross-reference, and so not the same row:
+  // externalResources.js has what each of these is and why the list is an
+  // allowlist. In practice only FBbt fills it.
+  const resources = toExternalResources(term.resources);
+
   return (
     <AttributeList>
       <AttributeLabel>Definition</AttributeLabel>
@@ -73,6 +80,28 @@ const AnatomyBasicInfo = ({ ontology, term }) => {
       <AttributeValue placeholder="None">
         {xrefs?.length > 0 && <CrossReferenceList crossReferences={toCrossReferences(xrefs)} />}
       </AttributeValue>
+
+      {/* Omitted entirely rather than shown as `None`, which every other
+          vocabulary would read on every term. A blank here would assert that
+          nobody has built anything about this structure, and for WBbt that is
+          flatly untrue — WormAtlas, WormWiring, NemaNode and Neuralnet cover
+          about half of it. They are in ACEDB rather than in the ontology, so
+          this page cannot see them, which is a gap in the route and not in
+          the literature. Saying nothing is the honest version of that. */}
+      {resources.length > 0 && (
+        <>
+          <AttributeLabel>External Resources</AttributeLabel>
+          <AttributeValue>
+            <CommaSeparatedList>
+              {resources.map((resource) => (
+                <ExternalLink key={resource.key} href={resource.href}>
+                  {resource.label}
+                </ExternalLink>
+              ))}
+            </CommaSeparatedList>
+          </AttributeValue>
+        </>
+      )}
     </AttributeList>
   );
 };

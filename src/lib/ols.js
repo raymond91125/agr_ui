@@ -90,10 +90,26 @@ const normalizeXrefs = (oboXref) =>
       url: x.url || undefined,
     }));
 
+// The other half of the same slot: a reference to this structure at a
+// resource that is not a vocabulary. FlyBase keeps a great many — 22,004 of
+// 27,217 FBbt terms carry at least one, chiefly Virtual Fly Brain — and the
+// anatomy-only filter above drops every one of them, including the bare-URL
+// form, which arrives with `database: null` and so fails that filter twice.
+//
+// Passed through raw rather than resolved here. Which of these is a live
+// resource and which is a dead identifier is a judgement that changes as
+// hosts come and go, and it belongs with the page that renders them;
+// src/containers/anatomyPage/externalResources.js makes it.
+const otherXrefs = (oboXref) =>
+  (oboXref || [])
+    .filter((x) => x?.id && !(x.database && ANATOMY_XREF_PREFIXES.has(String(x.database).toUpperCase())))
+    .map((x) => ({ database: x.database || undefined, id: String(x.id), url: x.url || undefined }));
+
 const normalize = (term) => ({
   curie: term.obo_id,
   name: term.label || term.obo_id,
   xrefs: normalizeXrefs(term.obo_xref),
+  resources: otherXrefs(term.obo_xref),
   // OLS reports only *whether* a term has children, never how many. The tree
   // uses descendantCount solely to decide whether to draw a chevron, so 1
   // stands in for "some" and 0 is a true leaf.
