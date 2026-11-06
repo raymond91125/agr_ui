@@ -34,6 +34,7 @@ import loadImageSample from './imageSample.js';
 import loadMarkerSample from './markerSample.js';
 import loadFunctionSample from './functionSample.js';
 import loadReferenceSample from './referenceSample.js';
+import loadWbbtResources from './wbbtResources.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
@@ -112,6 +113,17 @@ const AnatomyPage = () => {
   const { data: references } = useQuery({
     queryKey: ['anatomy-reference-sample'],
     queryFn: loadReferenceSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
+  // WormBase keeps its external links in ACEDB, not in WBbt, so they cannot
+  // arrive with the term from OLS the way FlyBase's and UBERON's do. Fetched
+  // only on a worm page: it is 913 KB, and no other ontology is in it.
+  const { data: wbbtResources } = useQuery({
+    queryKey: ['anatomy-wbbt-resources'],
+    queryFn: loadWbbtResources,
+    enabled: ontology?.id === 'wbbt',
     staleTime: Infinity,
     retry: false,
   });
@@ -225,7 +237,7 @@ const AnatomyPage = () => {
         <YourInputWelcome type="Anatomy" name={title} allianceId={term.curie} />
 
         <Subsection hideTitle title={SUMMARY}>
-          <AnatomyBasicInfo ontology={ontology} term={term} />
+          <AnatomyBasicInfo ontology={ontology} term={term} resources={wbbtResources?.terms?.[term.curie]} />
         </Subsection>
 
         {/* Hidden outright when the vocabulary has no stage axis: WBbt and FBbt

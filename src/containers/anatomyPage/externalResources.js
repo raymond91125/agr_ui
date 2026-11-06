@@ -5,15 +5,15 @@
 // ontology; this says someone has built something about this structure — a 3D
 // atlas, a neuron reconstruction, a photographic plate — and here is where it
 // is. For a fly neuron, Virtual Fly Brain is usually the most useful thing on
-// the page, and until now the page threw it away.
+// the page, and until recently the page threw it away.
 //
-// FlyBase only, in practice, and that is a finding rather than a limit. FBbt
-// carries these in the ontology itself, where anyone downstream gets them for
-// free: 22,004 of 27,217 terms, 81%. ZFA, EMAPA and XAO carry none. WormBase
-// has them in quantity — WormAtlas, WormWiring, NemaNode, Neuralnet and more,
-// on about half of WBbt — but keeps them in ACEDB rather than in WBbt, so
-// they reach no download and no OLS record and cannot be read from here at
-// all.
+// Two members fill it, by two different routes. FBbt carries its references
+// in the ontology, where anyone downstream gets them for free: 22,004 of
+// 27,217 terms, 81%. WormBase keeps its own in ACEDB, where no download and
+// no OLS record can reach them, so they arrive instead as a committed table
+// built by bin/build_anatomy_wbbt_resources.js — 2,084 WBbt terms, and that
+// generator records what each one is and how it was checked. ZFA, EMAPA and
+// XAO carry none at all.
 //
 // UBERON is the other filled column, and it splits two ways rather than one.
 // 8,658 of its 15,047 terms carry a reference outside the anatomy
@@ -37,6 +37,13 @@
 //   bare URL          135 terms   200, all of them www.ento.csiro.au
 //   Wikipedia       3,554 terms   200, including the 139 ids that are a
 //                                 section anchor rather than a whole article
+//   WormAtlas       1,977 terms   all 191 pages loaded in a browser; curl
+//                                 cannot see them, and the URL ACEDB stores
+//                                 is dead — see the generator
+//   WormWiring        520 terms   200
+//   Neuralnet         410 terms   200 over http only
+//   NemaNode          225 terms   200
+//   ZhenLab3D         180 terms   200
 //
 // Left out, with reasons, so the next person does not re-derive them:
 //
@@ -44,10 +51,18 @@
 //   larvalbrain_neuropil  160 terms   larvalbrain.org does not answer
 //   larvalbrain_axon_tract 185 terms  same host
 //   FBdv, GO, BSPO, NCBITaxon         ontology terms, not resources; 17 in all
+//   GLOWorm_Scene       1,489 terms   fsbill.vcell.uchc.edu does not answer
+//   MODEncodeTissue*       34 terms   one fixed GBrowse track, host is down
+//   Spencer2011            19 terms   one fixed page, not about the structure
 //
-// FlyBase's own term report resolves exactly one of these, VFB, and prints
-// the rest as bare text — including its own bare URLs, which it does not even
-// make clickable. So this shows a little more than the member does, not less,
+// The three WormBase exclusions are dropped by the generator rather than
+// here, so they never reach the browser at all.
+//
+// Neither member resolves these well itself. FlyBase's term report links VFB
+// and prints the rest as bare text, including its own URLs. WormBase's
+// External Links widget prints the raw stored value as the link text —
+// `db=JSH&cell=AVM`, `c=AVM&m=1` — and its WormAtlas links have been dead
+// since the host moved. So this shows a little more than either, not less,
 // and every row of it has been checked.
 const RESOURCES = {
   VFB: {
@@ -55,13 +70,12 @@ const RESOURCES = {
     // The id arrives as `FBbt_00001060`, underscored, which is the form the
     // report URL wants. This is FlyBase's own linkout target.
     url: (id) => `https://www.virtualflybrain.org/reports/${id}`,
+    first: true,
   },
   FLYBRAIN_NDB: {
     label: 'FlyBrain NDB',
     // No template of our own: OLS carries the resolver for this one, and it
     // is a FileMaker URL that nobody should be reconstructing by hand.
-    url: () => undefined,
-    withId: true,
   },
   WIKIPEDIA: {
     label: 'Wikipedia',
@@ -72,12 +86,25 @@ const RESOURCES = {
     // URL exactly as it arrives.
     url: (id) => `https://en.wikipedia.org/wiki/${id}`,
   },
+  // The five WormBase resources. Their URLs are built by the generator, which
+  // is where the ACEDB templates and their repairs are recorded, so there is
+  // nothing to construct here.
+  WORMATLAS: { label: 'WormAtlas', first: true },
+  WORMWIRING: { label: 'WormWiring' },
+  NEMANODE: { label: 'NemaNode' },
+  NEURALNET: { label: 'Neuralnet' },
+  ZHENLAB3D: { label: 'Zhen Lab 3D Neuron Viewer' },
 };
 
 // A prefix that is neither a resource above nor a mapping to another
 // vocabulary: upper ontologies, OBO metadata, and the retired mappings
 // UBERON keeps for provenance. Nothing here belongs in either row.
 const NOT_A_MAPPING = new Set(['BFO', 'IAO', 'RO', 'UBPROP', 'OBO', 'NOID']);
+
+const keyOf = (database) =>
+  String(database)
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, '_');
 
 // A bare-URL xref has no database to look up, so it is named by its host —
 // honest, and it keeps working if FlyBase cites a different site next release.
@@ -101,7 +128,7 @@ export function toVocabularyXrefs(resources) {
       if (!database) {
         return false;
       }
-      const key = database.toUpperCase().replace(/[^A-Z0-9]/g, '_');
+      const key = keyOf(database);
       // `WikipediaCategory` and `WikipediaVersioned` are neither the article
       // nor a vocabulary, so they go the same way as the article itself.
       return !RESOURCES[key] && !key.startsWith('WIKIPEDIA') && !NOT_A_MAPPING.has(key) && !/RETIRED/.test(key);
@@ -109,35 +136,58 @@ export function toVocabularyXrefs(resources) {
     .map(({ database, id, url }) => ({ curie: `${database}:${id}`, url }));
 }
 
-// `resources` is what src/lib/ols.js passes through: { database, id, url }.
-// Returns what the summary renders, in the order the allowlist declares, then
-// by identifier so the list is stable between loads.
+// `resources` is what src/lib/ols.js passes through and what the WormBase
+// table adds to it: { database, id, url }, plus `name` where the member
+// distinguishes several links into one resource.
+//
+// Grouped by resource rather than returned flat, because a term often has
+// several links into the same place and they are not interchangeable: AVM has
+// three WormWiring maps, one per EM series, two Neuralnet views and two
+// WormAtlas chapters. Nine identical-looking links in a row say nothing; the
+// resource named once with what distinguishes them after it says what each is.
+// A term with one link to a resource shows just the resource.
 export default function toExternalResources(resources) {
-  const out = [];
-  for (const { database, id, url } of resources || []) {
-    if (!database) {
-      const host = url && /^https?:\/\//.test(url) ? hostOf(url) : undefined;
-      if (host) {
-        out.push({ key: `url:${url}`, label: host, href: url, rank: 2 });
+  const groups = new Map();
+  for (const { database, id, name, url } of resources || []) {
+    let key;
+    let label;
+    let rank = 1;
+    let href = url;
+    if (database) {
+      const resource = RESOURCES[keyOf(database)];
+      if (!resource) {
+        continue;
       }
-      continue;
+      key = keyOf(database);
+      label = resource.label;
+      rank = resource.first ? 0 : 1;
+      href = resource.url?.(id) || url;
+    } else {
+      // A host and nothing else is the weakest label on the row, so these
+      // sort last whatever they are called.
+      const host = url && /^https?:\/\//.test(url) ? hostOf(url) : undefined;
+      if (!host) {
+        continue;
+      }
+      key = `url:${host}`;
+      label = host;
+      rank = 2;
     }
-    const resource = RESOURCES[database.toUpperCase().replace(/[^A-Z0-9]/g, '_')];
-    if (!resource) {
-      continue;
-    }
-    const href = resource.url(id) || url;
     // An allowlisted resource with no URL from either side is an identifier
     // we cannot act on, and a name with nothing behind it helps no one.
     if (!href) {
       continue;
     }
-    out.push({
-      key: `${database}:${id}`,
-      label: resource.withId ? `${resource.label} ${id}` : resource.label,
-      href,
-      rank: resource.withId ? 1 : 0,
-    });
+    const group = groups.get(key) || { key, label, rank, links: [] };
+    groups.set(key, group);
+    if (!group.links.some((link) => link.href === href)) {
+      group.links.push({ key: `${key}:${id}`, name: name || id, href });
+    }
   }
-  return out.sort((a, b) => a.rank - b.rank || a.label.localeCompare(b.label));
+  return [...groups.values()]
+    .sort((a, b) => a.rank - b.rank || a.label.localeCompare(b.label))
+    .map((group) => ({
+      ...group,
+      links: group.links.sort((a, b) => String(a.name).localeCompare(String(b.name))),
+    }));
 }
