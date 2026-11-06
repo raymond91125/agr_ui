@@ -27,8 +27,15 @@ import writeJson from './writeJson.js';
 // When the Alliance publishes the data, this should read the published file
 // instead, as the marker sample reads EXPRESSION_WB.
 //
-// COMPLETE, like the marker sample, not sampled: 1,165 annotations touch 297
-// terms, and the busiest term (touch receptor neuron) has 76 rows.
+// COMPLETE, like the marker sample, not sampled: 1,159 annotations touch 297
+// terms, and the busiest term (neuron) has 76 rows.
+//
+// Six more annotations in WS298 name no structure in either role — mosaic
+// experiments that showed a gene acts non-cell-autonomously without resolving
+// where. They are real curation and they are on their gene's page at
+// WormBase, but there is no anatomy term they could be shown under, so they
+// are left out of the file rather than written into it unreachable. The count
+// is kept in `coverage.unplaced` so the page can say they exist.
 //
 // Two tables per term, because a structure appears in an annotation in one of
 // two opposite roles. "Involved" means the structure was shown to be where the
@@ -60,7 +67,9 @@ const SPECIES = 'Caenorhabditis elegans';
 
 // ACEDB AO_code names, as a reader would say them. Anything unlisted falls
 // back to the code with its underscores spaced out, so a new assay shows up
-// readable rather than breaking the build.
+// readable rather than breaking the build. One annotation in WS298, WBbtf0218,
+// records no assay at all; the field is null there and the component says so
+// rather than leaving the cell blank.
 const ASSAYS = {
   Blastomere_isolation: 'blastomere isolation',
   Chemogenetics: 'chemogenetics',
@@ -106,6 +115,7 @@ const label = (table, id) => {
 };
 
 const annotations = {};
+const unplaced = [];
 const perTerm = new Map();
 const place = (curie, role, id) => {
   if (!perTerm.has(curie)) {
@@ -134,6 +144,13 @@ for (const [kind, rows] of sets) {
       throw new Error(`${id} lists a structure as both involved and not involved`);
     }
 
+    // An annotation with neither role names no structure, so no anatomy page
+    // can carry it. Counted and dropped; see the header.
+    if (!involved.length && !notInvolved.length) {
+      unplaced.push(id);
+      continue;
+    }
+
     const paper = labels.papers[row.evidence_curie] || {};
     if (!paper.pmid) {
       missingLabels.add(row.evidence_curie);
@@ -141,10 +158,14 @@ for (const [kind, rows] of sets) {
 
     annotations[id] = {
       kind,
-      // The generic WormBase resolver, the same one the marker section's
-      // footnote links anatomy terms through. Not checked from here: WormBase
-      // answers scripted requests with a Cloudflare challenge.
-      url: `https://www.wormbase.org/db/get?name=${id};class=Anatomy_function`,
+      // No record link. `db/get?name=WBbtf0001;class=Anatomy_function`
+      // redirects to a site search that finds nothing, and
+      // `/rest/field/anatomy_function/.../phenotype` answers 500: WormBase
+      // publishes no page for an Anatomy_function object, and its own
+      // anatomy_term widget prints `af_data` as a bare string for the same
+      // reason. Verified in a browser on 2026-11-05. The ID is still worth
+      // showing — it is what a curator searches ACEDB by — so the component
+      // prints it as text.
       ...(kind === 'gene' && {
         gene: { curie: row.gene_identifier, symbol: label('genes', row.gene_identifier) },
       }),
@@ -223,7 +244,12 @@ await writeJson(DESTINATION, {
     origin: 'WormBase ACEDB Anatomy_function, via the anatomy function converter',
     linkmlVersion: ingest.linkml_version,
   },
-  coverage: { terms: Object.keys(terms).length, ontologyTerms, annotations: Object.keys(annotations).length },
+  coverage: {
+    terms: Object.keys(terms).length,
+    ontologyTerms,
+    annotations: Object.keys(annotations).length,
+    unplaced: unplaced.length,
+  },
   annotations,
   terms,
   anatomy,
@@ -235,6 +261,9 @@ console.log(`  ${counts.length} terms, ${Math.max(...counts)} rows on the busies
 console.log(
   `  ${counts.filter((n) => n === 1).length} terms with one row, ${counts.filter((n) => n >= 10).length} with ten or more`
 );
+if (unplaced.length) {
+  console.log(`  ${unplaced.length} named no structure and were left out: ${unplaced.sort().join(' ')}`);
+}
 if (missingLabels.size) {
   console.log(`  no label for ${missingLabels.size}, shown as the bare ID: ${[...missingLabels].sort().join(' ')}`);
 }
