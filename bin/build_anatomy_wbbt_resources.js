@@ -31,16 +31,16 @@ import writeJson from './writeJson.js';
 //                          links on many neurons, `m=0` and `m=1`, whose
 //                          meaning the site's scripts do not reveal; both
 //                          are kept as stored.
-//   WormAtlas  1977 terms  NOT verified. ACEDB's template is
-//                          http://wormatlas.org/%s, which redirects to
-//                          https://wormatlas.cropsci.illinois.edu WITHOUT the
-//                          slash before the path, so every stored link is dead
-//                          as written. The URL here is built on that host with
-//                          the slash restored. Whether it answers could not be
-//                          checked from a script: the server stalls a modern
-//                          TLS handshake and, with an older one, sends an
-//                          incomplete certificate chain. A browser may well
-//                          cope with both. Open one before allowlisting it.
+//   WormAtlas  1977 terms  Verified in a browser, not by script. ACEDB's
+//                          template is http://wormatlas.org/%s, which
+//                          redirects to https://wormatlas.cropsci.illinois.edu
+//                          WITHOUT the slash before the path, so every stored
+//                          link is dead as written. The URL here is built on
+//                          that host with the slash restored, and it loads in
+//                          a browser. A script cannot confirm it: the server
+//                          stalls a modern TLS handshake and, with an older
+//                          one, sends an incomplete certificate chain, both of
+//                          which browsers work around.
 //
 // Left out, with reasons, so nobody re-derives them:
 //
@@ -86,10 +86,10 @@ const RESOURCES = {
   Neuralnet: { label: 'Neuralnet', verified: CHECKED, note: 'http only; https does not answer' },
   WormAtlas: {
     label: 'WormAtlas',
-    verified: null,
+    verified: CHECKED,
     note:
-      'stored links redirect to a broken URL; rebuilt on wormatlas.cropsci.illinois.edu but not checked ' +
-      '(TLS handshake stalls, certificate chain incomplete); open one in a browser before showing',
+      'stored links redirect to a broken URL; rebuilt on wormatlas.cropsci.illinois.edu, which loads in a ' +
+      'browser but not from a script (TLS handshake stalls, certificate chain incomplete)',
   },
 };
 

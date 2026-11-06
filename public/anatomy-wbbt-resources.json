@@ -41,8 +41,8 @@
     },
     "WormAtlas": {
       "label": "WormAtlas",
-      "verified": null,
-      "note": "stored links redirect to a broken URL; rebuilt on wormatlas.cropsci.illinois.edu but not checked (TLS handshake stalls, certificate chain incomplete); open one in a browser before showing",
+      "verified": "2026-11-06",
+      "note": "stored links redirect to a broken URL; rebuilt on wormatlas.cropsci.illinois.edu, which loads in a browser but not from a script (TLS handshake stalls, certificate chain incomplete)",
       "description": "A C. elegans database of behavioral and structural anatomy",
       "homepage": null,
       "acedbTemplate": "http://wormatlas.org/%s",

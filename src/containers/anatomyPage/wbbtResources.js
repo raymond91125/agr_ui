@@ -8,8 +8,7 @@ import fetchData from '../../lib/fetchData';
 // src/lib/ols.js gives toExternalResources() for OLS xrefs — so a WBbt page
 // can add these to `term.resources` and let the allowlist in
 // externalResources.js decide what is shown. `resources[database].verified`
-// is the date its links were checked, or null where they could not be;
-// see the generator before allowlisting one that is null.
+// is the date its links were checked; the generator says how each was.
 const URL = '/anatomy-wbbt-resources.json';
 
 // Held for the session and requested only when a WBbt page asks.
