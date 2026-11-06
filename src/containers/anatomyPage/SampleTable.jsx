@@ -23,7 +23,10 @@ import ExternalLink from '../../components/ExternalLink.jsx';
 // tbxta surfaced as checks on this data in the first place.
 export const SAMPLE_THRESHOLD = 25;
 
-const SampleTable = ({ total, shown, noun, ontology, term, children }) => {
+// `ranked` is how the slice was chosen, and it has to be said rather than
+// assumed: the gene tables keep the most annotated, and the reference table
+// keeps the most cited, which is the same cut made from the other end.
+const SampleTable = ({ total, shown, noun, ranked = 'annotated', ontology, term, children }) => {
   const complete = total <= SAMPLE_THRESHOLD;
   const [open, setOpen] = useState(complete);
 
@@ -36,7 +39,7 @@ const SampleTable = ({ total, shown, noun, ontology, term, children }) => {
       <p className="text-muted">
         <button className="btn btn-link btn-sm p-0 align-baseline" onClick={() => setOpen((prev) => !prev)}>
           <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />{' '}
-          {open ? 'Hide' : `Show the ${shown} most annotated ${noun}`}
+          {open ? 'Hide' : `Show the ${shown} most ${ranked} ${noun}`}
         </button>
         {ontology?.mod && (
           <>
@@ -60,6 +63,7 @@ SampleTable.propTypes = {
   total: PropTypes.number.isRequired,
   shown: PropTypes.number.isRequired,
   noun: PropTypes.string.isRequired,
+  ranked: PropTypes.string,
   ontology: PropTypes.object,
   term: PropTypes.object.isRequired,
   children: PropTypes.node,
