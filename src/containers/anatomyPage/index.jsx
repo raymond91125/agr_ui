@@ -24,6 +24,7 @@ import AnatomyReagents from './AnatomyReagents.jsx';
 import AnatomyImages from './AnatomyImages.jsx';
 import AnatomyMarkers from './AnatomyMarkers.jsx';
 import AnatomyFunction from './AnatomyFunction.jsx';
+import AnatomyReferences from './AnatomyReferences.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 import loadExpressionSample from './expressionSample.js';
@@ -32,6 +33,7 @@ import loadReagentSample from './reagentSample.js';
 import loadImageSample from './imageSample.js';
 import loadMarkerSample from './markerSample.js';
 import loadFunctionSample from './functionSample.js';
+import loadReferenceSample from './referenceSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
@@ -40,6 +42,7 @@ const REAGENTS = 'Reagents and Tools';
 const IMAGES = 'Images';
 const MARKERS = 'Expression Markers';
 const FUNCTION = 'Function';
+const REFERENCES = 'References';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
@@ -106,6 +109,13 @@ const AnatomyPage = () => {
     retry: false,
   });
 
+  const { data: references } = useQuery({
+    queryKey: ['anatomy-reference-sample'],
+    queryFn: loadReferenceSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -130,6 +140,7 @@ const AnatomyPage = () => {
   const imageSample = images?.terms?.[term.curie];
   const markerSample = markers?.terms?.[term.curie];
   const functionSample = functions?.terms?.[term.curie];
+  const referenceSample = references?.terms?.[term.curie];
 
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
   if (term.synonyms?.length) {
@@ -198,6 +209,7 @@ const AnatomyPage = () => {
                 { name: PHENOTYPES, count: phenotypeSample?.totalGenes },
                 ...(functionSample ? [{ name: FUNCTION, count: functionSample.totalAnnotations }] : []),
                 ...(reagentSample ? [{ name: REAGENTS, count: reagentSample.totalReagents }] : []),
+                ...(referenceSample ? [{ name: REFERENCES, count: referenceSample.totalPublications }] : []),
                 ...(imageSample ? [{ name: IMAGES, count: imageSample.totalImages }] : []),
               ]),
           { name: BROWSE_ONTOLOGY, to: `/ontology/${ontology.id}/${term.curie}` },
@@ -365,6 +377,30 @@ const AnatomyPage = () => {
         {reagentSample && (
           <Subsection title={REAGENTS}>
             <AnatomyReagents term={term} sample={reagentSample} ontology={ontology} sources={reagents.sources} />
+          </Subsection>
+        )}
+
+        {/* After the sections it is made of, and before Images, which stays
+            last for its own reason. This is the only section on the page
+            that shows nothing of its own: every row of it is a paper some
+            row above already cited, counted by paper rather than by gene.
+            So it belongs below the last of them, and a reader who reached it
+            has seen what it is summarising.
+
+            Hidden where no annotation on this page cites a paper, which is
+            most terms. Two different absences hide behind that, and the
+            footnote inside tells them apart: a term can have no curated
+            annotation at all, or it can have expression and phenotype
+            annotations the Alliance cannot be asked for by anatomy term. */}
+        {referenceSample && (
+          <Subsection title={REFERENCES}>
+            <AnatomyReferences
+              term={term}
+              sample={referenceSample}
+              publications={references.publications}
+              coverage={references.coverage}
+              ontology={ontology}
+            />
           </Subsection>
         )}
 
