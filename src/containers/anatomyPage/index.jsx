@@ -23,6 +23,7 @@ import AnatomyPhenotypes from './AnatomyPhenotypes.jsx';
 import AnatomyReagents from './AnatomyReagents.jsx';
 import AnatomyImages from './AnatomyImages.jsx';
 import AnatomyMarkers from './AnatomyMarkers.jsx';
+import AnatomyFunction from './AnatomyFunction.jsx';
 import fetchAnatomyTerm from './fetchAnatomyTerm.js';
 import fetchAcrossSpecies from './fetchAcrossSpecies.js';
 import loadExpressionSample from './expressionSample.js';
@@ -30,6 +31,7 @@ import loadPhenotypeSample from './phenotypeSample.js';
 import loadReagentSample from './reagentSample.js';
 import loadImageSample from './imageSample.js';
 import loadMarkerSample from './markerSample.js';
+import loadFunctionSample from './functionSample.js';
 
 const SUMMARY = 'Summary';
 const EXPRESSION = 'Genes Expressed Here';
@@ -37,6 +39,7 @@ const PHENOTYPES = 'Phenotypes';
 const REAGENTS = 'Reagents and Tools';
 const IMAGES = 'Images';
 const MARKERS = 'Expression Markers';
+const FUNCTION = 'Function';
 const UBERON_MAPPING = 'UBERON Mapping';
 const STAGES = 'Developmental Window';
 const RELATIONS = 'Relationships';
@@ -96,6 +99,13 @@ const AnatomyPage = () => {
     retry: false,
   });
 
+  const { data: functions } = useQuery({
+    queryKey: ['anatomy-function-sample'],
+    queryFn: loadFunctionSample,
+    staleTime: Infinity,
+    retry: false,
+  });
+
   const { isLoading: speciesLoading, data: species } = useQuery({
     queryKey: ['anatomy-species', curie],
     queryFn: () => fetchAcrossSpecies(ontology, data.term),
@@ -119,6 +129,7 @@ const AnatomyPage = () => {
   const reagentSample = reagents?.terms?.[term.curie];
   const imageSample = images?.terms?.[term.curie];
   const markerSample = markers?.terms?.[term.curie];
+  const functionSample = functions?.terms?.[term.curie];
 
   const keywords = ['anatomy', term.curie, term.name, ontology.species, ontology.mod].filter(Boolean);
   if (term.synonyms?.length) {
@@ -185,6 +196,7 @@ const AnatomyPage = () => {
                 { name: EXPRESSION, count: expressionSample?.totalGenes },
                 ...(markerSample ? [{ name: MARKERS, count: markerSample.totalMarkers }] : []),
                 { name: PHENOTYPES, count: phenotypeSample?.totalGenes },
+                ...(functionSample ? [{ name: FUNCTION, count: functionSample.totalAnnotations }] : []),
                 ...(reagentSample ? [{ name: REAGENTS, count: reagentSample.totalReagents }] : []),
                 ...(imageSample ? [{ name: IMAGES, count: imageSample.totalImages }] : []),
               ]),
@@ -317,6 +329,28 @@ const AnatomyPage = () => {
                 )}
               </NoData>
             )}
+          </Subsection>
+        )}
+
+        {/* After phenotypes because it is the question a phenotype leaves
+            open. A phenotype says the animal was abnormal; this says which
+            part of it the gene was acting in, or which part the experiment
+            removed to make it so. Hidden everywhere else: WormBase is the only
+            member that curates anatomy function, and the Alliance publishes no
+            file for it, so on a ZFA or FBbt term there is nothing to show and
+            nothing to promise. On a WBbt term it appears for the 297 terms
+            that are curated; the missing count in the index says which case a
+            reader is in. */}
+        {functionSample && (
+          <Subsection title={FUNCTION}>
+            <AnatomyFunction
+              term={term}
+              sample={functionSample}
+              annotations={functions.annotations}
+              anatomy={functions.anatomy}
+              source={functions.source}
+              coverage={functions.coverage}
+            />
           </Subsection>
         )}
 
