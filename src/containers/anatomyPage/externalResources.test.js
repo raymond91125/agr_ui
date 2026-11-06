@@ -1,4 +1,4 @@
-import toExternalResources from './externalResources.js';
+import toExternalResources, { toVocabularyXrefs } from './externalResources.js';
 
 // Inputs are shaped as src/lib/ols.js passes them through, and the values are
 // real ones taken from OLS: FBbt:00007389 carries two DoOR and two
@@ -62,5 +62,50 @@ describe('toExternalResources', () => {
       'ento.csiro.au',
     ]);
     expect(toExternalResources(undefined)).toEqual([]);
+  });
+});
+
+// UBERON's half of the same slot. Values are real: UBERON:0000955 brain
+// carries all of these, and `Eye#Simple_eyes` is one of the 139 Wikipedia
+// references that point at a section rather than a whole article.
+describe('toVocabularyXrefs', () => {
+  it('keeps a mapping into another controlled vocabulary, with its resolver', () => {
+    const url = 'http://purl.org/sig/ont/fma/50801';
+    expect(toVocabularyXrefs([{ database: 'FMA', id: '50801', url }])).toEqual([{ curie: 'FMA:50801', url }]);
+  });
+
+  it('keeps a mapping that OLS cannot resolve, so it can render as text', () => {
+    expect(toVocabularyXrefs([{ database: 'galen', id: 'Brain' }])).toEqual([{ curie: 'galen:Brain', url: undefined }]);
+  });
+
+  it('leaves Wikipedia to the resources row, in all three of its forms', () => {
+    const refs = [
+      { database: 'Wikipedia', id: 'Brain' },
+      { database: 'WikipediaCategory', id: 'Brain' },
+      { database: 'WikipediaVersioned', id: 'Brain' },
+    ];
+    expect(toVocabularyXrefs(refs)).toEqual([]);
+    expect(toExternalResources(refs).map((r) => r.href)).toEqual(['https://en.wikipedia.org/wiki/Brain']);
+  });
+
+  it('builds a Wikipedia URL that keeps a section anchor', () => {
+    expect(toExternalResources([{ database: 'Wikipedia', id: 'Eye#Simple_eyes' }])[0].href).toBe(
+      'https://en.wikipedia.org/wiki/Eye#Simple_eyes'
+    );
+  });
+
+  it('drops upper ontologies, OBO metadata and retired mappings', () => {
+    const refs = [
+      { database: 'BFO', id: '0000040' },
+      { database: 'UBPROP', id: '0000001' },
+      { database: 'RETIRED_EHDAA2', id: '0002012' },
+      { database: 'ZFA_RETIRED', id: '0000008' },
+    ];
+    expect(toVocabularyXrefs(refs)).toEqual([]);
+  });
+
+  it('tolerates nothing at all, and a bare URL belongs to the other row', () => {
+    expect(toVocabularyXrefs(undefined)).toEqual([]);
+    expect(toVocabularyXrefs([{ id: 'https://example.org/x', url: 'https://example.org/x' }])).toEqual([]);
   });
 });

@@ -13,9 +13,16 @@
 // has them in quantity — WormAtlas, WormWiring, NemaNode, Neuralnet and more,
 // on about half of WBbt — but keeps them in ACEDB rather than in WBbt, so
 // they reach no download and no OLS record and cannot be read from here at
-// all. UBERON carries two dozen per term (FMA, MeSH, NCIT, Wikipedia, UMLS),
-// which is a separate question about the cross-species page and deliberately
-// not answered by this table.
+// all.
+//
+// UBERON is the other filled column, and it splits two ways rather than one.
+// 8,658 of its 15,047 terms carry a reference outside the anatomy
+// vocabularies, across 115 databases, and all but one of those databases is
+// another controlled vocabulary saying the same structure under a different
+// identifier — FMA, SNOMED, UMLS, NCIT, MeSH, the Allen brain atlases. Those
+// are cross-references by any reading, and `toVocabularyXrefs` below sends
+// them to that row. The exception is Wikipedia, on 3,554 terms: a page
+// written about the structure for a person to read, which is a resource.
 //
 // An allowlist rather than a filter, because the cost of the two mistakes is
 // not symmetric. A resource missing from this page is invisible; a dead link
@@ -28,6 +35,8 @@
 //   VFB            21,872 terms   200, redirects to the v2 Geppetto viewer
 //   FlyBrain_NDB      457 terms   200, and OLS supplies the resolver itself
 //   bare URL          135 terms   200, all of them www.ento.csiro.au
+//   Wikipedia       3,554 terms   200, including the 139 ids that are a
+//                                 section anchor rather than a whole article
 //
 // Left out, with reasons, so the next person does not re-derive them:
 //
@@ -54,7 +63,21 @@ const RESOURCES = {
     url: () => undefined,
     withId: true,
   },
+  WIKIPEDIA: {
+    label: 'Wikipedia',
+    // Built here rather than taken from OLS, which gives the http form, and
+    // an http link off an https page is a downgrade for no reason. The id is
+    // the article title, already underscored, and on 139 UBERON terms it
+    // carries a `#section` anchor — `Eye#Simple_eyes` — which belongs in the
+    // URL exactly as it arrives.
+    url: (id) => `https://en.wikipedia.org/wiki/${id}`,
+  },
 };
+
+// A prefix that is neither a resource above nor a mapping to another
+// vocabulary: upper ontologies, OBO metadata, and the retired mappings
+// UBERON keeps for provenance. Nothing here belongs in either row.
+const NOT_A_MAPPING = new Set(['BFO', 'IAO', 'RO', 'UBPROP', 'OBO', 'NOID']);
 
 // A bare-URL xref has no database to look up, so it is named by its host —
 // honest, and it keeps working if FlyBase cites a different site next release.
@@ -65,6 +88,26 @@ const hostOf = (url) => {
     return undefined;
   }
 };
+
+// The vocabulary half of the same leftover list, for the Cross References
+// row. Only the cross-species page asks for it, and that is deliberate: a
+// clean xref slot is UBERON's editorial practice, not a general rule. WBbt
+// puts a paper and a curator's initials in the same field, which is why
+// src/lib/ols.js keeps a strict allowlist for member terms and why widening
+// it everywhere would put `WB:pws` on an anatomy page.
+export function toVocabularyXrefs(resources) {
+  return (resources || [])
+    .filter(({ database }) => {
+      if (!database) {
+        return false;
+      }
+      const key = database.toUpperCase().replace(/[^A-Z0-9]/g, '_');
+      // `WikipediaCategory` and `WikipediaVersioned` are neither the article
+      // nor a vocabulary, so they go the same way as the article itself.
+      return !RESOURCES[key] && !key.startsWith('WIKIPEDIA') && !NOT_A_MAPPING.has(key) && !/RETIRED/.test(key);
+    })
+    .map(({ database, id, url }) => ({ curie: `${database}:${id}`, url }));
+}
 
 // `resources` is what src/lib/ols.js passes through: { database, id, url }.
 // Returns what the summary renders, in the order the allowlist declares, then
