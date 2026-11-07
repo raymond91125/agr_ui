@@ -7,13 +7,19 @@ export const DISEASE_ROOT_CURIE = 'DOID:4';
 // A WormBase term page is built out of widgets, each loaded separately, and
 // the number in the address opens one of them on its own. The indices were
 // read off the live page: 0 Overview, 1 Associations, 2 Expression markers,
-// 3 External Links, 4 Ontology Browser, 5 References, 6 Tree Display.
+// 3 External Links, 4 Ontology Browser, 5 References.
 //
 // Worth passing one. A plain term link opens Overview and Associations and
 // leaves the rest shut, so a reader sent from our Expression Markers section
 // lands on a page whose markers widget is closed, with nothing saying it is
 // there. An unknown name falls back to the overview rather than throwing: a
 // wrong link is better than a blank page.
+//
+// Index 6, Tree Display, is deliberately not listed. It renders the ACEDB
+// object the page was built from, field by field, which is a view of
+// WormBase's own storage rather than of the structure. The Alliance models
+// this data in LinkML, so that tree answers no question this site asks, and
+// naming it here would only invite a link to it.
 const WB_ANATOMY_WIDGETS = {
   overview: 0,
   associations: 1,
@@ -21,7 +27,6 @@ const WB_ANATOMY_WIDGETS = {
   links: 3,
   ontology: 4,
   references: 5,
-  tree: 6,
 };
 
 export const wormbaseAnatomyUrl = (curie, widget) =>

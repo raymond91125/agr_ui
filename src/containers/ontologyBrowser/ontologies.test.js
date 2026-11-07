@@ -17,7 +17,13 @@ describe('wormbaseAnatomyUrl', () => {
     expect(wormbaseAnatomyUrl('WBbt:0005772', 'links')).toBe(`${base}#3--10`);
     expect(wormbaseAnatomyUrl('WBbt:0005772', 'ontology')).toBe(`${base}#4--10`);
     expect(wormbaseAnatomyUrl('WBbt:0005772', 'references')).toBe(`${base}#5--10`);
-    expect(wormbaseAnatomyUrl('WBbt:0005772', 'tree')).toBe(`${base}#6--10`);
+  });
+
+  // Index 6 is Tree Display, which renders the ACEDB object behind the page.
+  // It is not in the map on purpose, so asking for it lands on the overview
+  // like any other name we do not serve.
+  it('does not offer the ACEDB object tree', () => {
+    expect(wormbaseAnatomyUrl('WBbt:0005772', 'tree')).toBe(`${base}#0--10`);
   });
 
   it('falls back to the overview rather than building a broken address', () => {
