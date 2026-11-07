@@ -26,7 +26,11 @@ export const SAMPLE_THRESHOLD = 25;
 // `ranked` is how the slice was chosen, and it has to be said rather than
 // assumed: the gene tables keep the most annotated, and the reference table
 // keeps the most cited, which is the same cut made from the other end.
-const SampleTable = ({ total, shown, noun, ranked = 'annotated', ontology, term, children }) => {
+// `widget` names the part of the member's own page that answers this
+// section. Only WormBase uses it — its term page loads each widget
+// separately, so a link without one lands on a page with the relevant part
+// still shut. Every other member serves a whole page and ignores it.
+const SampleTable = ({ total, shown, noun, ranked = 'annotated', ontology, term, widget, children }) => {
   const complete = total <= SAMPLE_THRESHOLD;
   const [open, setOpen] = useState(complete);
 
@@ -50,7 +54,7 @@ const SampleTable = ({ total, shown, noun, ranked = 'annotated', ontology, term,
                 WormBase has an Associations widget, not a list of mutations.
                 Promising the full set would be a claim about a page we do
                 not control. */}
-            <ExternalLink href={ontology.termUrl(term.curie)}>View this term at {ontology.mod}</ExternalLink>
+            <ExternalLink href={ontology.termUrl(term.curie, widget)}>View this term at {ontology.mod}</ExternalLink>
           </>
         )}
       </p>
@@ -66,6 +70,7 @@ SampleTable.propTypes = {
   ranked: PropTypes.string,
   ontology: PropTypes.object,
   term: PropTypes.object.isRequired,
+  widget: PropTypes.string,
   children: PropTypes.node,
 };
 

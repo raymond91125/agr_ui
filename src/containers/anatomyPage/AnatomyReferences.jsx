@@ -104,6 +104,7 @@ const AnatomyReferences = ({ term, sample, publications, coverage, ontology }) =
         ranked="cited"
         ontology={ontology}
         term={term}
+        widget="references"
       >
         <table className="table">
           <thead className="text-capitalize">
