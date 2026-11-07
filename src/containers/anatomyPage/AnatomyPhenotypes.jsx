@@ -41,7 +41,14 @@ const AnatomyPhenotypes = ({ term, sample, sources, ontology }) => {
         </p>
       )}
 
-      <SampleTable total={sample.totalGenes} shown={sample.genes.length} noun="genes" ontology={ontology} term={term}>
+      <SampleTable
+        total={sample.totalGenes}
+        shown={sample.genes.length}
+        noun="genes"
+        ontology={ontology}
+        term={term}
+        widget="associations"
+      >
         <table className="table">
           <thead className="text-capitalize">
             <tr>

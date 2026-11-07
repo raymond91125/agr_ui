@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CommaSeparatedList from '../../components/commaSeparatedList.jsx';
 import ExternalLink from '../../components/ExternalLink.jsx';
 import MemberText from './MemberText.jsx';
+import { wormbaseAnatomyUrl } from '../ontologyBrowser/ontologies.js';
 
 // What an experiment showed this structure is FOR.
 //
@@ -223,10 +224,8 @@ const AnatomyFunction = ({ term, sample, annotations, anatomy, source, coverage 
       from an Alliance release: the Alliance publishes no anatomy function file, so this is {source.origin}, at{' '}
       {source.release}. WormBase has since become an archive, with curation continuing at the Alliance, so{' '}
       {source.release} is where this data stops.{' '}
-      <ExternalLink href={`https://www.wormbase.org/db/get?name=${term.curie};class=Anatomy`}>
-        Check this term at WormBase
-      </ExternalLink>{' '}
-      for the evidence behind each row.
+      <ExternalLink href={wormbaseAnatomyUrl(term.curie, 'associations')}>Check this term at WormBase</ExternalLink> for
+      the evidence behind each row.
     </div>
 
     <div className="small text-muted mb-3">
