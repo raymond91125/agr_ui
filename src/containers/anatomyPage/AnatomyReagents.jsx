@@ -138,6 +138,7 @@ const AnatomyReagents = ({ term, sample, sources, ontology }) => {
             noun={KINDS[group.kind].title.toLowerCase()}
             ontology={ontology}
             term={term}
+            widget="associations"
           >
             <ReagentTable group={group} showModels={showModels} />
           </SampleTable>

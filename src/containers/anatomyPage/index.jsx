@@ -298,7 +298,7 @@ const AnatomyPage = () => {
                 {ontology.mod && (
                   <>
                     {' '}
-                    <ExternalLink href={ontology.termUrl(term.curie)}>
+                    <ExternalLink href={ontology.termUrl(term.curie, 'associations')}>
                       View expression for this term at {ontology.mod}
                     </ExternalLink>
                     .
@@ -348,7 +348,10 @@ const AnatomyPage = () => {
                 {ontology.mod && (
                   <>
                     {' '}
-                    <ExternalLink href={ontology.termUrl(term.curie)}>View this term at {ontology.mod}</ExternalLink>.
+                    <ExternalLink href={ontology.termUrl(term.curie, 'associations')}>
+                      View this term at {ontology.mod}
+                    </ExternalLink>
+                    .
                   </>
                 )}
               </NoData>

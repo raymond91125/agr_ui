@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ExternalLink from '../../components/ExternalLink.jsx';
 import MemberText from './MemberText.jsx';
+import { wormbaseAnatomyUrl } from '../ontologyBrowser/ontologies.js';
 
 // Genes curated as markers FOR this structure.
 //
@@ -85,10 +86,8 @@ const AnatomyMarkers = ({ term, sample, source, coverage }) => (
       {source.mod === 'WB' ? 'WormBase' : source.mod} has. A marker curated against no particular gene cannot appear in
       a file keyed by gene, and those exist: <span className="text-monospace">Marker87</span>, for vulval precursor
       daughters, is one, and it is the only marker vulva has.{' '}
-      <ExternalLink href={`https://www.wormbase.org/db/get?name=${term.curie};class=Anatomy`}>
-        Check this term at WormBase
-      </ExternalLink>{' '}
-      for those, and for the certainty and description this file does not carry.
+      <ExternalLink href={wormbaseAnatomyUrl(term.curie, 'markers')}>Check this term at WormBase</ExternalLink> for
+      those, and for the certainty and description this file does not carry.
     </div>
 
     <div className="small text-muted mb-3">
